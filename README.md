@@ -9,7 +9,7 @@
 
 - 📝 I regularly write articles on [https://medium.com/@nandasiddhardha](https://medium.com/@nandasiddhardha)
 
-- 🔐 I'm also active on TryHackMe: [https://tryhackme.com/p/nandasiddhardha](https://tryhackme.com/p/R.WH1T3D3V17)
+- 🔐 I'm also active on TryHackMe: [https://tryhackme.com/p/MR.WH1T3D3V17](https://tryhackme.com/p/R.WH1T3D3V17)
 
 - 📫 How to reach me **snanda@gitam.in**
 
