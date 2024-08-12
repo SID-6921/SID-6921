@@ -23,7 +23,7 @@
 
 ---
 
-<h3 align="center">Skills and Expertise</h3>
+<h3 align="center">Skills, Languages, Tools and Expertise</h3>
 <p align="center">
   <a href="https://www.python.org" target="_blank" rel="noreferrer"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> 
@@ -58,12 +58,6 @@
   <a href="https://www.tinkercad.com/" target="_blank" rel="noreferrer"> 
     <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Tinkercad_logo.svg" alt="tinkercad" width="40" height="40"/> 
   </a> 
-</p>
-
----
-
-<h3 align="center">Languages and Tools</h3>
-<p align="center">
   <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> 
   </a>
