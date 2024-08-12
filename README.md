@@ -1,6 +1,15 @@
 <h1 align="center">Hi 👋, I'm Nanda Siddhardha</h1>
 <h3 align="center">Tech Enthusiast | Medium Blogger | Cybersecurity Hobbyist | Biomedical, VLSI, IoT Researcher | Penetration Tester</h3>
 
+<!-- Dynamic Avatar GIF -->
+<p align="center">
+  <img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" alt="Coder GIF" width="400" height="300">
+</p>
+
+<!-- Typing SVG -->
+<h3 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=4000&pause=1000&color=58A6FF&width=435&lines=Welcome+to+my+GitHub!;I'm+a+Cybersecurity+Hobbyist;Biomedical+and+IoT+Researcher;Tech+Enthusiast+and+Penetration+Tester" alt="Typing SVG">
+</h3>
 
 <!-- Visitor Counter & Trophies -->
 <p align="center">
@@ -8,32 +17,18 @@
   <img src="https://github-profile-trophy.vercel.app/?username=sid-6921&theme=dracula&margin-w=15&margin-h=15" alt="sid-6921" />
 </p>
 
-<!-- Social Media Links -->
-<p align="center">
-  <a href="https://medium.com/@nandasiddhardha" target="blank"><img src="https://img.shields.io/badge/-Medium-black?style=for-the-badge&logo=medium&logoColor=white"></a>
-  <a href="https://linkedin.com/in/nanda-siddhardha" target="blank"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white"></a>
-  <a href="https://tryhackme.com/p/MR.WH1T3D3V17" target="blank"><img src="https://img.shields.io/badge/-TryHackMe-red?style=for-the-badge&logo=tryhackme&logoColor=white"></a>
-  <a href="https://researchgate.net/profile/Nanda-Siddhardha" target="blank"><img src="https://img.shields.io/badge/-ResearchGate-green?style=for-the-badge&logo=researchgate&logoColor=white"></a>
-</p>
+---
+
+### 🚀 About Me
+- 🔭 I’m currently working on **Biomedical Devices and IoT Systems**
+- 🌱 I’m currently learning **VLSI Design and Advanced Cybersecurity Techniques**
+- 💬 Ask me about **Python, Penetration Testing, or IoT Projects**
+- 📫 How to reach me: **snanda@gitam.in**
+- ⚡ Fun fact: **I'm fascinated by the intersection of biology and technology!**
 
 ---
 
-<!-- Animated Text Introduction -->
-<h3 align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=4000&pause=1000&color=58A6FF&width=435&lines=Welcome+to+my+GitHub!;I'm+a+Cybersecurity+Hobbyist;Biomedical+and+IoT+Researcher;Tech+Enthusiast+and+Penetration+Tester" alt="Typing SVG">
-</h3>
-
----
-
-### 📝 Blogs and Writings
-- I regularly write articles on [Medium](https://medium.com/@nandasiddhardha).
-
-### 📫 How to reach me
-- Email: **snanda@gitam.in** 
-
----
-
-<h3 align="center">Skills, Languages, Tools, and Expertise</h3>
+### 🛠 Skills, Languages, Tools, and Expertise
 
 <!-- Custom Icons and Badges -->
 <p align="center">
@@ -89,25 +84,35 @@
 
 ---
 
+<!-- Project Showcase Carousel -->
+<h3 align="center">🔬 Biomedical and Electronics Projects</h3>
+<p align="center">
+  <img src="https://media.giphy.com/media/YRiLPeA7l90c1V8dyv/giphy.gif" alt="Biomedical Project GIF" width="400" height="300">
+  <img src="https://media.giphy.com/media/QB5WFpHzgBRNIDxvU4/giphy.gif" alt="IoT Project GIF" width="400" height="300">
+  <img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" alt="Electronics Project GIF" width="400" height="300">
+</p>
+
+---
+
+### 📝 Blogs and Writings
+- 🖊️ I regularly write articles on [Medium](https://medium.com/@nandasiddhardha).
+
+---
+
+<!-- GitHub Stats, Streaks, and Most Used Languages with Theme Consistency -->
+<h3 align="center">📊 GitHub Stats</h3>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=sid-6921&show_icons=true&locale=en&layout=compact&theme=dracula" alt="sid-6921 Top Languages" />
+  <img src="https://github-readme-stats.vercel.app/api?username=sid-6921&show_icons=true&locale=en&theme=dracula" alt="sid-6921 Stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sid-6921&theme=dracula" alt="sid-6921 Streak" />
+</p>
+
+---
+
 <!-- Support My Work -->
 <h3 align="center">Support My Work</h3>
 <p align="center">
   <a href="https://www.buymeacoffee.com/nandasiddhardha"> 
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="nandasiddhardha" />
   </a>
-</p>
-
----
-
-<!-- GitHub Stats, Streaks, and Most Used Languages with Theme Consistency -->
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=sid-6921&show_icons=true&locale=en&layout=compact&theme=dracula" alt="sid-6921 Top Languages" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sid-6921&show_icons=true&locale=en&theme=dracula" alt="sid-6921 Stats" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sid-6921&theme=dracula" alt="sid-6921 Streak" />
 </p>
