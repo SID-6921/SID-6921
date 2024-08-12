@@ -116,11 +116,4 @@
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=sid-6921&theme=dracula" alt="sid-6921 Streak" />
 </p>
 
----
 
-<!-- Project Showcase -->
-<h3 align="center">Featured Projects</h3>
-<p align="center">
-  <!-- Add your featured project details here -->
-  <a href="https://github.com/sid-6921/your-project"><img src="https://github-readme-stats.vercel.app/api/pin/?username=sid-6921&repo=your-project&theme=dracula" alt="Project Name"></a>
-  <
