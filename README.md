@@ -3,7 +3,7 @@
 
 <!-- GitHub Activity Graph -->
 <p align="center">
-  <img src="https://activity-graph.herokuapp.com/graph?username=sid-6921&theme=dracula&bg_color=0d1117&color=58a6ff&line=9e4c98&point=FFFFFF&hide_border=true" alt="GitHub Activity Graph" />
+  <img src="https://github-readme-activity-graph.cyclic.app/graph?username=sid-6921&theme=dracula&bg_color=0d1117&color=58a6ff&line=9e4c98&point=FFFFFF&hide_border=true" alt="GitHub Activity Graph" />
 </p>
 
 <!-- Visitor Counter & Trophies -->
@@ -115,5 +115,3 @@
 <p align="center">
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=sid-6921&theme=dracula" alt="sid-6921 Streak" />
 </p>
-
-
