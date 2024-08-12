@@ -1,10 +1,6 @@
 <h1 align="center">Hi 👋, I'm Nanda Siddhardha</h1>
 <h3 align="center">Tech Enthusiast | Medium Blogger | Cybersecurity Hobbyist | Biomedical, VLSI, IoT Researcher | Penetration Tester</h3>
 
-<!-- Contribution Heatmap -->
-<p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sid-6921&theme=dracula" alt="sid-6921 Contribution Heatmap" />
-</p>
 
 <!-- Visitor Counter & Trophies -->
 <p align="center">
