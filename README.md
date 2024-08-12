@@ -11,7 +11,7 @@
 
 - 🔐 I'm also active on TryHackMe: [https://tryhackme.com/p/MR.WH1T3D3V17](https://tryhackme.com/p/R.WH1T3D3V17)
 
-- 📫 How to reach me **snanda@gitam.in**
+- 📫 How to reach me **snanda@gitam.in** 
 
 <h3 align="left">Connect with me:</h3>
 <p align="left">
