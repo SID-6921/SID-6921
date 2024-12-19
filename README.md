@@ -89,16 +89,6 @@
 
 ---
 
-<!-- Support My Work -->
-<h3 align="center">Support My Work</h3>
-<p align="center">
-  <a href="https://www.buymeacoffee.com/nandasiddhardha"> 
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="50" width="210" alt="nandasiddhardha" />
-  </a>
-</p>
-
----
-
 <!-- GitHub Stats, Streaks, and Most Used Languages with Theme Consistency -->
 <p align="center">
   <img src="https://github-readme-stats.vercel.app/api/top-langs?username=sid-6921&show_icons=true&locale=en&layout=compact&theme=dracula" alt="sid-6921 Top Languages" />
