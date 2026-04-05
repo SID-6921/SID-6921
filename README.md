@@ -1,63 +1,63 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=270&color=0:020617,20:0f172a,45:083344,70:0f766e,100:38bdf8&text=Siddhardha%20Nanda&fontColor=f8fafc&fontSize=50&fontAlignY=36&desc=Founder-minded%20Biomedical%20Engineer%20%7C%20Clinical%20Intelligence%20%7C%20Cyber-Physical%20Systems&descAlignY=58&animation=fadeIn" alt="hero banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=290&color=0:030712,20:0b1120,45:082f49,70:0f4c5c,100:38bdf8&text=Siddhardha%20Nanda&fontColor=f8fafc&fontSize=52&fontAlignY=35&desc=Hard-Tech%20Founder%20Trajectory%20%7C%20Biomedical%20Intelligence%20%7C%20Secure%20Cyber-Physical%20Systems&descAlignY=58&animation=fadeIn" alt="hero banner" />
 </div>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/nanda-siddhardha/"><img src="https://img.shields.io/badge/LinkedIn-020617?style=for-the-badge&logo=linkedin&logoColor=7dd3fc" alt="LinkedIn" /></a>
-  <a href="https://www.researchgate.net/profile/Nanda-Siddhardha"><img src="https://img.shields.io/badge/ResearchGate-020617?style=for-the-badge&logo=researchgate&logoColor=5eead4" alt="ResearchGate" /></a>
-  <a href="mailto:sn3199@columbia.edu"><img src="https://img.shields.io/badge/Email-020617?style=for-the-badge&logo=gmail&logoColor=f8fafc" alt="Email" /></a>
+  <a href="https://www.linkedin.com/in/nanda-siddhardha/"><img src="https://img.shields.io/badge/LinkedIn-030712?style=for-the-badge&logo=linkedin&logoColor=7dd3fc" alt="LinkedIn" /></a>
+  <a href="https://www.researchgate.net/profile/Nanda-Siddhardha"><img src="https://img.shields.io/badge/ResearchGate-030712?style=for-the-badge&logo=researchgate&logoColor=5eead4" alt="ResearchGate" /></a>
+  <a href="mailto:sn3199@columbia.edu"><img src="https://img.shields.io/badge/Email-030712?style=for-the-badge&logo=gmail&logoColor=f8fafc" alt="Email" /></a>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Biomedical%20Engineering-083344?style=flat-square" alt="Biomedical Engineering" />
-  <img src="https://img.shields.io/badge/Clinical%20AI-0f4c5c?style=flat-square" alt="Clinical AI" />
-  <img src="https://img.shields.io/badge/Embedded%20Systems-115e59?style=flat-square" alt="Embedded Systems" />
-  <img src="https://img.shields.io/badge/Cybersecurity-1d4ed8?style=flat-square" alt="Cybersecurity" />
+  <img src="https://img.shields.io/badge/Biomedical%20Founder%20Builder-082f49?style=flat-square" alt="Biomedical Founder Builder" />
+  <img src="https://img.shields.io/badge/Clinical%20AI%20Systems-0f4c5c?style=flat-square" alt="Clinical AI Systems" />
+  <img src="https://img.shields.io/badge/Embedded%20Products-0f766e?style=flat-square" alt="Embedded Products" />
+  <img src="https://img.shields.io/badge/Cybersecurity%20by%20Design-1d4ed8?style=flat-square" alt="Cybersecurity by Design" />
   <img src="https://komarev.com/ghpvc/?username=SID-6921&style=flat-square&label=Views&color=0ea5e9" alt="Profile views" />
 </p>
 
-<h3 align="center">I build healthcare technology like products, not class projects.</h3>
+<h2 align="center">Building trust-grade healthcare technology with founder-level ownership.</h2>
 
 <p align="center">
-  My work sits where biomedical signals, intelligent systems, embedded devices, and security-aware engineering meet. I care about translation: from prototype to platform, from experiment to operator-ready system.
+  I design and build systems where biomedical intelligence, product execution, and cybersecurity are engineered together from day zero.
 </p>
 
 <br/>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=68&color=0:020617,100:111827&text=Founder%20Deluxe&fontColor=e2e8f0&fontSize=24&animation=fadeIn" alt="founder deluxe banner" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=70&color=0:030712,100:111827&text=Thesis&fontColor=e2e8f0&fontSize=26&animation=fadeIn" alt="thesis banner" />
 </div>
 
 <table>
 <tr>
-<td width="34%" valign="top">
+<td width="33%" valign="top">
 
 ### Build
 
-- Biomedical pipelines that can scale beyond notebooks
-- Clinical intelligence workflows designed for repeatability
-- Embedded prototypes that feel like real products
-- Engineering choices driven by deployment, not aesthetics alone
+- Signal-to-deployment biomedical pipelines
+- Clinical AI workflows built for reproducibility
+- Embedded systems with product-grade constraints
+- Performance, reliability, and maintainability first
 
 </td>
 <td width="33%" valign="top">
 
-### Lead
+### Operate
 
-- Founder mindset with systems-level ownership
-- Strong bias toward clarity, resilience, and execution
-- Comfortable moving across hardware, software, and validation
-- Interested in products that earn trust in high-stakes settings
+- Founder-style systems ownership
+- Cross-domain execution: software, hardware, validation
+- Strategic focus on real-world healthcare adoption
+- Shipping mindset over presentation mindset
 
 </td>
-<td width="33%" valign="top">
+<td width="34%" valign="top">
 
-### Defend
+### Protect
 
-- Cybersecurity remains part of how I think about systems
-- Security-aware architecture for connected devices and data flows
-- Interest in cyber-physical risk, reliability, and adversarial resilience
-- Not separate from healthcare engineering, but built into it
+- Cybersecurity integrated into architecture choices
+- Security posture for connected devices and data paths
+- Cyber-physical resilience and adversarial thinking
+- Privacy and trust as design requirements
 
 </td>
 </tr>
@@ -66,7 +66,7 @@
 <br/>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=68&color=0:111827,100:0f172a&text=Flagship%20Systems&fontColor=e2e8f0&fontSize=24&animation=fadeIn" alt="flagship systems banner" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=70&color=0:111827,100:0f172a&text=Portfolio%20Systems&fontColor=e2e8f0&fontSize=26&animation=fadeIn" alt="portfolio systems banner" />
 </div>
 
 <table>
@@ -75,28 +75,28 @@
 
 ### Clinical Signal Intelligence Engine
 
-<a href="https://github.com/SID-6921/Clinical-Signal-Intelligence-Engine"><img src="https://img.shields.io/badge/Open%20Repository-020617?style=for-the-badge&logo=github&logoColor=7dd3fc" alt="Clinical Signal Intelligence Engine" /></a>
+<a href="https://github.com/SID-6921/Clinical-Signal-Intelligence-Engine"><img src="https://img.shields.io/badge/Open%20System-030712?style=for-the-badge&logo=github&logoColor=7dd3fc" alt="Clinical Signal Intelligence Engine" /></a>
 
-Clinical-grade signal workflow thinking for ECG preprocessing, feature engineering, model-readiness, and reproducible biomedical AI development.
+End-to-end ECG and biomedical signal intelligence workflow design for robust preprocessing, feature strategy, and model-ready clinical pipelines.
 
-### Wearable Assistive Prototype
+### ReproLab
 
-<a href="https://github.com/SID-6921/Wearable-Device-That-Detects-Obstacles-for-Wheelchair-Users"><img src="https://img.shields.io/badge/View%20Prototype-020617?style=for-the-badge&logo=github&logoColor=5eead4" alt="Wearable Assistive Prototype" /></a>
+<a href="https://github.com/SID-6921/ReproLab"><img src="https://img.shields.io/badge/Inspect%20Workflow-030712?style=for-the-badge&logo=github&logoColor=5eead4" alt="ReproLab" /></a>
 
-Embedded sensing and assistive feedback aimed at real-world accessibility, not just bench-top demonstration.
+A reproducibility-first operating layer for biomedical ML experimentation and evaluation discipline.
 
 </td>
 <td width="50%" valign="top">
 
-### ReproLab
+### Wearable Assistive Prototype
 
-<a href="https://github.com/SID-6921/ReproLab"><img src="https://img.shields.io/badge/Explore%20Workflow-020617?style=for-the-badge&logo=github&logoColor=93c5fd" alt="ReproLab" /></a>
+<a href="https://github.com/SID-6921/Wearable-Device-That-Detects-Obstacles-for-Wheelchair-Users"><img src="https://img.shields.io/badge/View%20Prototype-030712?style=for-the-badge&logo=github&logoColor=93c5fd" alt="Wearable Assistive Prototype" /></a>
 
-A cleaner operating model for reproducible ML and biomedical experimentation, with more discipline around how systems are tested and compared.
+Assistive embedded product prototyping for sensing, feedback loops, and human-centered mobility support.
 
-### Security Lens
+### Security Perspective
 
-I do not treat cybersecurity as a disconnected side-interest. For connected biomedical systems, embedded devices, and intelligent pipelines, trust depends on safety, robustness, privacy, and secure design choices from the start.
+Cybersecurity is not a side module in my work. In connected biomedical products, secure architecture, data integrity, and resilient behavior determine whether a system deserves deployment.
 
 </td>
 </tr>
@@ -105,24 +105,24 @@ I do not treat cybersecurity as a disconnected side-interest. For connected biom
 <br/>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=68&color=0:0b1120,100:082f49&text=Technical%20Surface&fontColor=e2e8f0&fontSize=24&animation=fadeIn" alt="technical surface banner" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=70&color=0:0b1120,100:082f49&text=Technical%20Execution%20Surface&fontColor=e2e8f0&fontSize=24&animation=fadeIn" alt="technical execution surface banner" />
 </div>
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### Core Stack
+### Engineering Core
 
 - Python, C, C++, MATLAB
 - TensorFlow, PyTorch, OpenCV
-- Arduino, Raspberry Pi, Linux
-- SQL-backed data workflows
+- Linux, SQL, data pipelines
+- Embedded development with Arduino and Raspberry Pi
 
 </td>
 <td width="50%" valign="top">
 
-### Engineering Tools
+### Systems Tooling
 
 - ANSYS
 - SolidWorks
@@ -140,15 +140,15 @@ I do not treat cybersecurity as a disconnected side-interest. For connected biom
 <br/>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=68&color=0:082f49,100:020617&text=Operating%20Principle&fontColor=e2e8f0&fontSize=24&animation=fadeIn" alt="operating principle banner" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=70&color=0:082f49,100:030712&text=Founder%20Principle&fontColor=e2e8f0&fontSize=26&animation=fadeIn" alt="founder principle banner" />
 </div>
 
-> I want to build systems that are clinically meaningful, technically elegant, and secure enough to deserve real trust.
+> I build healthcare systems that are clinically useful, operationally disciplined, and secure enough to earn trust in the real world.
 
 <p align="center">
   <a href="mailto:sn3199@columbia.edu"><img src="https://img.shields.io/badge/Contact-sn3199%40columbia.edu-111827?style=for-the-badge&logo=gmail&logoColor=white" alt="Contact" /></a>
 </p>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:020617,25:0f172a,60:083344,85:0f766e,100:38bdf8" alt="footer" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=125&section=footer&color=0:030712,22:0b1120,45:082f49,72:0f4c5c,100:38bdf8" alt="footer" />
 </div>
