@@ -27,12 +27,25 @@
 
 ## Selected Projects
 
-| Project | Area | Why It Matters |
-|---|---|---|
-| [ecg-clinical-pipeline](https://github.com/SID-6921/ecg-clinical-pipeline) | Clinical signal processing | Structured ECG pipeline for real-world biomedical analysis |
-| [Clinical-Signal-Intelligence-Engine](https://github.com/SID-6921/Clinical-Signal-Intelligence-Engine) | Clinical AI | Intelligence layer for extracting actionable clinical insights |
-| [ReproLab](https://github.com/SID-6921/ReproLab) | Reproducibility | Repeatable experiment framework for biomedical workflows |
-| [Wearable-Device-That-Detects-Obstacles-for-Wheelchair-Users](https://github.com/SID-6921/Wearable-Device-That-Detects-Obstacles-for-Wheelchair-Users) | Assistive embedded systems | Safety-focused wearable concept for mobility support |
+- ecg-clinical-pipeline
+  - Area: Clinical signal processing
+  - Impact: Structured ECG pipeline for real-world biomedical analysis
+  - Link: https://github.com/SID-6921/ecg-clinical-pipeline
+
+- Clinical-Signal-Intelligence-Engine
+  - Area: Clinical AI
+  - Impact: Intelligence layer for extracting actionable clinical insights
+  - Link: https://github.com/SID-6921/Clinical-Signal-Intelligence-Engine
+
+- ReproLab
+  - Area: Reproducibility
+  - Impact: Repeatable experiment framework for biomedical workflows
+  - Link: https://github.com/SID-6921/ReproLab
+
+- Wearable-Device-That-Detects-Obstacles-for-Wheelchair-Users
+  - Area: Assistive embedded systems
+  - Impact: Safety-focused wearable concept for mobility support
+  - Link: https://github.com/SID-6921/Wearable-Device-That-Detects-Obstacles-for-Wheelchair-Users
 
 ---
 
