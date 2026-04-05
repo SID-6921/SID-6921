@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://www.linkedin.com/in/nanda-siddhardha/"><img src="https://img.shields.io/badge/LinkedIn-0f172a?style=for-the-badge&logo=linkedin&logoColor=7dd3fc" alt="LinkedIn" /></a>
   <a href="https://www.researchgate.net/profile/Nanda-Siddhardha"><img src="https://img.shields.io/badge/ResearchGate-0f172a?style=for-the-badge&logo=researchgate&logoColor=5eead4" alt="ResearchGate" /></a>
-  <a href="mailto:snanda@gitam.in"><img src="https://img.shields.io/badge/Email-0f172a?style=for-the-badge&logo=gmail&logoColor=f8fafc" alt="Email" /></a>
+  <a href="mailto:sn3199@columbia.edu"><img src="https://img.shields.io/badge/Email-0f172a?style=for-the-badge&logo=gmail&logoColor=f8fafc" alt="Email" /></a>
 </p>
 
 <p align="center">
@@ -76,7 +76,7 @@ Embedded prototypes and assistive technologies that connect sensing, feedback, a
 > Open to biomedical R&D, clinical AI prototyping, and embedded health-tech collaboration.
 
 <p align="center">
-  <a href="mailto:snanda@gitam.in"><img src="https://img.shields.io/badge/Contact-snanda%40gitam.in-111827?style=for-the-badge&logo=gmail&logoColor=white" alt="Contact" /></a>
+  <a href="mailto:sn3199@columbia.edu"><img src="https://img.shields.io/badge/Contact-sn3199%40columbia.edu-111827?style=for-the-badge&logo=gmail&logoColor=white" alt="Contact" /></a>
 </p>
 
 <div align="center">
