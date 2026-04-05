@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=270&color=0:020617,20:0f172a,45:083344,70:0f766e,100:38bdf8&text=Siddhardha%20Nanda&fontColor=f8fafc&fontSize=50&fontAlignY=36&desc=Founder-minded%20Biomedical%20Engineer%20%7C%20Clinical%20Intelligence%20%7C%20Cyber-Physical%20Systems&descAlignY=58&animation=fadeIn" alt="hero banner" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=270&color=0:020617,20:0f172a,45:083344,70:0f766e,100:38bdf8&text=Siddhardha%20Nanda&fontColor=f8fafc&fontSize=50&fontAlignY=36&desc=Biomedical%20Engineer%20%7C%20Clinical%20Intelligence%20%7C%20Cyber-Physical%20Systems&descAlignY=58&animation=fadeIn" alt="hero banner" />
 </div>
 
 <p align="center">
@@ -44,7 +44,7 @@
 
 ### Lead
 
-- Founder mindset with systems-level ownership
+- Systems-level ownership mindset
 - Strong bias toward clarity, resilience, and execution
 - Comfortable moving across hardware, software, and validation
 - Interested in products that earn trust in high-stakes settings
