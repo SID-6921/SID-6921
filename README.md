@@ -1,154 +1,113 @@
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=270&color=0:020617,20:0f172a,45:083344,70:0f766e,100:38bdf8&text=Siddhardha%20Nanda&fontColor=f8fafc&fontSize=50&fontAlignY=36&desc=Founder-minded%20Biomedical%20Engineer%20%7C%20Clinical%20Intelligence%20%7C%20Cyber-Physical%20Systems&descAlignY=58&animation=fadeIn" alt="hero banner" />
-</div>
+<h1 align="center">Hi 👋, I'm Nanda Siddhardha</h1>
+<h3 align="center">Tech Enthusiast | Medium Blogger | Cybersecurity Hobbyist | Biomedical, VLSI, IoT Researcher | Penetration Tester</h3>
 
+
+<!-- Visitor Counter & Trophies -->
 <p align="center">
-  <a href="https://www.linkedin.com/in/nanda-siddhardha/"><img src="https://img.shields.io/badge/LinkedIn-020617?style=for-the-badge&logo=linkedin&logoColor=7dd3fc" alt="LinkedIn" /></a>
-  <a href="https://www.researchgate.net/profile/Nanda-Siddhardha"><img src="https://img.shields.io/badge/ResearchGate-020617?style=for-the-badge&logo=researchgate&logoColor=5eead4" alt="ResearchGate" /></a>
-  <a href="mailto:sn3199@columbia.edu"><img src="https://img.shields.io/badge/Email-020617?style=for-the-badge&logo=gmail&logoColor=f8fafc" alt="Email" /></a>
+  <img src="https://komarev.com/ghpvc/?username=sid-6921&label=Profile%20views&color=0e75b6&style=flat" alt="sid-6921" />
+  <img src="https://github-profile-trophy.vercel.app/?username=sid-6921&theme=dracula&margin-w=15&margin-h=15" alt="sid-6921" />
+</p>
+
+<!-- Social Media Links -->
+<p align="center">
+  <a href="https://medium.com/@nandasiddhardha" target="blank"><img src="https://img.shields.io/badge/-Medium-black?style=for-the-badge&logo=medium&logoColor=white"></a>
+  <a href="https://linkedin.com/in/nanda-siddhardha" target="blank"><img src="https://img.shields.io/badge/-LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+  <a href="https://tryhackme.com/p/MR.WH1T3D3V17" target="blank"><img src="https://img.shields.io/badge/-TryHackMe-red?style=for-the-badge&logo=tryhackme&logoColor=white"></a>
+  <a href="https://researchgate.net/profile/Nanda-Siddhardha" target="blank"><img src="https://img.shields.io/badge/-ResearchGate-green?style=for-the-badge&logo=researchgate&logoColor=white"></a>
+</p>
+
+---
+
+<!-- Animated Text Introduction -->
+<h3 align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=22&duration=4000&pause=1000&color=58A6FF&width=435&lines=Welcome+to+my+GitHub!;I'm+a+Cybersecurity+Hobbyist;Biomedical+and+IoT+Researcher;Tech+Enthusiast+and+Penetration+Tester" alt="Typing SVG">
+</h3>
+
+---
+
+### 📝 Blogs and Writings
+- I regularly write articles on [Medium](https://medium.com/@nandasiddhardha).
+
+### 📫 How to reach me
+- Email: **snanda@gitam.in** 
+
+---
+
+<h3 align="center">Skills, Languages, Tools, and Expertise</h3>
+
+<!-- Custom Icons and Badges -->
+<p align="center">
+  <a href="https://www.python.org" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=python" alt="python" width="40" height="40"/> 
+  </a> 
+  <a href="https://pytorch.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=pytorch" alt="pytorch" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.arduino.cc/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=arduino" alt="arduino" width="40" height="40"/> 
+  </a>
+  <a href="https://www.mathworks.com/products/matlab.html" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=matlab" alt="matlab" width="40" height="40"/> 
+  </a>
+  <a href="https://www.verilog.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=verilog" alt="verilog" width="40" height="40"/> 
+  </a>
+  <a href="https://www.linux.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=linux" alt="linux" width="40" height="40"/> 
+  </a>
+  <a href="https://www.solidworks.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=solidworks" alt="solidworks" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.ansys.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=ansys" alt="ansys" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.raspberrypi.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=raspberrypi" alt="raspberry-pi" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.cadence.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=cadence" alt="cadence" width="40" height="40"/> 
+  </a>
+  <a href="https://www.tinkercad.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=tinkercad" alt="tinkercad" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.cprogramming.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=c" alt="c" width="40" height="40"/> 
+  </a>
+  <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=mysql" alt="mysql" width="40" height="40"/> 
+  </a> 
+  <a href="https://opencv.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=opencv" alt="opencv" width="40" height="40"/> 
+  </a> 
+  <a href="https://www.tensorflow.org" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=tensorflow" alt="tensorflow" width="40" height="40"/> 
+  </a> 
+  <a href="https://pandas.pydata.org/" target="_blank" rel="noreferrer"> 
+    <img src="https://skillicons.dev/icons?i=pandas" alt="pandas" width="40" height="40"/> 
+  </a>
+</p>
+
+---
+
+<!-- GitHub Stats, Streaks, and Most Used Languages with Theme Consistency -->
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=sid-6921&show_icons=true&locale=en&layout=compact&theme=dracula" alt="sid-6921 Top Languages" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Biomedical%20Engineering-083344?style=flat-square" alt="Biomedical Engineering" />
-  <img src="https://img.shields.io/badge/Clinical%20AI-0f4c5c?style=flat-square" alt="Clinical AI" />
-  <img src="https://img.shields.io/badge/Embedded%20Systems-115e59?style=flat-square" alt="Embedded Systems" />
-  <img src="https://img.shields.io/badge/Cybersecurity-1d4ed8?style=flat-square" alt="Cybersecurity" />
-  <img src="https://komarev.com/ghpvc/?username=SID-6921&style=flat-square&label=Views&color=0ea5e9" alt="Profile views" />
+  <img src="https://github-readme-stats.vercel.app/api?username=sid-6921&show_icons=true&locale=en&theme=dracula" alt="sid-6921 Stats" />
 </p>
-
-<h3 align="center">I build healthcare technology like products, not class projects.</h3>
 
 <p align="center">
-  My work sits where biomedical signals, intelligent systems, embedded devices, and security-aware engineering meet. I care about translation: from prototype to platform, from experiment to operator-ready system.
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sid-6921&theme=dracula" alt="sid-6921 Streak" />
 </p>
 
-<br/>
+<hr/>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=68&color=0:020617,100:111827&text=Founder%20Deluxe&fontColor=e2e8f0&fontSize=24&animation=fadeIn" alt="founder deluxe banner" />
-</div>
-
-<table>
-<tr>
-<td width="34%" valign="top">
-
-### Build
-
-- Biomedical pipelines that can scale beyond notebooks
-- Clinical intelligence workflows designed for repeatability
-- Embedded prototypes that feel like real products
-- Engineering choices driven by deployment, not aesthetics alone
-
-</td>
-<td width="33%" valign="top">
-
-### Lead
-
-- Founder mindset with systems-level ownership
-- Strong bias toward clarity, resilience, and execution
-- Comfortable moving across hardware, software, and validation
-- Interested in products that earn trust in high-stakes settings
-
-</td>
-<td width="33%" valign="top">
-
-### Defend
-
-- Cybersecurity remains part of how I think about systems
-- Security-aware architecture for connected devices and data flows
-- Interest in cyber-physical risk, reliability, and adversarial resilience
-- Not separate from healthcare engineering, but built into it
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=68&color=0:111827,100:0f172a&text=Flagship%20Systems&fontColor=e2e8f0&fontSize=24&animation=fadeIn" alt="flagship systems banner" />
-</div>
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### Clinical Signal Intelligence Engine
-
-<a href="https://github.com/SID-6921/Clinical-Signal-Intelligence-Engine"><img src="https://img.shields.io/badge/Open%20Repository-020617?style=for-the-badge&logo=github&logoColor=7dd3fc" alt="Clinical Signal Intelligence Engine" /></a>
-
-Clinical-grade signal workflow thinking for ECG preprocessing, feature engineering, model-readiness, and reproducible biomedical AI development.
-
-### Wearable Assistive Prototype
-
-<a href="https://github.com/SID-6921/Wearable-Device-That-Detects-Obstacles-for-Wheelchair-Users"><img src="https://img.shields.io/badge/View%20Prototype-020617?style=for-the-badge&logo=github&logoColor=5eead4" alt="Wearable Assistive Prototype" /></a>
-
-Embedded sensing and assistive feedback aimed at real-world accessibility, not just bench-top demonstration.
-
-</td>
-<td width="50%" valign="top">
-
-### ReproLab
-
-<a href="https://github.com/SID-6921/ReproLab"><img src="https://img.shields.io/badge/Explore%20Workflow-020617?style=for-the-badge&logo=github&logoColor=93c5fd" alt="ReproLab" /></a>
-
-A cleaner operating model for reproducible ML and biomedical experimentation, with more discipline around how systems are tested and compared.
-
-### Security Lens
-
-I do not treat cybersecurity as a disconnected side-interest. For connected biomedical systems, embedded devices, and intelligent pipelines, trust depends on safety, robustness, privacy, and secure design choices from the start.
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=68&color=0:0b1120,100:082f49&text=Technical%20Surface&fontColor=e2e8f0&fontSize=24&animation=fadeIn" alt="technical surface banner" />
-</div>
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### Core Stack
-
-- Python, C, C++, MATLAB
-- TensorFlow, PyTorch, OpenCV
-- Arduino, Raspberry Pi, Linux
-- SQL-backed data workflows
-
-</td>
-<td width="50%" valign="top">
-
-### Engineering Tools
-
-- ANSYS
-- SolidWorks
-- Cadence
-- Verilog RTL
-
-</td>
-</tr>
-</table>
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=python,c,cpp,linux,mysql,opencv,tensorflow,pytorch,arduino,raspberrypi,matlab" alt="Tech stack" />
-</p>
-
-<br/>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=68&color=0:082f49,100:020617&text=Operating%20Principle&fontColor=e2e8f0&fontSize=24&animation=fadeIn" alt="operating principle banner" />
-</div>
-
-> I want to build systems that are clinically meaningful, technically elegant, and secure enough to deserve real trust.
-
-<p align="center">
-  <a href="mailto:sn3199@columbia.edu"><img src="https://img.shields.io/badge/Contact-sn3199%40columbia.edu-111827?style=for-the-badge&logo=gmail&logoColor=white" alt="Contact" /></a>
-</p>
-
-<div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=0:020617,25:0f172a,60:083344,85:0f766e,100:38bdf8" alt="footer" />
+  <h2>🐍 My Contributions 🐍</h2>
+  <br>
+  <img alt="snake eating my contributions" src="https://raw.githubusercontent.com/salesp07/salesp07/output/github-contribution-grid-snake.svg" />
+  
+  <br/><br/><br/>
 </div>
