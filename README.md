@@ -44,16 +44,14 @@ I build biomedical systems across the full stack: physiological signal pipelines
 
 ---
 
-### Engineering Signal
+### Signature Work
 
-<p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=SID-6921&show_icons=true&hide_border=true&bg_color=00000000&title_color=0f172a&text_color=334155&icon_color=0284c7" alt="GitHub stats" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=SID-6921&layout=compact&hide_border=true&bg_color=00000000&title_color=0f172a&text_color=334155" alt="Top languages" />
-</p>
-
-<p align="center">
-  <img src="https://streak-stats.demolab.com?user=SID-6921&hide_border=true&date_format=M%20j%5B%2C%20Y%5D&ring=0ea5e9&fire=0ea5e9&currStreakLabel=0f172a" alt="Contribution streak" />
-</p>
+- Clinical Signal Intelligence Engine
+  - Clinical pipeline design for ECG and biomedical signals
+- ReproLab
+  - Reproducible experimentation for healthcare ML workflows
+- Wearable Obstacle Detection for Wheelchair Users
+  - Embedded assistive prototype with haptic/audio feedback
 
 ---
 
