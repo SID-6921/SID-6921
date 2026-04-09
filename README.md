@@ -1,24 +1,24 @@
 <h1 align="center">Nanda Siddhardha</h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=IBM+Plex+Mono&weight=600&size=24&duration=2600&pause=900&color=F5F5F5&center=true&vCenter=true&width=980&lines=MASTER%27S+IN+BIOMEDICAL+ENGINEERING;BUILDING+HEALTHCARE+INTELLIGENCE+SYSTEMS+THAT+MATTER" alt="Profile hook" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=IBM+Plex+Mono&weight=600&size=24&duration=2500&pause=850&color=E6EDF3&center=true&vCenter=true&width=980&lines=MASTER%27S+IN+BIOMEDICAL+ENGINEERING;HEALTH-TECH+SYSTEMS+FROM+SIGNAL+TO+CLINICAL+INSIGHT" alt="Profile hook" />
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Primary%20Domain-Biomedical%20Engineering-111827?style=for-the-badge" alt="Primary domain" />
-  <img src="https://img.shields.io/badge/Core%20Direction-Health%20Technology-1F2937?style=for-the-badge" alt="Core direction" />
+  <img src="https://img.shields.io/badge/Core%20Direction-Health%20Technology%20%26%20Diagnostics-1F2937?style=for-the-badge" alt="Core direction" />
   <img src="https://komarev.com/ghpvc/?username=sid-6921&label=Profile%20Views&color=6B7280&style=for-the-badge" alt="Profile views" />
 </p>
 
-<p align="center"><b>From biomedical signals to clinical insight.</b></p>
+<p align="center"><b>From biomedical signals to clinical impact.</b></p>
 
 ---
 
-## Why This Profile
+## Profile
 
 I am currently pursuing a Master's in Biomedical Engineering, focused on turning complex biomedical data into practical healthcare technology.
 
-My work blends biomedical signal processing, diagnostic machine learning, and deployable health-tech pipelines. Cybersecurity was a major undergraduate hobby and still influences how I engineer privacy-aware, resilient systems.
+My work blends biomedical signal processing, diagnostic machine learning, and deployable health-tech pipelines. Cybersecurity was a major undergraduate hobby and still influences how I design privacy-aware and resilient systems.
 
 ## Current Focus
 
@@ -27,25 +27,37 @@ My work blends biomedical signal processing, diagnostic machine learning, and de
 - Embedded and VLSI-backed sensing workflows
 - Reproducible engineering for clinical-grade reliability
 
+## Now and Next
+
+- Now: building reliable data-to-insight pipelines for healthcare ML
+- Next: translating prototype models into robust, interpretable clinical tools
+
 ## Signature Work
 
 <p align="center">
   <a href="https://github.com/SID-6921/ReproLab">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=SID-6921&repo=ReproLab&theme=github_dark&hide_border=true" alt="ReproLab" />
+    <img src="https://gh-card.dev/repos/SID-6921/ReproLab.svg?fullname=" alt="ReproLab card" />
   </a>
   <a href="https://github.com/SID-6921/BBBC021_Project">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=SID-6921&repo=BBBC021_Project&theme=github_dark&hide_border=true" alt="BBBC021 Project" />
+    <img src="https://gh-card.dev/repos/SID-6921/BBBC021_Project.svg?fullname=" alt="BBBC021 card" />
   </a>
 </p>
 
 <p align="center">
   <a href="https://github.com/SID-6921/PORTFOLIO">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=SID-6921&repo=PORTFOLIO&theme=github_dark&hide_border=true" alt="Portfolio" />
+    <img src="https://gh-card.dev/repos/SID-6921/PORTFOLIO.svg?fullname=" alt="Portfolio card" />
   </a>
   <a href="https://github.com/SID-6921/DIGITAL_SIGNAL_PROCCESSING">
-    <img src="https://github-readme-stats.vercel.app/api/pin/?username=SID-6921&repo=DIGITAL_SIGNAL_PROCCESSING&theme=github_dark&hide_border=true" alt="Digital signal processing" />
+    <img src="https://gh-card.dev/repos/SID-6921/DIGITAL_SIGNAL_PROCCESSING.svg?fullname=" alt="DSP card" />
   </a>
 </p>
+
+If repo cards do not render in your view, use these direct links:
+
+- ReproLab: https://github.com/SID-6921/ReproLab
+- BBBC021_Project: https://github.com/SID-6921/BBBC021_Project
+- PORTFOLIO: https://github.com/SID-6921/PORTFOLIO
+- DIGITAL_SIGNAL_PROCCESSING: https://github.com/SID-6921/DIGITAL_SIGNAL_PROCCESSING
 
 ## Connect
 
