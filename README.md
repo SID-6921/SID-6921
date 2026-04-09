@@ -1,45 +1,36 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&color=0:0f172a,50:1e293b,100:334155&text=Nanda%20Siddhardha&fontColor=E2E8F0&fontSize=48&fontAlignY=35&desc=Master's%20in%20Biomedical%20Engineering%20%7C%20Health-Tech%20Builder&descAlignY=56" alt="Hero banner" />
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=170&color=0:111827,100:1f2937&text=Nanda%20Siddhardha&fontColor=F9FAFB&fontSize=46&fontAlignY=40&desc=Master's%20in%20Biomedical%20Engineering&descAlignY=62" alt="Hero banner" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Domain-Biomedical%20Engineering-0b1220?style=for-the-badge" alt="Domain" />
-  <img src="https://img.shields.io/badge/Direction-Clinical%20AI%20%26%20Health%20Technology-162033?style=for-the-badge" alt="Direction" />
-  <img src="https://img.shields.io/badge/Design%20Principle-Reliable%20and%20Interpretable-25314b?style=for-the-badge" alt="Design principle" />
+  <img src="https://komarev.com/ghpvc/?username=sid-6921&label=Profile%20Views&color=374151&style=flat" alt="Profile views" />
 </p>
 
-<h3 align="center">Building systems that move from biomedical signals to clinical decisions.</h3>
+<h3 align="center">Biomedical intelligence systems for real clinical use.</h3>
 
 ## About
 
 I am currently pursuing a Master's in Biomedical Engineering.
 
-My work centers on biomedical signal intelligence, diagnostic modeling, and production-minded health-tech workflows. Cybersecurity was a deep undergraduate hobby and still shapes how I engineer privacy, resilience, and safe deployment.
+My work centers on biomedical signal intelligence, diagnostic modeling, and production-ready health-tech workflows. Cybersecurity was a strong undergraduate hobby and still informs my approach to reliability, privacy, and resilient deployment.
 
-## What Makes This Profile Different
+## Research Philosophy
 
-| Theme | Execution |
-| --- | --- |
-| Translational thinking | I build with deployment in mind, not just benchmark scores. |
-| Clinical relevance | I prioritize measurable healthcare utility and interpretability. |
-| Engineering depth | I combine ML pipelines, signal processing, and embedded systems. |
-| Reliability mindset | Security and robustness principles are built into design choices. |
+- Build beyond prototypes: prioritize deployability from day one.
+- Keep models clinically interpretable, not just statistically strong.
+- Design for reliability, reproducibility, and patient-context constraints.
 
-## Focus Areas
+## Current Directions
 
 - Biomedical signal processing for diagnostics and monitoring
 - Machine learning pipelines for healthcare prediction tasks
 - Embedded and VLSI-assisted sensing architectures
 - Reproducible health-tech experimentation and evaluation
 
-## Featured Work
+## Academic Trajectory
 
-| Project | Why It Matters |
-| --- | --- |
-| [ReproLab](https://github.com/SID-6921/ReproLab) | Reproducible workflow foundation for research-grade experimentation. |
-| [BBBC021_Project](https://github.com/SID-6921/BBBC021_Project) | Biomedical project work aligned with practical analysis pipelines. |
-| [PORTFOLIO](https://github.com/SID-6921/PORTFOLIO) | End-to-end presentation of engineering and project execution. |
-| [DIGITAL_SIGNAL_PROCCESSING](https://github.com/SID-6921/DIGITAL_SIGNAL_PROCCESSING) | Core DSP implementations supporting biomedical computation skills. |
+- Now: advancing biomedical ML workflows for practical clinical utility
+- Next: translating validated prototypes into robust healthcare tools
 
 ## Contact
 
