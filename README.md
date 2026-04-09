@@ -1,23 +1,23 @@
 <h1 align="center">Nanda Siddhardha</h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=24&duration=2500&pause=900&color=00F5FF&center=true&vCenter=true&width=900&lines=CYBERSECURITY+%7C+BIOMEDICAL+SYSTEMS+%7C+VLSI+%7C+IOT;BUILDING+SECURE%2C+INTELLIGENT%2C+REAL-WORLD+TECH" alt="Futuristic typing banner" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=24&duration=2500&pause=900&color=00F5FF&center=true&vCenter=true&width=980&lines=BIOMEDICAL+%2B+HEALTH+TECH+%7C+VLSI+%7C+IOT;CURRENTLY+PURSUING+A+MASTER%27S+IN+BIOMEDICAL+AND+HEALTH+TECH" alt="Futuristic typing banner" />
 </p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/PROFILE-MISSION%20DRIVEN-00E5FF?style=for-the-badge&labelColor=0A0F1F" alt="Mission driven" />
-  <img src="https://img.shields.io/badge/FOCUS-SECURITY%20%2B%20RESEARCH-5BFFB2?style=for-the-badge&labelColor=0A0F1F" alt="Security and research" />
+  <img src="https://img.shields.io/badge/FOCUS-BIOMED%20%2B%20HEALTH%20TECH-5BFFB2?style=for-the-badge&labelColor=0A0F1F" alt="Biomedical and health tech" />
   <img src="https://komarev.com/ghpvc/?username=sid-6921&label=PROFILE%20SCANS&color=00e5ff&style=for-the-badge" alt="Profile scans" />
 </p>
 
 ## Neural Profile
 
-I design and prototype systems at the intersection of cybersecurity, biomedical intelligence, VLSI, and IoT. The goal is simple: build tech that is secure, measurable, and deployable.
+I am currently pursuing a master's focused on biomedical and health technology, and I build systems across biomedical intelligence, VLSI, and IoT. Cybersecurity was a strong hobby area during my undergraduate years and still informs how I think about resilient system design.
 
 ## Active Tracks
 
-- Cybersecurity workflows and penetration testing fundamentals
-- Biomedical signal and intelligent diagnostics pipelines
+- Biomedical signal processing and intelligent diagnostics pipelines
+- Health technology workflows and translational research applications
 - VLSI and embedded hardware-software integration
 - Open-source collaboration and technical writing
 
