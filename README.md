@@ -1,49 +1,54 @@
 <h1 align="center">Nanda Siddhardha</h1>
 
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Orbitron&weight=700&size=24&duration=2500&pause=900&color=00F5FF&center=true&vCenter=true&width=980&lines=BIOMEDICAL+%2B+HEALTH+TECH+%7C+VLSI+%7C+IOT;CURRENTLY+PURSUING+A+MASTER%27S+IN+BIOMEDICAL+AND+HEALTH+TECH" alt="Futuristic typing banner" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=SF+Mono&weight=600&size=22&duration=2600&pause=900&color=E6EDF3&center=true&vCenter=true&width=980&lines=BIOMEDICAL+%26+HEALTH+TECHNOLOGY;MASTER%27S+STUDENT+%7C+BUILDING+CLINICAL+INTELLIGENCE+SYSTEMS" alt="Profile headline" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/PROFILE-MISSION%20DRIVEN-00E5FF?style=for-the-badge&labelColor=0A0F1F" alt="Mission driven" />
-  <img src="https://img.shields.io/badge/FOCUS-BIOMED%20%2B%20HEALTH%20TECH-5BFFB2?style=for-the-badge&labelColor=0A0F1F" alt="Biomedical and health tech" />
-  <img src="https://komarev.com/ghpvc/?username=sid-6921&label=PROFILE%20SCANS&color=00e5ff&style=for-the-badge" alt="Profile scans" />
+  <img src="https://img.shields.io/badge/FOCUS-BIOMEDICAL%20AI%20%2B%20HEALTH%20TECH-161B22?style=for-the-badge&logo=apple&logoColor=white" alt="Focus" />
+  <img src="https://img.shields.io/badge/TRACK-MASTER%27S%20IN%20HEALTH%20TECH-30363D?style=for-the-badge&logo=academia&logoColor=white" alt="Track" />
+  <img src="https://komarev.com/ghpvc/?username=sid-6921&label=PROFILE%20VIEWS&color=8B949E&style=for-the-badge" alt="Profile views" />
 </p>
 
-## Neural Profile
+<p align="center"><i>Human-centered engineering for measurable healthcare impact.</i></p>
 
-I am currently pursuing a master's focused on biomedical and health technology, and I build systems across biomedical intelligence, VLSI, and IoT. Cybersecurity was a strong hobby area during my undergraduate years and still informs how I think about resilient system design.
+---
 
-## Active Tracks
+## Profile
 
-- Biomedical signal processing and intelligent diagnostics pipelines
-- Health technology workflows and translational research applications
-- VLSI and embedded hardware-software integration
-- Open-source collaboration and technical writing
+I am currently pursuing a master's in Biomedical and Health Technology, with a focus on intelligent clinical systems, biomedical data workflows, and deployable health-tech solutions.
 
-## Tech Stack Matrix
+Cybersecurity was a strong hobby during my undergraduate years and remains part of my engineering mindset for reliability, privacy, and system resilience.
 
-<p align="left">
-  <img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,c,linux,mysql,opencv,arduino,raspberrypi,matlab" alt="Core tools" />
+## Current Work
+
+- Biomedical signal processing and data-driven diagnostics
+- Health technology product workflows and translational development
+- Embedded and VLSI-backed sensing platforms
+- Technical writing and open-source collaboration
+
+## Stack
+
+<p>
+  <img src="https://skillicons.dev/icons?i=python,pytorch,tensorflow,opencv,linux,matlab,mysql,arduino,raspberrypi,c" alt="Technology stack" />
 </p>
 
-## Connect
+## Contact
 
 - Email: sn3199@columbia.edu
 - LinkedIn: https://www.linkedin.com/in/nanda-siddhardha/
 - Medium: https://medium.com/@nandasiddhardha
-- TryHackMe: https://tryhackme.com/p/MR.WH1T3D3V17
 - ResearchGate: https://researchgate.net/profile/Nanda-Siddhardha
 
-## Telemetry
+## GitHub Snapshot
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=sid-6921&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="GitHub stats" />
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sid-6921&theme=tokyonight&hide_border=true&background=0D1117" alt="GitHub streak" />
+  <img src="https://github-readme-stats.vercel.app/api?username=sid-6921&show_icons=true&theme=github_dark&hide_border=true" alt="GitHub stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sid-6921&theme=github-dark-blue&hide_border=true" alt="GitHub streak" />
 </p>
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=sid-6921&layout=compact&theme=tokyonight&hide_border=true&bg_color=0D1117" alt="Top languages" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=sid-6921&layout=compact&theme=github_dark&hide_border=true" alt="Top languages" />
 </p>
 
 ## Contribution Stream
@@ -51,5 +56,3 @@ I am currently pursuing a master's focused on biomedical and health technology, 
 <p align="center">
   <img alt="Contribution stream" src="https://raw.githubusercontent.com/salesp07/salesp07/output/github-contribution-grid-snake.svg" />
 </p>
-
-<p align="center"><i>Design for the future. Ship for today.</i></p>
