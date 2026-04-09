@@ -1,65 +1,47 @@
-<h1 align="center">Nanda Siddhardha</h1>
-
 <p align="center">
-  <img src="https://readme-typing-svg.herokuapp.com?font=IBM+Plex+Mono&weight=600&size=24&duration=2500&pause=850&color=E6EDF3&center=true&vCenter=true&width=980&lines=MASTER%27S+IN+BIOMEDICAL+ENGINEERING;HEALTH-TECH+SYSTEMS+FROM+SIGNAL+TO+CLINICAL+INSIGHT" alt="Profile hook" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=180&color=0:0f172a,50:1e293b,100:334155&text=Nanda%20Siddhardha&fontColor=E2E8F0&fontSize=48&fontAlignY=35&desc=Master's%20in%20Biomedical%20Engineering%20%7C%20Health-Tech%20Builder&descAlignY=56" alt="Hero banner" />
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Primary%20Domain-Biomedical%20Engineering-111827?style=for-the-badge" alt="Primary domain" />
-  <img src="https://img.shields.io/badge/Core%20Direction-Health%20Technology%20%26%20Diagnostics-1F2937?style=for-the-badge" alt="Core direction" />
-  <img src="https://komarev.com/ghpvc/?username=sid-6921&label=Profile%20Views&color=6B7280&style=for-the-badge" alt="Profile views" />
+  <img src="https://img.shields.io/badge/Domain-Biomedical%20Engineering-0b1220?style=for-the-badge" alt="Domain" />
+  <img src="https://img.shields.io/badge/Direction-Clinical%20AI%20%26%20Health%20Technology-162033?style=for-the-badge" alt="Direction" />
+  <img src="https://img.shields.io/badge/Design%20Principle-Reliable%20and%20Interpretable-25314b?style=for-the-badge" alt="Design principle" />
 </p>
 
-<p align="center"><b>From biomedical signals to clinical impact.</b></p>
+<h3 align="center">Building systems that move from biomedical signals to clinical decisions.</h3>
 
----
+## About
 
-## Profile
+I am currently pursuing a Master's in Biomedical Engineering.
 
-I am currently pursuing a Master's in Biomedical Engineering, focused on turning complex biomedical data into practical healthcare technology.
+My work centers on biomedical signal intelligence, diagnostic modeling, and production-minded health-tech workflows. Cybersecurity was a deep undergraduate hobby and still shapes how I engineer privacy, resilience, and safe deployment.
 
-My work blends biomedical signal processing, diagnostic machine learning, and deployable health-tech pipelines. Cybersecurity was a major undergraduate hobby and still influences how I design privacy-aware and resilient systems.
+## What Makes This Profile Different
 
-## Current Focus
+| Theme | Execution |
+| --- | --- |
+| Translational thinking | I build with deployment in mind, not just benchmark scores. |
+| Clinical relevance | I prioritize measurable healthcare utility and interpretability. |
+| Engineering depth | I combine ML pipelines, signal processing, and embedded systems. |
+| Reliability mindset | Security and robustness principles are built into design choices. |
 
-- Biomedical signal intelligence for real-world diagnostic settings
-- Health-tech systems that bridge research to implementation
-- Embedded and VLSI-backed sensing workflows
-- Reproducible engineering for clinical-grade reliability
+## Focus Areas
 
-## Now and Next
+- Biomedical signal processing for diagnostics and monitoring
+- Machine learning pipelines for healthcare prediction tasks
+- Embedded and VLSI-assisted sensing architectures
+- Reproducible health-tech experimentation and evaluation
 
-- Now: building reliable data-to-insight pipelines for healthcare ML
-- Next: translating prototype models into robust, interpretable clinical tools
+## Featured Work
 
-## Signature Work
+| Project | Why It Matters |
+| --- | --- |
+| [ReproLab](https://github.com/SID-6921/ReproLab) | Reproducible workflow foundation for research-grade experimentation. |
+| [BBBC021_Project](https://github.com/SID-6921/BBBC021_Project) | Biomedical project work aligned with practical analysis pipelines. |
+| [PORTFOLIO](https://github.com/SID-6921/PORTFOLIO) | End-to-end presentation of engineering and project execution. |
+| [DIGITAL_SIGNAL_PROCCESSING](https://github.com/SID-6921/DIGITAL_SIGNAL_PROCCESSING) | Core DSP implementations supporting biomedical computation skills. |
 
-<p align="center">
-  <a href="https://github.com/SID-6921/ReproLab">
-    <img src="https://gh-card.dev/repos/SID-6921/ReproLab.svg?fullname=" alt="ReproLab card" />
-  </a>
-  <a href="https://github.com/SID-6921/BBBC021_Project">
-    <img src="https://gh-card.dev/repos/SID-6921/BBBC021_Project.svg?fullname=" alt="BBBC021 card" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/SID-6921/PORTFOLIO">
-    <img src="https://gh-card.dev/repos/SID-6921/PORTFOLIO.svg?fullname=" alt="Portfolio card" />
-  </a>
-  <a href="https://github.com/SID-6921/DIGITAL_SIGNAL_PROCCESSING">
-    <img src="https://gh-card.dev/repos/SID-6921/DIGITAL_SIGNAL_PROCCESSING.svg?fullname=" alt="DSP card" />
-  </a>
-</p>
-
-If repo cards do not render in your view, use these direct links:
-
-- ReproLab: https://github.com/SID-6921/ReproLab
-- BBBC021_Project: https://github.com/SID-6921/BBBC021_Project
-- PORTFOLIO: https://github.com/SID-6921/PORTFOLIO
-- DIGITAL_SIGNAL_PROCCESSING: https://github.com/SID-6921/DIGITAL_SIGNAL_PROCCESSING
-
-## Connect
+## Contact
 
 - Email: sn3199@columbia.edu
 - LinkedIn: https://www.linkedin.com/in/nanda-siddhardha/
