@@ -1,0 +1,18 @@
+<svg width="460" height="106" viewBox="0 0 460 106" xmlns="http://www.w3.org/2000/svg">
+<style>
+    text { font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
+    .fg { fill: #24292f; }
+    .muted { fill: #57606a; }
+    .accent { fill: #0969da; }
+    @media (prefers-color-scheme: dark) {
+      .fg { fill: #c9d1d9; }
+      .muted { fill: #8b949e; }
+      .accent { fill: #58a6ff; }
+    }
+</style>
+<text x="0" y="30" class="muted" font-size="13">contributions (past year)</text>
+<text x="440" y="30" class="fg" font-size="13" text-anchor="end">655</text>
+<text x="0" y="58" class="muted" font-size="13">current streak</text>
+<text x="440" y="58" class="fg" font-size="13" text-anchor="end">1 day</text>
+<text x="0" y="86" class="muted" font-size="13">longest streak</text>
+<text x="440" y="86" class="fg" font-size="13" text-anchor="end">7 days</text></svg>

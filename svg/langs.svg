@@ -1,0 +1,36 @@
+<svg width="460" height="178" viewBox="0 0 460 178" xmlns="http://www.w3.org/2000/svg">
+<style>
+    text { font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }
+    .fg { fill: #24292f; }
+    .muted { fill: #57606a; }
+    .accent { fill: #0969da; }
+    @media (prefers-color-scheme: dark) {
+      .fg { fill: #c9d1d9; }
+      .muted { fill: #8b949e; }
+      .accent { fill: #58a6ff; }
+    }
+</style>
+<text x="0" y="24" class="fg" font-size="13">Python</text>
+<rect x="170" y="13" width="260" height="12" rx="2" class="muted" fill-opacity="0.15" stroke="none"/>
+<rect x="170" y="13" width="154.7" height="12" rx="2" fill="#3572A5"/>
+<text x="442" y="24" class="muted" font-size="12">59.5%</text>
+<text x="0" y="50" class="fg" font-size="13">TypeScript</text>
+<rect x="170" y="39" width="260" height="12" rx="2" class="muted" fill-opacity="0.15" stroke="none"/>
+<rect x="170" y="39" width="72.1" height="12" rx="2" fill="#3178c6"/>
+<text x="442" y="50" class="muted" font-size="12">27.7%</text>
+<text x="0" y="76" class="fg" font-size="13">Jupyter Notebook</text>
+<rect x="170" y="65" width="260" height="12" rx="2" class="muted" fill-opacity="0.15" stroke="none"/>
+<rect x="170" y="65" width="10.6" height="12" rx="2" fill="#DA5B0B"/>
+<text x="442" y="76" class="muted" font-size="12">4.1%</text>
+<text x="0" y="102" class="fg" font-size="13">Verilog</text>
+<rect x="170" y="91" width="260" height="12" rx="2" class="muted" fill-opacity="0.15" stroke="none"/>
+<rect x="170" y="91" width="7.3" height="12" rx="2" fill="#b2b7f8"/>
+<text x="442" y="102" class="muted" font-size="12">2.8%</text>
+<text x="0" y="128" class="fg" font-size="13">TeX</text>
+<rect x="170" y="117" width="260" height="12" rx="2" class="muted" fill-opacity="0.15" stroke="none"/>
+<rect x="170" y="117" width="5.0" height="12" rx="2" fill="#3D6117"/>
+<text x="442" y="128" class="muted" font-size="12">1.9%</text>
+<text x="0" y="154" class="fg" font-size="13">JavaScript</text>
+<rect x="170" y="143" width="260" height="12" rx="2" class="muted" fill-opacity="0.15" stroke="none"/>
+<rect x="170" y="143" width="3.1" height="12" rx="2" fill="#f1e05a"/>
+<text x="442" y="154" class="muted" font-size="12">1.2%</text></svg>
