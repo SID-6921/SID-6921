@@ -1,0 +1,10 @@
+<svg width="460" height="132" viewBox="0 0 460 132" xmlns="http://www.w3.org/2000/svg">
+<style>text { font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }</style>
+<rect x="0.5" y="0.5" width="459" height="131" rx="10" fill="#0d1117" stroke="#30363d"/>
+<text x="20" y="24" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">CONTRIBUTIONS</text>
+<text x="20" y="54" fill="#8b949e" font-size="13">contributions, past year</text>
+<text x="440" y="54" fill="#e6edf3" font-size="13" text-anchor="end">655</text>
+<text x="20" y="80" fill="#8b949e" font-size="13">current streak</text>
+<text x="440" y="80" fill="#e6edf3" font-size="13" text-anchor="end">1 day</text>
+<text x="20" y="106" fill="#8b949e" font-size="13">longest streak</text>
+<text x="440" y="106" fill="#e6edf3" font-size="13" text-anchor="end">7 days</text></svg>

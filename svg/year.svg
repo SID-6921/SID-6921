@@ -1,0 +1,12 @@
+<svg width="620" height="183" viewBox="0 0 620 183" xmlns="http://www.w3.org/2000/svg">
+<style>text { font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }</style>
+<rect x="0.5" y="0.5" width="619" height="182" rx="10" fill="#0d1117" stroke="#30363d"/>
+<text x="20" y="24" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">THE LAST YEAR</text>
+<text x="20" y="50" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                              :+: : ::+: :  :: :   : </text>
+<text x="20" y="65" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px"> :  ::                         :: :: ::::   :  ::  ::</text>
+<text x="20" y="80" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                               +  : : :      ::::    </text>
+<text x="20" y="95" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">     ::                       :  : :::   : : : ::: : </text>
+<text x="20" y="110" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                     :        :#  :  :::  :+: +: ::: </text>
+<text x="20" y="125" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                              #::  : :::  :@  :: : : </text>
+<text x="20" y="140" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                             : ::::::: : :: +     :  </text>
+<text x="20" y="167" fill="#8b949e" font-size="11">one character per day, quiet ':' to loud '@'</text></svg>
