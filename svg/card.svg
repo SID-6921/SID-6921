@@ -1,0 +1,46 @@
+<svg width="620" height="547" viewBox="0 0 620 547" xmlns="http://www.w3.org/2000/svg">
+<style>text { font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }</style>
+<rect x="0.5" y="0.5" width="619" height="546" rx="10" fill="#0d1117" stroke="#30363d"/>
+<text x="24" y="28" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">CONTRIBUTIONS</text>
+<text x="24" y="58" fill="#8b949e" font-size="13">contributions, past year</text>
+<text x="596" y="58" fill="#e6edf3" font-size="13" text-anchor="end">657</text>
+<text x="24" y="82" fill="#8b949e" font-size="13">current streak</text>
+<text x="596" y="82" fill="#e6edf3" font-size="13" text-anchor="end">2 days</text>
+<text x="24" y="106" fill="#8b949e" font-size="13">longest streak</text>
+<text x="596" y="106" fill="#e6edf3" font-size="13" text-anchor="end">7 days</text>
+<line x1="24" y1="142" x2="596" y2="142" stroke="#30363d"/>
+<text x="24" y="172" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">TOP LANGUAGES</text>
+<text x="24" y="202" fill="#e6edf3" font-size="13">Python</text>
+<rect x="204" y="191" width="342" height="10" rx="2" fill="#8b949e" fill-opacity="0.25"/>
+<rect x="204" y="191" width="204.0" height="10" rx="2" fill="#3572A5"/>
+<text x="596" y="202" fill="#8b949e" font-size="12" text-anchor="end">59.6%</text>
+<text x="24" y="226" fill="#e6edf3" font-size="13">TypeScript</text>
+<rect x="204" y="215" width="342" height="10" rx="2" fill="#8b949e" fill-opacity="0.25"/>
+<rect x="204" y="215" width="94.5" height="10" rx="2" fill="#3178c6"/>
+<text x="596" y="226" fill="#8b949e" font-size="12" text-anchor="end">27.6%</text>
+<text x="24" y="250" fill="#e6edf3" font-size="13">Jupyter Notebook</text>
+<rect x="204" y="239" width="342" height="10" rx="2" fill="#8b949e" fill-opacity="0.25"/>
+<rect x="204" y="239" width="13.9" height="10" rx="2" fill="#DA5B0B"/>
+<text x="596" y="250" fill="#8b949e" font-size="12" text-anchor="end">4.1%</text>
+<text x="24" y="274" fill="#e6edf3" font-size="13">Verilog</text>
+<rect x="204" y="263" width="342" height="10" rx="2" fill="#8b949e" fill-opacity="0.25"/>
+<rect x="204" y="263" width="9.6" height="10" rx="2" fill="#b2b7f8"/>
+<text x="596" y="274" fill="#8b949e" font-size="12" text-anchor="end">2.8%</text>
+<text x="24" y="298" fill="#e6edf3" font-size="13">TeX</text>
+<rect x="204" y="287" width="342" height="10" rx="2" fill="#8b949e" fill-opacity="0.25"/>
+<rect x="204" y="287" width="6.5" height="10" rx="2" fill="#3D6117"/>
+<text x="596" y="298" fill="#8b949e" font-size="12" text-anchor="end">1.9%</text>
+<text x="24" y="322" fill="#e6edf3" font-size="13">JavaScript</text>
+<rect x="204" y="311" width="342" height="10" rx="2" fill="#8b949e" fill-opacity="0.25"/>
+<rect x="204" y="311" width="4.1" height="10" rx="2" fill="#f1e05a"/>
+<text x="596" y="322" fill="#8b949e" font-size="12" text-anchor="end">1.2%</text>
+<line x1="24" y1="358" x2="596" y2="358" stroke="#30363d"/>
+<text x="24" y="388" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">THE LAST YEAR</text>
+<text x="24" y="414" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                              :+: : ::+: :  :: :   : </text>
+<text x="24" y="429" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px"> :  ::                         :: :: ::::   :  ::  ::</text>
+<text x="24" y="444" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                               +  : : :      ::::   :</text>
+<text x="24" y="459" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">     ::                       :  : :::   : : : ::: : </text>
+<text x="24" y="474" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                     :        :#  :  :::  :+: +: ::: </text>
+<text x="24" y="489" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                              #::  : :::  :@  :: : : </text>
+<text x="24" y="504" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                             : ::::::: : :: +     :  </text>
+<text x="24" y="527" fill="#8b949e" font-size="11">one character per day, quiet ':' to loud '@'</text></svg>
