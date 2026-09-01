@@ -126,6 +126,24 @@ def divider(y):
     return f'<line x1="{PAD}" y1="{y}" x2="{WIDTH - PAD}" y2="{y}" stroke="{BORDER}"/>'
 
 
+def sparkline_paths(weekly, x, y, w, h):
+    """Filled-area + line path for a weekly-totals sparkline, plus the
+    coordinate of its last point (for the end-of-line marker dot)."""
+    peak = max(weekly) or 1
+    n = len(weekly)
+    step = w / max(n - 1, 1)
+    pts = [(x + i * step, y + h - (v / peak) * h) for i, v in enumerate(weekly)]
+    area = (
+        f"M{pts[0][0]:.1f} {y + h:.1f}"
+        + "".join(f"L{px:.1f} {py:.1f}" for px, py in pts)
+        + f"L{pts[-1][0]:.1f} {y + h:.1f}Z"
+    )
+    line = f"M{pts[0][0]:.1f} {pts[0][1]:.1f}" + "".join(
+        f"L{px:.1f} {py:.1f}" for px, py in pts[1:]
+    )
+    return area, line, pts[-1]
+
+
 RAMP = " :+#@"
 
 
@@ -137,27 +155,50 @@ def ramp_char(count, day_max):
     return RAMP[idx]
 
 
-def build_card(total, current, longest, lang_nodes, weeks):
+def build_card(total, current, longest, lang_nodes, weeks, weekly, active_days, best_week):
     parts = []
     y = PAD + 4
 
-    # --- contributions ---------------------------------------------------
+    # --- contributions: hero number, active-days/best-week, weekly sparkline
+    block_top = y
     parts.append(section_title(y, "CONTRIBUTIONS"))
-    y += 30
-    rows = [
-        ("contributions, past year", f"{total:,}"),
-        ("current streak", f"{current} day{'s' if current != 1 else ''}"),
-        ("longest streak", f"{longest} day{'s' if longest != 1 else ''}"),
-    ]
-    for label, value in rows:
-        parts.append(f'<text x="{PAD}" y="{y}" fill="{MUTED}" font-size="13">{label}</text>')
-        parts.append(
-            f'<text x="{WIDTH - PAD}" y="{y}" fill="{FG}" font-size="13" '
-            f'text-anchor="end">{value}</text>'
-        )
-        y += ROW_H
 
-    y += 12
+    hero_y = block_top + 34
+    parts.append(f'<text x="{PAD}" y="{hero_y}" fill="{FG}" font-size="40" font-weight="700">{total:,}</text>')
+    caption_y = hero_y + 18
+    parts.append(f'<text x="{PAD}" y="{caption_y}" fill="{MUTED}" font-size="12">contributions, past year</text>')
+
+    ry = block_top + 12
+    for val, lab in ((active_days, "active days"), (best_week, "best week")):
+        parts.append(
+            f'<text x="{WIDTH - PAD}" y="{ry}" fill="{FG}" font-size="19" '
+            f'font-weight="700" text-anchor="end">{val:,}</text>'
+        )
+        ry += 16
+        parts.append(
+            f'<text x="{WIDTH - PAD}" y="{ry}" fill="{MUTED}" font-size="11" '
+            f'text-anchor="end">{lab}</text>'
+        )
+        ry += 24
+
+    spark_top = max(caption_y, ry) + 14
+    spark_h = 56
+    area, line, (ex, ey) = sparkline_paths(weekly, PAD, spark_top, WIDTH - 2 * PAD, spark_h)
+    parts.append(f'<path d="{area}" fill="{ACCENT}" fill-opacity="0.15"/>')
+    parts.append(
+        f'<path d="{line}" fill="none" stroke="{ACCENT}" stroke-width="2" '
+        f'stroke-linejoin="round" stroke-linecap="round"/>'
+    )
+    parts.append(f'<circle cx="{ex:.1f}" cy="{ey:.1f}" r="3.5" fill="{BG}" stroke="{ACCENT}" stroke-width="2"/>')
+
+    y = spark_top + spark_h + 22
+    parts.append(
+        f'<text x="{PAD}" y="{y}" fill="{MUTED}" font-size="12">'
+        f"current streak {current} day{'s' if current != 1 else ''}"
+        f"  ·  longest streak {longest} day{'s' if longest != 1 else ''}</text>"
+    )
+
+    y += 20
     parts.append(divider(y))
     y += 30
 
@@ -241,9 +282,13 @@ def main():
     weeks = calendar["weeks"]
     all_days = [d for w in weeks for d in w["contributionDays"]]
     current, longest = compute_streaks(all_days)
+    weekly = [sum(d["contributionCount"] for d in w["contributionDays"]) for w in weeks]
+    active_days = sum(1 for d in all_days if d["contributionCount"] > 0)
+    best_week = max(weekly) if weekly else 0
 
     svg = build_card(
-        calendar["totalContributions"], current, longest, user["repositories"]["nodes"], weeks
+        calendar["totalContributions"], current, longest, user["repositories"]["nodes"],
+        weeks, weekly, active_days, best_week,
     )
 
     os.makedirs(OUT_DIR, exist_ok=True)
