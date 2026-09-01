@@ -45,12 +45,8 @@ and resilient deployment.
 
 </div>
 
-<sub>
-
-This card is generated, not embedded from a third-party badge service.
+<sub>This card is generated, not embedded from a third-party badge service.
 [`scripts/generate_stats.py`](scripts/generate_stats.py) queries the GitHub
 GraphQL API directly; [a scheduled Action](.github/workflows/stats.yml) runs
 it once a day and commits only what changed. Nothing here can rate-limit or
-go dark because nothing loads from anyone else's server.
-
-</sub>
+go dark because nothing loads from anyone else's server.</sub>
