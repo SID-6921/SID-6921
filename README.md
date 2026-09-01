@@ -41,20 +41,16 @@ and resilient deployment.
 
 <div align="center">
 
-<img src="./svg/stats.svg" width="460" alt="contribution stats"/>
-
-<img src="./svg/langs.svg" width="460" alt="top languages"/>
-
-<img src="./svg/year.svg" width="620" alt="the last year, one character per day"/>
+<img src="./svg/card.svg" width="620" alt="contributions, top languages, and the last year"/>
 
 </div>
 
 <sub>
 
-Every graphic above is generated, not embedded from a third-party badge
-service. [`scripts/generate_stats.py`](scripts/generate_stats.py) queries the
-GitHub GraphQL API directly; [a scheduled Action](.github/workflows/stats.yml)
-runs it once a day and commits only what changed. Nothing here can rate-limit
-or go dark because nothing loads from anyone else's server.
+This card is generated, not embedded from a third-party badge service.
+[`scripts/generate_stats.py`](scripts/generate_stats.py) queries the GitHub
+GraphQL API directly; [a scheduled Action](.github/workflows/stats.yml) runs
+it once a day and commits only what changed. Nothing here can rate-limit or
+go dark because nothing loads from anyone else's server.
 
 </sub>
