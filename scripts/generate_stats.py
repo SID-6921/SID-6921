@@ -16,16 +16,16 @@ import json
 import os
 import sys
 import urllib.request
-from datetime import date
+from datetime import datetime, timedelta, timezone
 
 LOGIN = os.environ.get("PROFILE_LOGIN", "SID-6921")
 TOKEN = os.environ["GH_TOKEN"]
 OUT_DIR = os.environ.get("OUT_DIR", "svg")
 
 QUERY = """
-query($login: String!) {
+query($login: String!, $from: DateTime!, $to: DateTime!) {
   user(login: $login) {
-    contributionsCollection {
+    contributionsCollection(from: $from, to: $to) {
       contributionCalendar {
         totalContributions
         weeks {
@@ -60,6 +60,18 @@ FONT = (
 )
 
 
+def contribution_window():
+    """Pin the query to whole UTC days.
+
+    Without this, "the past year" is measured from request time, so the
+    window edge drifts a little each run and the sparkline/heatmap change
+    by a sliver even on a day with no new activity — committing noise.
+    """
+    today = datetime.now(timezone.utc).date()
+    start = today - timedelta(days=364)
+    return f"{start.isoformat()}T00:00:00Z", f"{today.isoformat()}T23:59:59Z"
+
+
 def gh_graphql(query, variables):
     body = json.dumps({"query": query, "variables": variables}).encode()
     req = urllib.request.Request(
@@ -88,7 +100,7 @@ def truncate(name, max_chars=17):
 
 def compute_streaks(days):
     counts = [d["contributionCount"] for d in days]
-    today_str = date.today().isoformat()
+    today_str = datetime.now(timezone.utc).date().isoformat()
     i = len(counts) - 1
     if days[i]["date"] == today_str and counts[i] == 0:
         i -= 1
@@ -156,7 +168,9 @@ def build_card(total, current, longest, lang_nodes, weeks):
             name = edge["node"]["name"]
             totals[name] = totals.get(name, 0) + edge["size"]
             colors.setdefault(name, edge["node"]["color"] or MUTED)
-    ranked = sorted(totals.items(), key=lambda kv: kv[1], reverse=True)[:6]
+    # sort by size descending, then name, so equal values never reorder
+    # between runs and cause a no-op commit
+    ranked = sorted(totals.items(), key=lambda kv: (-kv[1], kv[0]))[:6]
     grand_total = sum(totals.values()) or 1
 
     parts.append(section_title(y, "TOP LANGUAGES"))
@@ -220,7 +234,8 @@ def build_card(total, current, longest, lang_nodes, weeks):
 
 
 def main():
-    data = gh_graphql(QUERY, {"login": LOGIN})
+    since, until = contribution_window()
+    data = gh_graphql(QUERY, {"login": LOGIN, "from": since, "to": until})
     user = data["user"]
     calendar = user["contributionsCollection"]["contributionCalendar"]
     weeks = calendar["weeks"]

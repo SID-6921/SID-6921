@@ -7,6 +7,8 @@
 [medium](https://medium.com/@nandasiddhardha) &nbsp;·&nbsp;
 [researchgate](https://researchgate.net/profile/Nanda-Siddhardha)
 
+<img src="./svg/signal.svg" width="620" alt="an EKG trace, one P-QRS-T cycle repeating"/>
+
 </div>
 
 > Biomedical intelligence systems for real clinical use.<br>
@@ -45,8 +47,11 @@ and resilient deployment.
 
 </div>
 
-<sub>This card is generated, not embedded from a third-party badge service.
-[`scripts/generate_stats.py`](scripts/generate_stats.py) queries the GitHub
-GraphQL API directly; [a scheduled Action](.github/workflows/stats.yml) runs
-it once a day and commits only what changed. Nothing here can rate-limit or
-go dark because nothing loads from anyone else's server.</sub>
+<sub>Every graphic here is generated, not embedded from a third-party service.
+The EKG trace up top is drawn once by
+[`scripts/make_signal.py`](scripts/make_signal.py); the card above is drawn
+daily by [`scripts/generate_stats.py`](scripts/generate_stats.py), which
+queries the GitHub GraphQL API directly, run by
+[a scheduled Action](.github/workflows/stats.yml) that commits only what
+changed. Nothing here can rate-limit or go dark because nothing loads from
+anyone else's server.</sub>
