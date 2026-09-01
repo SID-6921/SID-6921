@@ -1,57 +1,51 @@
-<div align="center">
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=rect&height=170&color=0:111827,100:1f2937&text=Nanda%20Siddhardha&fontColor=F9FAFB&fontSize=46&fontAlignY=40&desc=Master's%20in%20Biomedical%20Engineering&descAlignY=62" alt="Hero banner" />
+</p>
 
-<samp><b>NANDA SIDDHARDHA</b></samp>
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=sid-6921&label=Profile%20Views&color=374151&style=flat" alt="Profile views" />
+</p>
 
-[email](mailto:sn3199@columbia.edu) &nbsp;·&nbsp;
-[linkedin](https://www.linkedin.com/in/nanda-siddhardha/) &nbsp;·&nbsp;
-[medium](https://medium.com/@nandasiddhardha) &nbsp;·&nbsp;
-[researchgate](https://researchgate.net/profile/Nanda-Siddhardha)
+<h3 align="center">Biomedical intelligence systems for real clinical use.</h3>
 
-<img src="./svg/signal.svg" width="620" alt="an EKG trace, one P-QRS-T cycle repeating"/>
+## About
 
-</div>
+I am currently pursuing a Master's in Biomedical Engineering.
 
-> Biomedical intelligence systems for real clinical use.<br>
-> Master's in Biomedical Engineering.
+My work centers on biomedical signal intelligence, diagnostic modeling, and production-ready health-tech workflows. Cybersecurity was a strong undergraduate hobby and still informs my approach to reliability, privacy, and resilient deployment.
 
-My work centers on biomedical signal intelligence, diagnostic modeling, and
-production-ready health-tech workflows. Cybersecurity was a strong
-undergraduate hobby and still informs how I think about reliability, privacy,
-and resilient deployment.
-
-<samp>python &nbsp; pytorch &nbsp; typescript &nbsp; monai &nbsp; nnU-Net &nbsp; verilog &nbsp; docker &nbsp; git</samp>
-
-**Research philosophy**
+## Research Philosophy
 
 - Build beyond prototypes: prioritize deployability from day one.
 - Keep models clinically interpretable, not just statistically strong.
 - Design for reliability, reproducibility, and patient-context constraints.
 
-**Current directions**
+## Current Directions
 
 - Biomedical signal processing for diagnostics and monitoring
 - Machine learning pipelines for healthcare prediction tasks
 - Embedded and VLSI-assisted sensing architectures
 - Reproducible health-tech experimentation and evaluation
 
-**Academic trajectory**
+## Academic Trajectory
 
-- Now &nbsp;— advancing biomedical ML workflows for practical clinical utility
-- Next &nbsp;— translating validated prototypes into robust healthcare tools
+- Now: advancing biomedical ML workflows for practical clinical utility
+- Next: translating validated prototypes into robust healthcare tools
 
-**Pulse**
+## Contact
 
-<div align="center">
+- Email: sn3199@columbia.edu
+- LinkedIn: https://www.linkedin.com/in/nanda-siddhardha/
+- Medium: https://medium.com/@nandasiddhardha
+- ResearchGate: https://researchgate.net/profile/Nanda-Siddhardha
 
-<img src="./svg/card.svg" width="620" alt="contributions, top languages, and the last year"/>
+## GitHub Pulse
 
-</div>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=sid-6921&show_icons=true&theme=github_dark&hide_border=true" alt="GitHub stats" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=sid-6921&theme=github-dark-blue&hide_border=true" alt="GitHub streak" />
+</p>
 
-<sub>Every graphic here is generated, not embedded from a third-party service.
-The EKG trace up top is drawn once by
-[`scripts/make_signal.py`](scripts/make_signal.py); the card above is drawn
-daily by [`scripts/generate_stats.py`](scripts/generate_stats.py), which
-queries the GitHub GraphQL API directly, run by
-[a scheduled Action](.github/workflows/stats.yml) that commits only what
-changed. Nothing here can rate-limit or go dark because nothing loads from
-anyone else's server.</sub>
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=sid-6921&layout=compact&theme=github_dark&hide_border=true" alt="Top languages" />
+</p>
