@@ -100,7 +100,6 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 | [jordan-gibbs/hyperresearch](https://github.com/jordan-gibbs/hyperresearch) | 3.8k | [#131](https://github.com/jordan-gibbs/hyperresearch/pull/131) | Vectorize `semantic_search`'s cosine scan with numpy |
 | [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 74.1k | [#3239](https://github.com/ruvnet/ruflo/pull/3239) | Daemon reads `config_set`'s values envelope correctly |
 | [scverse/anndata](https://github.com/scverse/anndata) | 775 | [#2517](https://github.com/scverse/anndata/pull/2517) | Regression test for `filename=None` after `read_h5ad` |
-| [openai/parameter-golf](https://github.com/openai/parameter-golf) | 5.2k | [#1262](https://github.com/openai/parameter-golf/pull/1262) | Starter-kit schema and path-safety alignment |
 
 ## Contact
 
