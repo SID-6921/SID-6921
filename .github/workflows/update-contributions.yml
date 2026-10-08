@@ -1,0 +1,44 @@
+name: Update OSS contributions table
+
+on:
+  schedule:
+    - cron: "0 13 * * *"  # daily, 13:00 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run mechanical update script
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          chmod +x scripts/update_oss_table.sh
+          ./scripts/update_oss_table.sh
+
+      - name: Open PR if anything changed
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if git diff --quiet README.md; then
+            echo "No changes, nothing to do."
+            exit 0
+          fi
+          BRANCH="auto/oss-contributions-update-$(date +%Y%m%d)"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          git add README.md
+          git commit -m "Auto-update OSS contributions stats and table"
+          git push origin "$BRANCH"
+          gh pr create \
+            --title "Auto-update: OSS contributions stats and table" \
+            --body "Mechanical refresh of the Snapshot line and Under review table from live GitHub data. No narrative sections touched. Review and merge when ready." \
+            --head "$BRANCH" \
+            --base main
