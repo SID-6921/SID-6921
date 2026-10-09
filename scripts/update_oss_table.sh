@@ -87,36 +87,5 @@ text = re.sub(
 open(path, "w", encoding="utf-8").write(text)
 PYEOF
 
-# --- Regenerate the organizations badge row ---
-# One avatar per distinct owner across merged-PR repos, linking to that
-# owner's GitHub page. Reuses merged_repos.txt rather than a second API call.
-orgs=$(sort -u /tmp/merged_repos.txt | cut -d/ -f1 | sort -u)
-org_count=$(echo "$orgs" | wc -l | tr -d ' ')
-
-org_row=""
-while read -r org; do
-  [[ -z "$org" ]] && continue
-  org_row+="<a href=\"https://github.com/$org\" title=\"$org\"><img src=\"https://github.com/$org.png\" width=\"44\" height=\"44\" style=\"border-radius:50%;margin:0 4px\" alt=\"$org\"/></a> "
-done <<< "$orgs"
-
-{
-  printf '**%s organizations, %s repos.**\n\n' "$org_count" "$contributor_repo_count"
-  printf '<p>%s</p>\n' "$org_row"
-} > /tmp/orgs_block.md
-
-python3 - "$README" /tmp/orgs_block.md <<'PYEOF'
-import re, sys
-path, block_path = sys.argv[1], sys.argv[2]
-block = open(block_path, encoding="utf-8").read().strip()
-text = open(path, encoding="utf-8").read()
-text = re.sub(
-    r"(<!-- OSS-ORGS:START -->\n).*?(\n<!-- OSS-ORGS:END -->)",
-    lambda m: m.group(1) + block + m.group(2),
-    text,
-    flags=re.S,
-)
-open(path, "w", encoding="utf-8").write(text)
-PYEOF
-
-rm -f /tmp/exclude_repos.txt /tmp/merged_repos.txt /tmp/open_prs_all.tsv /tmp/open_prs.tsv /tmp/oss_table.md /tmp/orgs_block.md
+rm -f /tmp/exclude_repos.txt /tmp/merged_repos.txt /tmp/open_prs_all.tsv /tmp/open_prs.tsv /tmp/oss_table.md
 echo "Done."
