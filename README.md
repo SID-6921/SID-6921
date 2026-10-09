@@ -83,7 +83,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - **Why this repo matters:** ITK started as a US National Institutes of Health (NIH)-funded project in 1999 and is now a standard medical-imaging toolkit in academic and clinical research worldwide, including groups across the US and India. A silent bug here doesn't stay theoretical; it can sit underneath someone's actual imaging pipeline.
 - **Severity:** 4/5 — no error raised means no one knows it happened; a silent broken contract is worse than a crash.
 
-#### <img src="svg/top-repo-badge.svg" width="26" align="absmiddle" alt="#1 by stars"/> [keras-team/keras](https://github.com/keras-team/keras) ⭐ 64.4k
+#### [keras-team/keras](https://github.com/keras-team/keras) ⭐ 64.4k
 [#23860](https://github.com/keras-team/keras/pull/23860) merged: `ops.ndim` returned a symbolic placeholder for dynamic-batch Functional-model inputs, crashing `circle`/`CircleLoss` with a cryptic backend error.
 - **Impact:** broke a documented loss function for an entire class of models — any dynamic-batch Functional model, not an edge case.
 - Two earlier PRs ([#23215](https://github.com/keras-team/keras/pull/23215) path-traversal hardening, [#23216](https://github.com/keras-team/keras/pull/23216) container weight-path stabilization) were reviewed and closed unmerged.
@@ -146,5 +146,5 @@ Owners of the repos above where a PR has actually merged, tagged rather than jus
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-10-09 14:36 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-10-09 14:28 UTC.
 <!-- LAST-UPDATED:END -->
