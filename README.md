@@ -41,7 +41,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 <!-- OSS-STATS:END -->
 
 <!-- FEATURED-REPO:START -->
-🏆 **Biggest repo in this list right now:** [keras-team/keras](https://github.com/keras-team/keras) — 64.4k ⭐ (recomputed daily, so this moves if a bigger repo joins the list or the ranking shifts).
+📈 **Trending this run:** [keras-team/keras](https://github.com/keras-team/keras) gained +50 ⭐ since the last check (now 64.4k ⭐ total). Recomputed daily from a real snapshot, not a guess.
 <!-- FEATURED-REPO:END -->
 
 ### Contributor repos (merged)
@@ -80,6 +80,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 [#6932](https://github.com/InsightSoftwareConsortium/ITK/pull/6932) merged same day as opened: `array_view_from_vnl_vector` aliased the deep-copy function instead of the documented view/no-copy function.
 - **Impact:** silently broke a documented no-copy contract — callers relying on in-place mutation through the view got a disconnected copy, with no error raised.
 - Two more open the same week: [#6936](https://github.com/InsightSoftwareConsortium/ITK/pull/6936) fixes a `TypeError` in `transform_from_dict` for composite (multi-)transforms; [#6937](https://github.com/InsightSoftwareConsortium/ITK/pull/6937) fixes `image_from_xarray()` assigning origin/spacing to the wrong axes on 4D images.
+- **Why this repo matters:** ITK started as a US National Institutes of Health (NIH)-funded project in 1999 and is now a standard medical-imaging toolkit in academic and clinical research worldwide, including groups across the US and India. A silent bug here doesn't stay theoretical; it can sit underneath someone's actual imaging pipeline.
 - **Severity:** 4/5 — no error raised means no one knows it happened; a silent broken contract is worse than a crash.
 
 #### [keras-team/keras](https://github.com/keras-team/keras) ⭐ 64.4k
@@ -136,5 +137,5 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-10-09 14:14 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-10-09 14:17 UTC.
 <!-- LAST-UPDATED:END -->

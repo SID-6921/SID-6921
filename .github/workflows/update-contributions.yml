@@ -26,7 +26,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          if git diff --quiet README.md; then
+          if git diff --quiet README.md scripts/.star_snapshot.json; then
             echo "No changes, nothing to do."
             exit 0
           fi
@@ -34,11 +34,11 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add README.md
+          git add README.md scripts/.star_snapshot.json
           git commit -m "Auto-update OSS contributions stats and table"
           git push origin "$BRANCH"
           gh pr create \
             --title "Auto-update: OSS contributions stats and table" \
-            --body "Mechanical refresh of the Snapshot line and Under review table from live GitHub data. No narrative sections touched. Review and merge when ready." \
+            --body "Mechanical refresh of the Snapshot line, Under review table, and star-trend snapshot from live GitHub data. No narrative sections touched. Review and merge when ready." \
             --head "$BRANCH" \
             --base main

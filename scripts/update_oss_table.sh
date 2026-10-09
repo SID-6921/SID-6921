@@ -34,25 +34,58 @@ open_count=$(wc -l < /tmp/open_prs.tsv | tr -d ' ')
 
 echo "merged=$merged_count open=$open_count contributor_repos=$contributor_repo_count"
 
-# --- Find the single highest-starred repo in the contributor list ---
-# Recomputed from live data every run, so "featured" means "biggest right
-# now," not a number typed in once and left to go stale.
-echo "Finding the highest-starred contributor repo..."
-top_repo=""
-top_stars=-1
+# --- Find which contributor repo is actually trending ---
+# "Trending" means real star growth since the last recorded run, not just
+# whichever repo happens to have the most stars overall (a repo can be huge
+# and flat). Growth is tracked in a small snapshot file committed alongside
+# the README, so each run compares against yesterday's real numbers --
+# no fabricated trend, and an honest "no history yet" on the very first run.
+SNAPSHOT="scripts/.star_snapshot.json"
+echo "Computing star deltas since the last snapshot..."
+
+declare -A current_stars
 for repo in $(sort -u /tmp/merged_repos.txt); do
-  s=$(gh api "repos/$repo" --jq '.stargazers_count' 2>/dev/null || echo 0)
-  if (( s > top_stars )); then
-    top_stars=$s
-    top_repo=$repo
-  fi
+  current_stars[$repo]=$(gh api "repos/$repo" --jq '.stargazers_count' 2>/dev/null || echo 0)
 done
-if (( top_stars >= 1000 )); then
-  top_stars_fmt=$(awk -v s="$top_stars" 'BEGIN{printf "%.1fk", s/1000}')
-else
-  top_stars_fmt="$top_stars"
+
+top_repo=""
+top_delta=0
+top_stars_now=0
+have_history=0
+if [[ -f "$SNAPSHOT" ]]; then
+  have_history=1
+  for repo in "${!current_stars[@]}"; do
+    prev=$(python3 -c "import json,sys; d=json.load(open('$SNAPSHOT')); print(d.get('$repo', ${current_stars[$repo]}))" 2>/dev/null || echo "${current_stars[$repo]}")
+    delta=$(( current_stars[$repo] - prev ))
+    if (( delta > top_delta )); then
+      top_delta=$delta
+      top_repo=$repo
+      top_stars_now=${current_stars[$repo]}
+    fi
+  done
 fi
-featured_line="🏆 **Biggest repo in this list right now:** [$top_repo](https://github.com/$top_repo) — ${top_stars_fmt} ⭐ (recomputed daily, so this moves if a bigger repo joins the list or the ranking shifts)."
+
+fmt_k() { local n=$1; if (( n >= 1000 )); then awk -v s="$n" 'BEGIN{printf "%.1fk", s/1000}'; else echo "$n"; fi; }
+
+if [[ -n "$top_repo" ]]; then
+  featured_line="📈 **Trending this run:** [$top_repo](https://github.com/$top_repo) gained +${top_delta} ⭐ since the last check (now $(fmt_k "$top_stars_now") ⭐ total). Recomputed daily from a real snapshot, not a guess."
+elif (( have_history == 1 )); then
+  featured_line="📈 **Trending this run:** no repo in the list gained stars since the last check. Nothing to feature today, that's the honest answer."
+else
+  featured_line="📈 **Trending:** first run with star tracking, no history to compare against yet. Check back after tomorrow's update for a real delta."
+fi
+
+# Persist this run's numbers as tomorrow's baseline.
+python3 - "$SNAPSHOT" <<PYEOF
+import json
+data = {
+$(for r in "${!current_stars[@]}"; do printf '  "%s": %s,\n' "$r" "${current_stars[$r]}"; done)
+}
+import sys
+with open(sys.argv[1], "w", encoding="utf-8") as fh:
+    json.dump(data, fh, indent=2, sort_keys=True)
+    fh.write("\n")
+PYEOF
 
 python3 - "$README" "$featured_line" <<'PYEOF'
 import re, sys
