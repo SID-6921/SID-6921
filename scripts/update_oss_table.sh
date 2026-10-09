@@ -87,5 +87,62 @@ text = re.sub(
 open(path, "w", encoding="utf-8").write(text)
 PYEOF
 
+# --- Refresh the inline star count on each "Contributor repos" heading ---
+# These lines look like: #### [OWNER/REPO](url) ⭐ 8.3k — description
+# Re-fetch each repo's current star count via the API and rewrite just the
+# number, leaving the rest of the (manually curated) line untouched.
+python3 - "$README" <<'PYEOF'
+import re, subprocess, sys
+
+path = sys.argv[1]
+text = open(path, encoding="utf-8").read()
+
+def fmt_stars(n):
+    return f"{n/1000:.1f}k" if n >= 1000 else str(n)
+
+def refresh(m):
+    owner_repo = m.group("repo")
+    try:
+        out = subprocess.run(
+            ["gh", "api", f"repos/{owner_repo}", "--jq", ".stargazers_count"],
+            capture_output=True, text=True, check=True,
+        )
+        stars = fmt_stars(int(out.stdout.strip()))
+    except Exception:
+        stars = m.group("stars")  # leave unchanged on any API hiccup
+    return f"{m.group('prefix')}{stars}{m.group('suffix')}"
+
+pattern = re.compile(
+    r"(?P<prefix>^#### \[[^\]]+\]\(https://github\.com/(?P<repo>[^)]+)\) ⭐ )"
+    r"(?P<stars>[\d.,]+k?)"
+    r"(?P<suffix>(?= |$))",
+    re.MULTILINE,
+)
+text = pattern.sub(refresh, text)
+open(path, "w", encoding="utf-8").write(text)
+PYEOF
+
+# --- Stamp the last-run time ---
+# Human-readable + explicit UTC so "when does this update" is never a guess.
+last_updated="This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: $(date -u '+%Y-%m-%d %H:%M UTC')."
+
+python3 - "$README" "$last_updated" <<'PYEOF'
+import re, sys
+path, line = sys.argv[1], sys.argv[2]
+text = open(path, encoding="utf-8").read()
+if "<!-- LAST-UPDATED:START -->" in text:
+    text = re.sub(
+        r"(<!-- LAST-UPDATED:START -->\n).*?(\n<!-- LAST-UPDATED:END -->)",
+        lambda m: m.group(1) + line + m.group(2),
+        text,
+        flags=re.S,
+    )
+else:
+    text = text.rstrip("\n") + (
+        "\n\n---\n\n<!-- LAST-UPDATED:START -->\n" + line + "\n<!-- LAST-UPDATED:END -->\n"
+    )
+open(path, "w", encoding="utf-8").write(text)
+PYEOF
+
 rm -f /tmp/exclude_repos.txt /tmp/merged_repos.txt /tmp/open_prs_all.tsv /tmp/open_prs.tsv /tmp/oss_table.md
 echo "Done."

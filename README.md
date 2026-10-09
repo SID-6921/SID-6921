@@ -37,12 +37,12 @@ My work centers on biomedical signal intelligence, diagnostic modeling, and prod
 Bugs found by reading code and comparing sibling functions, not by picking up issues off a tracker — each fix below was reproduced locally before being submitted.
 
 <!-- OSS-STATS:START -->
-**Snapshot:** 7 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 21 merged PRs · ~20 open PRs under review.
+**Snapshot:** 9 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 24 merged PRs · ~19 open PRs under review.
 <!-- OSS-STATS:END -->
 
 ### Contributor repos (merged)
 
-#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 8.3k — LLM fine-tuning CLI
+#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 8.4k — LLM fine-tuning CLI
 13 merged PRs — security (SSRF predicate consolidation), training reliability (checkpoint resume, failure-boundary widening, nonce-based worker verification), and data-path correctness (format validation, stripe-root re-validation on every shard write).
 - **Impact:** the SSRF fix (#625) closed a loopback/private-host bypass across the whole request path, not one call site; the stripe-recheck fix (#1663) turned a silent data-corruption window into a surfaced-and-refused failure, via a maintainer-found volume-mount-point edge case reproduced and fixed live.
 - **Scope:** largest body of work here by PR count; several of the 13 are substantial test/fixture reworks.
@@ -79,7 +79,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 
 ### Co-authored credit (not in contributor graph)
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 50.9k — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 51.0k — Claude Code academic-paper skill suite
 Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imbad0202/academic-research-skills/pull/457)); the maintainer liked the pointer-file approach and rebuilt it with corrections as [#465](https://github.com/Imbad0202/academic-research-skills/pull/465) (merged), crediting the idea via `Co-authored-by`.
 - **Note:** GitHub's contributor graph is built from the git author field only and omits co-author trailers — this credit is real and verifiable in the merged commit, but will not show as a contributor avatar.
 - A small regex-escaping fix is open now ([#956](https://github.com/Imbad0202/academic-research-skills/pull/956)); two earlier utility-mode PRs were closed as architectural mismatches with the repo's thin-trigger pattern.
@@ -89,26 +89,25 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 <!-- OSS-TABLE:START -->
 | Repo | Stars | PR | What it fixes |
 |---|---|---|---|
+| [NVIDIA/Deep-Learning-Accelerator-SW](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW) | 238 | [#40](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW/pull/40) | Fix bias-less Conv handling in fuse_convs_horizontally |
+| [NVIDIA/Deep-Learning-Accelerator-SW](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW) | 238 | [#38](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW/pull/38) | Replace removed np.product with np.prod |
 | [InsightSoftwareConsortium/ITK](https://github.com/InsightSoftwareConsortium/ITK) | 1.7k | [#6937](https://github.com/InsightSoftwareConsortium/ITK/pull/6937) | BUG: Fix axis order in image_from_xarray origin/spacing |
 | [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) | 6.8k | [#585](https://github.com/alphaXiv/OpenResearch/pull/585) | Remove dead statusColor helper that had drifted from StatusBadge |
 | [InsightSoftwareConsortium/ITK](https://github.com/InsightSoftwareConsortium/ITK) | 1.7k | [#6936](https://github.com/InsightSoftwareConsortium/ITK/pull/6936) | BUG: Fix transform_from_dict composite dimension lookup |
-| [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 50.9k | [#956](https://github.com/Imbad0202/academic-research-skills/pull/956) | fix(tests): use raw string for regex match to avoid invalid escape warning |
 | [scverse/scanpy](https://github.com/scverse/scanpy) | 2.6k | [#4401](https://github.com/scverse/scanpy/pull/4401) | Fix Ingest truncating to settings.N_PCS even when pp.neighbors used more PCs |
 | [neuralinkcorp/datarepo](https://github.com/neuralinkcorp/datarepo) | 203 | [#78](https://github.com/neuralinkcorp/datarepo/pull/78) | Escape values in the generated SQL-filter catalog snippet |
-| [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.2k | [#2645](https://github.com/NVIDIA/Model-Optimizer/pull/2645) | fix(distill): flatten MFTLoss labels along with the logits |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.2k | [#2583](https://github.com/NVIDIA/Model-Optimizer/pull/2583) | fix(onnx): move a negative DequantizeLinear axis when transposing the weight |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.2k | [#2575](https://github.com/NVIDIA/Model-Optimizer/pull/2575) | fix(autocast): do not lose magnitude or sign when narrowing initializers |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.2k | [#2567](https://github.com/NVIDIA/Model-Optimizer/pull/2567) | fix(onnx): keep the converted weight's type in step with its zero point |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | 2.4k | [#1518](https://github.com/TorchIO-project/torchio/pull/1518) | Compute normalization statistics per sample |
 | [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) | 8.8k | [#9134](https://github.com/Project-MONAI/MONAI/pull/9134) | Fix MeanIoU ignore_index to exclude voxels, not just a channel |
 | [pydicom/pydicom](https://github.com/pydicom/pydicom) | 2.2k | [#2382](https://github.com/pydicom/pydicom/pull/2382) | Clamp LUT indices before narrowing the index dtype |
-| [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.2k | [#2554](https://github.com/NVIDIA/Model-Optimizer/pull/2554) | fix(onnx): trace Transpose between DequantizeLinear and its consumer in qdq_to_dq |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.2k | [#2553](https://github.com/NVIDIA/Model-Optimizer/pull/2553) | fix(autocast): stream calibration batches instead of materializing all of them |
 | [jordan-gibbs/hyperresearch](https://github.com/jordan-gibbs/hyperresearch) | 3.8k | [#131](https://github.com/jordan-gibbs/hyperresearch/pull/131) | perf: vectorize semantic_search's cosine scan with numpy (#59) |
-| [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 74.1k | [#3239](https://github.com/ruvnet/ruflo/pull/3239) | fix(daemon): read config_set's values envelope in config.json reader |
+| [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 74.2k | [#3239](https://github.com/ruvnet/ruflo/pull/3239) | fix(daemon): read config_set's values envelope in config.json reader |
 | [MIC-DKFZ/nnUNet](https://github.com/MIC-DKFZ/nnUNet) | 8.9k | [#3049](https://github.com/MIC-DKFZ/nnUNet/pull/3049) | Harden trainer lookup against phantom module import failures |
 | [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) | 1.9k | [#23058](https://github.com/galaxyproject/galaxy/pull/23058) | Validate matched multi-input expansion errors before async job prep |
-| [scverse/anndata](https://github.com/scverse/anndata) | 775 | [#2517](https://github.com/scverse/anndata/pull/2517) | test(backed): add regression for filename=None after read_h5ad |
+| [scverse/anndata](https://github.com/scverse/anndata) | 776 | [#2517](https://github.com/scverse/anndata/pull/2517) | test(backed): add regression for filename=None after read_h5ad |
 <!-- OSS-TABLE:END -->
 
 ## Contact
@@ -118,3 +117,8 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 - Medium: https://medium.com/@nandasiddhardha
 - ResearchGate: https://researchgate.net/profile/Nanda-Siddhardha
 
+---
+
+<!-- LAST-UPDATED:START -->
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-10-09 14:10 UTC.
+<!-- LAST-UPDATED:END -->
