@@ -1,0 +1,13 @@
+<svg width="72" height="72" viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <radialGradient id="g" cx="35%" cy="30%" r="75%">
+    <stop offset="0%" stop-color="#fff3c4"/>
+    <stop offset="55%" stop-color="#f2c94c"/>
+    <stop offset="100%" stop-color="#b8860b"/>
+  </radialGradient>
+</defs>
+<circle cx="36.0" cy="36.0" r="33.0" fill="url(#g)" stroke="#8a6d1a" stroke-width="2.5"/>
+<circle cx="36.0" cy="36.0" r="27.0" fill="none" stroke="#8a6d1a" stroke-width="1" stroke-dasharray="2.5 3"/>
+<text x="36.0" y="34.0" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="22" font-weight="800" fill="#3d2e05">#1</text>
+<text x="36.0" y="53.0" text-anchor="middle" font-family="ui-monospace, Menlo, monospace" font-size="8" font-weight="700" letter-spacing="0.5" fill="#3d2e05">TOP REPO</text>
+</svg>

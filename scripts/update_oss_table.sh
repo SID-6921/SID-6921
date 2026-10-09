@@ -170,19 +170,38 @@ text = re.sub(
 open(path, "w", encoding="utf-8").write(text)
 PYEOF
 
+# --- Generate the "#1 in this list" seal and find who currently wears it ---
+# Based on absolute star count right now, so it's always true today -- not
+# dependent on day-to-day growth like the 🔥 trending badges below, which
+# can legitimately show nothing on a quiet day. This one always has an
+# answer. Recomputed every run: if a bigger repo joins the list, the seal
+# moves to it automatically.
+echo "Generating the top-repo seal badge..."
+python3 scripts/generate_top_badge.py
+
+biggest_repo=""
+biggest_stars=-1
+for repo in "${!current_stars[@]}"; do
+  if (( current_stars[$repo] > biggest_stars )); then
+    biggest_stars=${current_stars[$repo]}
+    biggest_repo=$repo
+  fi
+done
+echo "Biggest repo right now: $biggest_repo ($biggest_stars stars)"
+
 # --- Refresh the inline star count + trending badge on each repo heading ---
-# These lines look like: #### [OWNER/REPO](url) ⭐ 8.3k 🔥 +12 today — description
-# Re-fetch each repo's current star count via the API, and tag it with a
+# These lines look like: #### 🥇 [OWNER/REPO](url) ⭐ 8.3k 🔥 +12 today — description
+# Re-fetch each repo's current star count via the API, tag it with a
 # "🔥 +N today" badge if /tmp/star_deltas.json shows it actually grew since
 # the last run (any repo that grew gets tagged here, not just the single
-# biggest mover called out in the FEATURED-REPO line above). A repo with no
-# growth keeps its plain star count, no stale badge left behind from a
-# previous run -- the old badge (if any) is matched and replaced, not just
-# appended, so re-runs can't pile up duplicate tags.
-python3 - "$README" /tmp/star_deltas.json <<'PYEOF'
+# biggest mover called out in the FEATURED-REPO line above), and give the
+# single biggest-by-size repo the seal image. A repo with no growth/no
+# longer the biggest loses its badge/seal cleanly -- both are matched and
+# replaced each run, not just appended, so re-runs can't pile up duplicates.
+python3 - "$README" /tmp/star_deltas.json "$biggest_repo" <<'PYEOF'
 import json, re, subprocess, sys
 
-path, deltas_path = sys.argv[1], sys.argv[2]
+path, deltas_path, biggest_repo = sys.argv[1], sys.argv[2], sys.argv[3]
 text = open(path, encoding="utf-8").read()
 
 try:
@@ -207,12 +226,16 @@ def refresh(m):
 
     delta = deltas.get(owner_repo, 0)
     badge = f" 🔥 +{delta} today" if delta > 0 else ""
-    return f"{m.group('prefix')}{stars}{badge}{m.group('suffix')}"
+    seal = '<img src="svg/top-repo-badge.svg" width="26" align="absmiddle" alt="#1 by stars"/> ' if owner_repo == biggest_repo else ""
+    heading = m.group("heading")
+    return f"#### {seal}{heading}{stars}{badge}{m.group('suffix')}"
 
 pattern = re.compile(
-    r"(?P<prefix>^#### \[[^\]]+\]\(https://github\.com/(?P<repo>[^)]+)\) ⭐ )"
+    r"^#### "
+    r"(?:<img src=\"svg/top-repo-badge\.svg\"[^>]*/> )?"  # consume a stale seal, if present
+    r"(?P<heading>\[[^\]]+\]\(https://github\.com/(?P<repo>[^)]+)\) ⭐ )"
     r"(?P<stars>[\d.,]+k?)"
-    r"(?: 🔥 \+\d+ today)?"  # consume a stale badge from a previous run, if present
+    r"(?: 🔥 \+\d+ today)?"  # consume a stale trending badge, if present
     r"(?P<suffix>(?= |$))",
     re.MULTILINE,
 )
