@@ -22,7 +22,7 @@ jobs:
           chmod +x scripts/update_oss_table.sh
           ./scripts/update_oss_table.sh
 
-      - name: Open PR if anything changed
+      - name: Open and auto-merge PR if anything changed
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -30,6 +30,11 @@ jobs:
             echo "No changes, nothing to do."
             exit 0
           fi
+          # This step only ever touches README.md and the star-snapshot file,
+          # both written exclusively by update_oss_table.sh above -- no
+          # narrative content, no other file can reach this point. Approved
+          # by the user (2026-10-09) to auto-merge without manual review,
+          # since it's a mechanical, script-only diff every time.
           BRANCH="auto/oss-contributions-update-$(date +%Y%m%d)"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -39,6 +44,7 @@ jobs:
           git push origin "$BRANCH"
           gh pr create \
             --title "Auto-update: OSS contributions stats and table" \
-            --body "Mechanical refresh of the Snapshot line, Under review table, and star-trend snapshot from live GitHub data. No narrative sections touched. Review and merge when ready." \
+            --body "Mechanical refresh of the Snapshot line, Under review table, and star-trend snapshot from live GitHub data. No narrative sections touched. Auto-merged." \
             --head "$BRANCH" \
             --base main
+          gh pr merge "$BRANCH" --merge --delete-branch
