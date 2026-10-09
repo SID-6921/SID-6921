@@ -34,12 +34,15 @@ open_count=$(wc -l < /tmp/open_prs.tsv | tr -d ' ')
 
 echo "merged=$merged_count open=$open_count contributor_repos=$contributor_repo_count"
 
-# --- Find which contributor repo is actually trending ---
+# --- Find which contributor repos are actually trending ---
 # "Trending" means real star growth since the last recorded run, not just
 # whichever repo happens to have the most stars overall (a repo can be huge
 # and flat). Growth is tracked in a small snapshot file committed alongside
-# the README, so each run compares against yesterday's real numbers --
-# no fabricated trend, and an honest "no history yet" on the very first run.
+# the README, so each run compares against yesterday's real numbers -- no
+# fabricated trend, and an honest "no history yet" on the very first run.
+# Every repo's delta (not just the biggest mover) is dumped to
+# /tmp/star_deltas.json so the per-heading badges further down can tag any
+# repo that grew, computed once here rather than re-derived twice.
 SNAPSHOT="scripts/.star_snapshot.json"
 echo "Computing star deltas since the last snapshot..."
 
@@ -48,44 +51,50 @@ for repo in $(sort -u /tmp/merged_repos.txt); do
   current_stars[$repo]=$(gh api "repos/$repo" --jq '.stargazers_count' 2>/dev/null || echo 0)
 done
 
-top_repo=""
-top_delta=0
-top_stars_now=0
 have_history=0
-if [[ -f "$SNAPSHOT" ]]; then
-  have_history=1
-  for repo in "${!current_stars[@]}"; do
-    prev=$(python3 -c "import json,sys; d=json.load(open('$SNAPSHOT')); print(d.get('$repo', ${current_stars[$repo]}))" 2>/dev/null || echo "${current_stars[$repo]}")
-    delta=$(( current_stars[$repo] - prev ))
-    if (( delta > top_delta )); then
-      top_delta=$delta
-      top_repo=$repo
-      top_stars_now=${current_stars[$repo]}
-    fi
-  done
-fi
+[[ -f "$SNAPSHOT" ]] && have_history=1
+
+python3 - "$SNAPSHOT" /tmp/star_deltas.json /tmp/top_trend.txt <<PYEOF
+import json
+
+current = {
+$(for r in "${!current_stars[@]}"; do printf '  "%s": %s,\n' "$r" "${current_stars[$r]}"; done)
+}
+
+import sys
+snapshot_path, deltas_path, top_path = sys.argv[1], sys.argv[2], sys.argv[3]
+
+try:
+    with open(snapshot_path, encoding="utf-8") as fh:
+        previous = json.load(fh)
+except FileNotFoundError:
+    previous = {}
+
+deltas = {repo: current[repo] - previous.get(repo, current[repo]) for repo in current}
+
+with open(snapshot_path, "w", encoding="utf-8") as fh:
+    json.dump(current, fh, indent=2, sort_keys=True)
+    fh.write("\n")
+
+with open(deltas_path, "w", encoding="utf-8") as fh:
+    json.dump(deltas, fh)
+
+top_repo, top_delta = max(deltas.items(), key=lambda kv: kv[1]) if deltas else (None, 0)
+with open(top_path, "w", encoding="utf-8", newline="") as fh:
+    if top_repo and top_delta > 0:
+        fh.write(f"{top_repo}\t{top_delta}\t{current[top_repo]}\n")
+PYEOF
 
 fmt_k() { local n=$1; if (( n >= 1000 )); then awk -v s="$n" 'BEGIN{printf "%.1fk", s/1000}'; else echo "$n"; fi; }
 
-if [[ -n "$top_repo" ]]; then
+if [[ -s /tmp/top_trend.txt ]]; then
+  IFS=$'\t' read -r top_repo top_delta top_stars_now < /tmp/top_trend.txt
   featured_line="📈 **Trending this run:** [$top_repo](https://github.com/$top_repo) gained +${top_delta} ⭐ since the last check (now $(fmt_k "$top_stars_now") ⭐ total). Recomputed daily from a real snapshot, not a guess."
 elif (( have_history == 1 )); then
   featured_line="📈 **Trending this run:** no repo in the list gained stars since the last check. Nothing to feature today, that's the honest answer."
 else
   featured_line="📈 **Trending:** first run with star tracking, no history to compare against yet. Check back after tomorrow's update for a real delta."
 fi
-
-# Persist this run's numbers as tomorrow's baseline.
-python3 - "$SNAPSHOT" <<PYEOF
-import json
-data = {
-$(for r in "${!current_stars[@]}"; do printf '  "%s": %s,\n' "$r" "${current_stars[$r]}"; done)
-}
-import sys
-with open(sys.argv[1], "w", encoding="utf-8") as fh:
-    json.dump(data, fh, indent=2, sort_keys=True)
-    fh.write("\n")
-PYEOF
 
 python3 - "$README" "$featured_line" <<'PYEOF'
 import re, sys
@@ -161,15 +170,26 @@ text = re.sub(
 open(path, "w", encoding="utf-8").write(text)
 PYEOF
 
-# --- Refresh the inline star count on each "Contributor repos" heading ---
-# These lines look like: #### [OWNER/REPO](url) ⭐ 8.3k — description
-# Re-fetch each repo's current star count via the API and rewrite just the
-# number, leaving the rest of the (manually curated) line untouched.
-python3 - "$README" <<'PYEOF'
-import re, subprocess, sys
+# --- Refresh the inline star count + trending badge on each repo heading ---
+# These lines look like: #### [OWNER/REPO](url) ⭐ 8.3k 🔥 +12 today — description
+# Re-fetch each repo's current star count via the API, and tag it with a
+# "🔥 +N today" badge if /tmp/star_deltas.json shows it actually grew since
+# the last run (any repo that grew gets tagged here, not just the single
+# biggest mover called out in the FEATURED-REPO line above). A repo with no
+# growth keeps its plain star count, no stale badge left behind from a
+# previous run -- the old badge (if any) is matched and replaced, not just
+# appended, so re-runs can't pile up duplicate tags.
+python3 - "$README" /tmp/star_deltas.json <<'PYEOF'
+import json, re, subprocess, sys
 
-path = sys.argv[1]
+path, deltas_path = sys.argv[1], sys.argv[2]
 text = open(path, encoding="utf-8").read()
+
+try:
+    with open(deltas_path, encoding="utf-8") as fh:
+        deltas = json.load(fh)
+except FileNotFoundError:
+    deltas = {}
 
 def fmt_stars(n):
     return f"{n/1000:.1f}k" if n >= 1000 else str(n)
@@ -184,11 +204,15 @@ def refresh(m):
         stars = fmt_stars(int(out.stdout.strip()))
     except Exception:
         stars = m.group("stars")  # leave unchanged on any API hiccup
-    return f"{m.group('prefix')}{stars}{m.group('suffix')}"
+
+    delta = deltas.get(owner_repo, 0)
+    badge = f" 🔥 +{delta} today" if delta > 0 else ""
+    return f"{m.group('prefix')}{stars}{badge}{m.group('suffix')}"
 
 pattern = re.compile(
     r"(?P<prefix>^#### \[[^\]]+\]\(https://github\.com/(?P<repo>[^)]+)\) ⭐ )"
     r"(?P<stars>[\d.,]+k?)"
+    r"(?: 🔥 \+\d+ today)?"  # consume a stale badge from a previous run, if present
     r"(?P<suffix>(?= |$))",
     re.MULTILINE,
 )
@@ -252,5 +276,49 @@ else:
 open(path, "w", encoding="utf-8").write(text)
 PYEOF
 
-rm -f /tmp/exclude_repos.txt /tmp/merged_repos.txt /tmp/open_prs_all.tsv /tmp/open_prs.tsv /tmp/oss_table.md
+# --- Regenerate the organizations badge row ---
+# One avatar per distinct owner across merged-PR repos, linking to that
+# owner's GitHub page. Reuses merged_repos.txt rather than a second API call.
+orgs=$(sort -u /tmp/merged_repos.txt | cut -d/ -f1 | sort -u)
+org_count=$(echo "$orgs" | wc -l | tr -d ' ')
+
+org_row=""
+while read -r org; do
+  [[ -z "$org" ]] && continue
+  org_row+="<a href=\"https://github.com/$org\" title=\"$org\"><img src=\"https://github.com/$org.png\" width=\"44\" height=\"44\" style=\"border-radius:50%;margin:0 4px\" alt=\"$org\"/></a> "
+done <<< "$orgs"
+
+{
+  printf '**%s organizations, %s repos.**\n\n' "$org_count" "$contributor_repo_count"
+  printf '<p>%s</p>\n' "$org_row"
+} > /tmp/orgs_block.md
+
+python3 - "$README" /tmp/orgs_block.md <<'PYEOF'
+import re, sys
+path, block_path = sys.argv[1], sys.argv[2]
+block = open(block_path, encoding="utf-8").read().strip()
+text = open(path, encoding="utf-8").read()
+if "<!-- OSS-ORGS:START -->" in text:
+    text = re.sub(
+        r"(<!-- OSS-ORGS:START -->\n).*?(\n<!-- OSS-ORGS:END -->)",
+        lambda m: m.group(1) + block + m.group(2),
+        text,
+        flags=re.S,
+    )
+else:
+    text = re.sub(
+        r"(\n## Contact\n)",
+        lambda m: (
+            "\n### Organizations\n\n"
+            "Owners of the repos above where a PR has actually merged, tagged rather than just named.\n\n"
+            "<!-- OSS-ORGS:START -->\n" + block + "\n<!-- OSS-ORGS:END -->\n"
+            + m.group(1)
+        ),
+        text,
+        count=1,
+    )
+open(path, "w", encoding="utf-8").write(text)
+PYEOF
+
+rm -f /tmp/exclude_repos.txt /tmp/merged_repos.txt /tmp/open_prs_all.tsv /tmp/open_prs.tsv /tmp/oss_table.md /tmp/orgs_block.md /tmp/star_deltas.json /tmp/top_trend.txt
 echo "Done."

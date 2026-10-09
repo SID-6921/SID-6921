@@ -41,7 +41,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 <!-- OSS-STATS:END -->
 
 <!-- FEATURED-REPO:START -->
-📈 **Trending this run:** [keras-team/keras](https://github.com/keras-team/keras) gained +50 ⭐ since the last check (now 64.4k ⭐ total). Recomputed daily from a real snapshot, not a guess.
+📈 **Trending this run:** no repo in the list gained stars since the last check. Nothing to feature today, that's the honest answer.
 <!-- FEATURED-REPO:END -->
 
 ### Contributor repos (merged)
@@ -91,7 +91,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 
 ### Co-authored credit (not in contributor graph)
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 51.0k — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 51.1k — Claude Code academic-paper skill suite
 Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imbad0202/academic-research-skills/pull/457)); the maintainer liked the pointer-file approach and rebuilt it with corrections as [#465](https://github.com/Imbad0202/academic-research-skills/pull/465) (merged), crediting the idea via `Co-authored-by`.
 - **Note:** GitHub's contributor graph is built from the git author field only and omits co-author trailers — this credit is real and verifiable in the merged commit, but will not show as a contributor avatar.
 - A small regex-escaping fix is open now ([#956](https://github.com/Imbad0202/academic-research-skills/pull/956)); two earlier utility-mode PRs were closed as architectural mismatches with the repo's thin-trigger pattern.
@@ -122,6 +122,16 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 | [scverse/anndata](https://github.com/scverse/anndata) | 776 | [#2517](https://github.com/scverse/anndata/pull/2517) | test(backed): add regression for filename=None after read_h5ad |
 <!-- OSS-TABLE:END -->
 
+### Organizations
+
+Owners of the repos above where a PR has actually merged, tagged rather than just named.
+
+<!-- OSS-ORGS:START -->
+**9 organizations, 9 repos.**
+
+<p><a href="https://github.com/Imbad0202" title="Imbad0202"><img src="https://github.com/Imbad0202.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="Imbad0202"/></a> <a href="https://github.com/InsightSoftwareConsortium" title="InsightSoftwareConsortium"><img src="https://github.com/InsightSoftwareConsortium.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="InsightSoftwareConsortium"/></a> <a href="https://github.com/MakazhanAlpamys" title="MakazhanAlpamys"><img src="https://github.com/MakazhanAlpamys.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="MakazhanAlpamys"/></a> <a href="https://github.com/NVIDIA" title="NVIDIA"><img src="https://github.com/NVIDIA.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="NVIDIA"/></a> <a href="https://github.com/Project-MONAI" title="Project-MONAI"><img src="https://github.com/Project-MONAI.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="Project-MONAI"/></a> <a href="https://github.com/alphaXiv" title="alphaXiv"><img src="https://github.com/alphaXiv.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="alphaXiv"/></a> <a href="https://github.com/keras-team" title="keras-team"><img src="https://github.com/keras-team.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="keras-team"/></a> <a href="https://github.com/neuralinkcorp" title="neuralinkcorp"><img src="https://github.com/neuralinkcorp.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="neuralinkcorp"/></a> <a href="https://github.com/nipy" title="nipy"><img src="https://github.com/nipy.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="nipy"/></a> </p>
+<!-- OSS-ORGS:END -->
+
 ## Contact
 
 - Email: sn3199@columbia.edu
@@ -136,5 +146,5 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-10-09 14:17 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-10-09 14:28 UTC.
 <!-- LAST-UPDATED:END -->
