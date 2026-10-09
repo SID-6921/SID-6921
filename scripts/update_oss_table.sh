@@ -34,6 +34,47 @@ open_count=$(wc -l < /tmp/open_prs.tsv | tr -d ' ')
 
 echo "merged=$merged_count open=$open_count contributor_repos=$contributor_repo_count"
 
+# --- Find the single highest-starred repo in the contributor list ---
+# Recomputed from live data every run, so "featured" means "biggest right
+# now," not a number typed in once and left to go stale.
+echo "Finding the highest-starred contributor repo..."
+top_repo=""
+top_stars=-1
+for repo in $(sort -u /tmp/merged_repos.txt); do
+  s=$(gh api "repos/$repo" --jq '.stargazers_count' 2>/dev/null || echo 0)
+  if (( s > top_stars )); then
+    top_stars=$s
+    top_repo=$repo
+  fi
+done
+if (( top_stars >= 1000 )); then
+  top_stars_fmt=$(awk -v s="$top_stars" 'BEGIN{printf "%.1fk", s/1000}')
+else
+  top_stars_fmt="$top_stars"
+fi
+featured_line="🏆 **Biggest repo in this list right now:** [$top_repo](https://github.com/$top_repo) — ${top_stars_fmt} ⭐ (recomputed daily, so this moves if a bigger repo joins the list or the ranking shifts)."
+
+python3 - "$README" "$featured_line" <<'PYEOF'
+import re, sys
+path, line = sys.argv[1], sys.argv[2]
+text = open(path, encoding="utf-8").read()
+if "<!-- FEATURED-REPO:START -->" in text:
+    text = re.sub(
+        r"(<!-- FEATURED-REPO:START -->\n).*?(\n<!-- FEATURED-REPO:END -->)",
+        lambda m: m.group(1) + line + m.group(2),
+        text,
+        flags=re.S,
+    )
+else:
+    text = re.sub(
+        r"(### Contributor repos \(merged\)\n)",
+        lambda m: "<!-- FEATURED-REPO:START -->\n" + line + "\n<!-- FEATURED-REPO:END -->\n\n" + m.group(1),
+        text,
+        count=1,
+    )
+open(path, "w", encoding="utf-8").write(text)
+PYEOF
+
 # --- Regenerate stats line ---
 stats_line="**Snapshot:** ${contributor_repo_count} repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · ${merged_count} merged PRs · ~${open_count} open PRs under review."
 
@@ -119,6 +160,40 @@ pattern = re.compile(
     re.MULTILINE,
 )
 text = pattern.sub(refresh, text)
+open(path, "w", encoding="utf-8").write(text)
+PYEOF
+
+# --- Cumulative stars across every repo I'm a credited contributor to ---
+# Sums stargazers_count for the unique repos in merged_repos.txt (same list
+# that drives contributor_repo_count above), so it's always the same set.
+echo "Summing stars across contributor repos..."
+total_stars=0
+for repo in $(sort -u /tmp/merged_repos.txt); do
+  s=$(gh api "repos/$repo" --jq '.stargazers_count' 2>/dev/null || echo 0)
+  total_stars=$((total_stars + s))
+done
+if (( total_stars >= 1000 )); then
+  total_stars_fmt=$(awk -v s="$total_stars" 'BEGIN{printf "%.1fk", s/1000}')
+else
+  total_stars_fmt="$total_stars"
+fi
+stars_line="**${total_stars_fmt} combined stars** across the ${contributor_repo_count} repos above (sum of each repo's current count, not a dedup of my own contribution)."
+
+python3 - "$README" "$stars_line" <<'PYEOF'
+import re, sys
+path, line = sys.argv[1], sys.argv[2]
+text = open(path, encoding="utf-8").read()
+if "<!-- CUMULATIVE-STARS:START -->" in text:
+    text = re.sub(
+        r"(<!-- CUMULATIVE-STARS:START -->\n).*?(\n<!-- CUMULATIVE-STARS:END -->)",
+        lambda m: m.group(1) + line + m.group(2),
+        text,
+        flags=re.S,
+    )
+else:
+    text = text.rstrip("\n") + (
+        "\n\n<!-- CUMULATIVE-STARS:START -->\n" + line + "\n<!-- CUMULATIVE-STARS:END -->\n"
+    )
 open(path, "w", encoding="utf-8").write(text)
 PYEOF
 
