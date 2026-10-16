@@ -37,34 +37,34 @@ My work centers on biomedical signal intelligence, diagnostic modeling, and prod
 Bugs found by reading code and comparing sibling functions, not by picking up issues off a tracker — each fix below was reproduced locally before being submitted.
 
 <!-- OSS-STATS:START -->
-**Snapshot:** 13 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 34 merged PRs · ~20 open PRs under review.
+**Snapshot:** 13 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 35 merged PRs · ~20 open PRs under review.
 <!-- OSS-STATS:END -->
 
 <!-- FEATURED-REPO:START -->
-📈 **Trending this run:** [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) gained +239 ⭐ since the last check (now 52.2k ⭐ total). Recomputed daily from a real snapshot, not a guess.
+📈 **Trending this run:** [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) gained +1294 ⭐ since the last check (now 13.7k ⭐ total). Recomputed daily from a real snapshot, not a guess.
 <!-- FEATURED-REPO:END -->
 
 ### Contributor repos (merged)
 
-#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 9.1k 🔥 +99 today — LLM fine-tuning CLI
+#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 9.2k 🔥 +65 today — LLM fine-tuning CLI
 13 merged PRs — security (SSRF predicate consolidation), training reliability (checkpoint resume, failure-boundary widening, nonce-based worker verification), and data-path correctness (format validation, stripe-root re-validation on every shard write).
 - **Impact:** the SSRF fix (#625) closed a loopback/private-host bypass across the whole request path, not one call site; the stripe-recheck fix (#1663) turned a silent data-corruption window into a surfaced-and-refused failure, via a maintainer-found volume-mount-point edge case reproduced and fixed live.
 - **Scope:** largest body of work here by PR count; several of the 13 are substantial test/fixture reworks.
 - **Severity:** 4/5 — the SSRF fix is a real exploit path, not a style nit; the stripe-recheck fix prevents silent data corruption, not just a crash.
 
-#### [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) ⭐ 8.8k 🔥 +6 today — medical imaging DL framework
+#### [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) ⭐ 8.8k 🔥 +5 today — medical imaging DL framework
 [#8956](https://github.com/Project-MONAI/MONAI/pull/8956) merged: fixed a divide-by-zero in the pydicom affine computation for single-slice volumes.
 - **Impact:** single-slice DICOM series (localizers, scouts) are routine in practice; before this fix, loading one silently crashed instead of producing a usable affine.
 - A second PR ([#9134](https://github.com/Project-MONAI/MONAI/pull/9134), open) fixes `MeanIoU`'s `ignore_index` to mask voxels instead of zeroing a whole channel — it disagreed with `compute_dice()` on identical input (1.0 vs 0.667) and had shipped untested since PR #8757.
 - **Severity:** 4/5 — single-slice DICOM series aren't an edge case, they're routine; the crash hit real clinical data, not a synthetic input.
 
-#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 7.3k 🔥 +65 today — research-paper reading platform
+#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 7.3k 🔥 +45 today — research-paper reading platform
 [#351](https://github.com/alphaXiv/OpenResearch/pull/351) merged: added a full Hindi (hi) locale, +1,413/−229 across 6 files.
 - **Impact:** covers UI strings end-to-end rather than a partial translation — first locale contribution of this size on the repo at the time.
 - A follow-up cleanup ([#585](https://github.com/alphaXiv/OpenResearch/pull/585), open) removes a `statusColor` helper that drifted out of sync with `StatusBadge`, confirmed unused via a repo-wide grep including wildcard re-export paths.
 - **Severity:** 2/5 — this is a feature gap, not a correctness bug; nobody's app broke without it, the product was just unusable in Hindi.
 
-#### [nipy/nibabel](https://github.com/nipy/nibabel) ⭐ 796 🔥 +1 today — neuroimaging I/O library
+#### [nipy/nibabel](https://github.com/nipy/nibabel) ⭐ 796 — neuroimaging I/O library
 2 merged PRs: [#1553](https://github.com/nipy/nibabel/pull/1553) generalized `rescale_affine()` to non-4x4 affines (hardcoded to `affine[:3,:3]` despite being documented for arbitrary `(N,N)`); [#1562](https://github.com/nipy/nibabel/pull/1562) added shape validation to `Nifti1Header.set_sform`.
 - **Impact:** #1553 fixed a function that raised on any non-square-4 input despite its own docstring promising general support — a docs/implementation contract break.
 - Both found via sibling-function comparison (`rescale_affine` vs. `voxel_sizes` — one generalized to N-d, the other did not).
@@ -91,7 +91,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 
 ### Co-authored credit (not in contributor graph)
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 52.2k 🔥 +239 today — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 52.4k 🔥 +186 today — Claude Code academic-paper skill suite
 Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imbad0202/academic-research-skills/pull/457)); the maintainer liked the pointer-file approach and rebuilt it with corrections as [#465](https://github.com/Imbad0202/academic-research-skills/pull/465) (merged), crediting the idea via `Co-authored-by`.
 - **Note:** GitHub's contributor graph is built from the git author field only and omits co-author trailers — this credit is real and verifiable in the merged commit, but will not show as a contributor avatar.
 - A small regex-escaping fix is open now ([#956](https://github.com/Imbad0202/academic-research-skills/pull/956)); two earlier utility-mode PRs were closed as architectural mismatches with the repo's thin-trigger pattern.
@@ -118,7 +118,7 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 | [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) | 8.8k | [#9134](https://github.com/Project-MONAI/MONAI/pull/9134) | Fix MeanIoU ignore_index to exclude voxels, not just a channel |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.3k | [#2553](https://github.com/NVIDIA/Model-Optimizer/pull/2553) | fix(autocast): stream calibration batches instead of materializing all of them |
 | [jordan-gibbs/hyperresearch](https://github.com/jordan-gibbs/hyperresearch) | 3.9k | [#131](https://github.com/jordan-gibbs/hyperresearch/pull/131) | perf: vectorize semantic_search's cosine scan with numpy (#59) |
-| [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 74.9k | [#3239](https://github.com/ruvnet/ruflo/pull/3239) | fix(daemon): read config_set's values envelope in config.json reader |
+| [ruvnet/ruflo](https://github.com/ruvnet/ruflo) | 75.5k | [#3239](https://github.com/ruvnet/ruflo/pull/3239) | fix(daemon): read config_set's values envelope in config.json reader |
 | [MIC-DKFZ/nnUNet](https://github.com/MIC-DKFZ/nnUNet) | 9.0k | [#3049](https://github.com/MIC-DKFZ/nnUNet/pull/3049) | Harden trainer lookup against phantom module import failures |
 | [scverse/anndata](https://github.com/scverse/anndata) | 780 | [#2517](https://github.com/scverse/anndata/pull/2517) | test(backed): add regression for filename=None after read_h5ad |
 <!-- OSS-TABLE:END -->
@@ -143,9 +143,9 @@ Owners of the repos above where a PR has actually merged, tagged rather than jus
 ---
 
 <!-- CUMULATIVE-STARS:START -->
-**166.6k combined stars** across the 13 repos above (sum of each repo's current count, not a dedup of my own contribution).
+**168.2k combined stars** across the 13 repos above (sum of each repo's current count, not a dedup of my own contribution).
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-10-15 17:25 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-10-16 17:01 UTC.
 <!-- LAST-UPDATED:END -->
