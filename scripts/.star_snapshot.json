@@ -1,15 +1,15 @@
 {
-  "Imbad0202/academic-research-skills": 52526,
+  "Imbad0202/academic-research-skills": 52701,
   "InsightSoftwareConsortium/ITK": 1662,
   "MRtrix3/mrtrix3": 355,
-  "MakazhanAlpamys/Soup": 9233,
-  "NVIDIA/Model-Optimizer": 5345,
-  "Project-MONAI/MONAI": 8785,
-  "alphaXiv/OpenResearch": 7310,
-  "galaxyproject/galaxy": 1871,
-  "keras-team/keras": 64378,
+  "MakazhanAlpamys/Soup": 9314,
+  "NVIDIA/Model-Optimizer": 5356,
+  "Project-MONAI/MONAI": 8786,
+  "alphaXiv/OpenResearch": 7332,
+  "galaxyproject/galaxy": 1872,
+  "keras-team/keras": 64374,
   "neuralinkcorp/datarepo": 207,
   "nipy/nibabel": 796,
   "pydicom/pydicom": 2225,
-  "wheresryan22/anatomy": 14857
+  "wheresryan22/anatomy": 15801
 }
