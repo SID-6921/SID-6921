@@ -37,34 +37,34 @@ My work centers on biomedical signal intelligence, diagnostic modeling, and prod
 Bugs found by reading code and comparing sibling functions, not by picking up issues off a tracker — each fix below was reproduced locally before being submitted.
 
 <!-- OSS-STATS:START -->
-**Snapshot:** 16 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 47 merged PRs · ~37 open PRs under review.
+**Snapshot:** 21 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 52 merged PRs · ~49 open PRs under review.
 <!-- OSS-STATS:END -->
 
 <!-- FEATURED-REPO:START -->
-📈 **Trending this run:** [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) gained +281 ⭐ since the last check (now 56.2k ⭐ total). Recomputed daily from a real snapshot, not a guess.
+📈 **Trending this run:** [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) gained +229 ⭐ since the last check (now 26.5k ⭐ total). Recomputed daily from a real snapshot, not a guess.
 <!-- FEATURED-REPO:END -->
 
 ### Contributor repos (merged)
 
-#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 10.4k 🔥 +72 today — LLM fine-tuning CLI
+#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 10.4k 🔥 +60 today — LLM fine-tuning CLI
 13 merged PRs — security (SSRF predicate consolidation), training reliability (checkpoint resume, failure-boundary widening, nonce-based worker verification), and data-path correctness (format validation, stripe-root re-validation on every shard write).
 - **Impact:** the SSRF fix (#625) closed a loopback/private-host bypass across the whole request path, not one call site; the stripe-recheck fix (#1663) turned a silent data-corruption window into a surfaced-and-refused failure, via a maintainer-found volume-mount-point edge case reproduced and fixed live.
 - **Scope:** largest body of work here by PR count; several of the 13 are substantial test/fixture reworks.
 - **Severity:** 4/5 — the SSRF fix is a real exploit path, not a style nit; the stripe-recheck fix prevents silent data corruption, not just a crash.
 
-#### [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) ⭐ 8.8k 🔥 +3 today — medical imaging DL framework
+#### [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) ⭐ 8.8k 🔥 +5 today — medical imaging DL framework
 [#8956](https://github.com/Project-MONAI/MONAI/pull/8956) merged: fixed a divide-by-zero in the pydicom affine computation for single-slice volumes.
 - **Impact:** single-slice DICOM series (localizers, scouts) are routine in practice; before this fix, loading one silently crashed instead of producing a usable affine.
 - A second PR ([#9134](https://github.com/Project-MONAI/MONAI/pull/9134), open) fixes `MeanIoU`'s `ignore_index` to mask voxels instead of zeroing a whole channel — it disagreed with `compute_dice()` on identical input (1.0 vs 0.667) and had shipped untested since PR #8757.
 - **Severity:** 4/5 — single-slice DICOM series aren't an edge case, they're routine; the crash hit real clinical data, not a synthetic input.
 
-#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.0k 🔥 +26 today — research-paper reading platform
+#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.1k 🔥 +39 today — research-paper reading platform
 [#351](https://github.com/alphaXiv/OpenResearch/pull/351) merged: added a full Hindi (hi) locale, +1,413/−229 across 6 files.
 - **Impact:** covers UI strings end-to-end rather than a partial translation — first locale contribution of this size on the repo at the time.
 - A follow-up cleanup ([#585](https://github.com/alphaXiv/OpenResearch/pull/585), open) removes a `statusColor` helper that drifted out of sync with `StatusBadge`, confirmed unused via a repo-wide grep including wildcard re-export paths.
 - **Severity:** 2/5 — this is a feature gap, not a correctness bug; nobody's app broke without it, the product was just unusable in Hindi.
 
-#### [nipy/nibabel](https://github.com/nipy/nibabel) ⭐ 808 — neuroimaging I/O library
+#### [nipy/nibabel](https://github.com/nipy/nibabel) ⭐ 809 🔥 +1 today — neuroimaging I/O library
 2 merged PRs: [#1553](https://github.com/nipy/nibabel/pull/1553) generalized `rescale_affine()` to non-4x4 affines (hardcoded to `affine[:3,:3]` despite being documented for arbitrary `(N,N)`); [#1562](https://github.com/nipy/nibabel/pull/1562) added shape validation to `Nifti1Header.set_sform`.
 - **Impact:** #1553 fixed a function that raised on any non-square-4 input despite its own docstring promising general support — a docs/implementation contract break.
 - Both found via sibling-function comparison (`rescale_affine` vs. `voxel_sizes` — one generalized to N-d, the other did not).
@@ -76,7 +76,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - A third PR ([#78](https://github.com/neuralinkcorp/datarepo/pull/78), open) fixes unescaped SQL interpolation in a codegen path — an injection-shaped bug in generated code.
 - **Severity:** 2/5 for #75/#76 (missing feature, opaque error — annoying, not dangerous); the open #78 is a 4/5 on its own once merged, since unescaped SQL interpolation is injection-shaped.
 
-#### [InsightSoftwareConsortium/ITK](https://github.com/InsightSoftwareConsortium/ITK) ⭐ 1.7k 🔥 +1 today — medical image processing toolkit
+#### [InsightSoftwareConsortium/ITK](https://github.com/InsightSoftwareConsortium/ITK) ⭐ 1.7k — medical image processing toolkit
 [#6932](https://github.com/InsightSoftwareConsortium/ITK/pull/6932) merged same day as opened: `array_view_from_vnl_vector` aliased the deep-copy function instead of the documented view/no-copy function.
 - **Impact:** silently broke a documented no-copy contract — callers relying on in-place mutation through the view got a disconnected copy, with no error raised.
 - Two more open the same week: [#6936](https://github.com/InsightSoftwareConsortium/ITK/pull/6936) fixes a `TypeError` in `transform_from_dict` for composite (multi-)transforms; [#6937](https://github.com/InsightSoftwareConsortium/ITK/pull/6937) fixes `image_from_xarray()` assigning origin/spacing to the wrong axes on 4D images.
@@ -91,7 +91,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 
 ### Co-authored credit (not in contributor graph)
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 56.2k 🔥 +281 today — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 56.3k 🔥 +184 today — Claude Code academic-paper skill suite
 Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imbad0202/academic-research-skills/pull/457)); the maintainer liked the pointer-file approach and rebuilt it with corrections as [#465](https://github.com/Imbad0202/academic-research-skills/pull/465) (merged), crediting the idea via `Co-authored-by`.
 - **Note:** GitHub's contributor graph is built from the git author field only and omits co-author trailers — this credit is real and verifiable in the merged commit, but will not show as a contributor avatar.
 - A small regex-escaping fix is open now ([#956](https://github.com/Imbad0202/academic-research-skills/pull/956)); two earlier utility-mode PRs were closed as architectural mismatches with the repo's thin-trigger pattern.
@@ -101,43 +101,55 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 <!-- OSS-TABLE:START -->
 | Repo | Stars | PR | What it fixes |
 |---|---|---|---|
-| [scverse/anndata](https://github.com/scverse/anndata) | 784 | [#2737](https://github.com/scverse/anndata/pull/2737) | Fix Reindexer._apply_to_dask_array densifying a sparse zero-axis input |
+| [ANTsX/ANTsPy](https://github.com/ANTsX/ANTsPy) | 891 | [#957](https://github.com/ANTsX/ANTsPy/pull/957) | Preserve channels_first through resample_image, smooth_image, and indexing |
+| [Lightning-AI/pytorch-lightning](https://github.com/Lightning-AI/pytorch-lightning) | 31.4k | [#22145](https://github.com/Lightning-AI/pytorch-lightning/pull/22145) | Fix step-interval scheduler frequency under gradient accumulation |
+| [Project-MONAI/MONAILabel](https://github.com/Project-MONAI/MONAILabel) | 911 | [#1939](https://github.com/Project-MONAI/MONAILabel/pull/1939) | Set display color on the highdicom DICOM-SEG export path |
+| [NVIDIA/auto-ontology](https://github.com/NVIDIA/auto-ontology) | 11.4k | [#485](https://github.com/NVIDIA/auto-ontology/pull/485) | Don't spend a repair attempt on a fully self-fixed JSONB path check |
+| [udgamlabs/hinglish-commands-0.6b](https://github.com/udgamlabs/hinglish-commands-0.6b) | 0 | [#2](https://github.com/udgamlabs/hinglish-commands-0.6b/pull/2) | Bound local demo server resource usage against slow-trickle clients |
+| [udgamlabs/lekhani](https://github.com/udgamlabs/lekhani) | 11 | [#3](https://github.com/udgamlabs/lekhani/pull/3) | docs: fix stale 0.87 MB in BibTeX citation title |
+| [udgamlabs/udgam-384m](https://github.com/udgamlabs/udgam-384m) | 0 | [#3](https://github.com/udgamlabs/udgam-384m/pull/3) | Fix O(n^2) parsing in gemma4_tools._to_json |
+| [udgamlabs/drishya-tiny](https://github.com/udgamlabs/drishya-tiny) | 0 | [#1](https://github.com/udgamlabs/drishya-tiny/pull/1) | Fix non-atomic CSV write and tensor-equality crash in i2v job indexing |
+| [udgamlabs/chitra-tiny](https://github.com/udgamlabs/chitra-tiny) | 0 | [#1](https://github.com/udgamlabs/chitra-tiny/pull/1) | Fix app.py local model check to require config.json too |
+| [udgamlabs/laghu](https://github.com/udgamlabs/laghu) | 1 | [#1](https://github.com/udgamlabs/laghu/pull/1) | Fix unsandboxed eval exec, contamination-check marking, audit off-by-offset, and SFT doc dedup |
+| [udgamlabs/lilavati](https://github.com/udgamlabs/lilavati) | 0 | [#1](https://github.com/udgamlabs/lilavati/pull/1) | Fix results file loss on interruption in eval/gsm8k.py |
+| [udgamlabs/udgam-english-125m](https://github.com/udgamlabs/udgam-english-125m) | 0 | [#1](https://github.com/udgamlabs/udgam-english-125m/pull/1) | Re-check committed shard hashes on resume in repaired packer |
+| [udgamlabs/shruti](https://github.com/udgamlabs/shruti) | 11 | [#2](https://github.com/udgamlabs/shruti/pull/2) | onnx: don't drop the trailing partial VAD window |
+| [udgamlabs/vemana](https://github.com/udgamlabs/vemana) | 8 | [#2](https://github.com/udgamlabs/vemana/pull/2) | Clean up leaked temp files in check_gguf.py |
+| [udgamlabs/udgam-384m](https://github.com/udgamlabs/udgam-384m) | 0 | [#2](https://github.com/udgamlabs/udgam-384m/pull/2) | Gate risky tool calls behind confirmation in llama_server example |
+| [unstablebuild/rune](https://github.com/unstablebuild/rune) | 1.7k | [#219](https://github.com/unstablebuild/rune/pull/219) | Fix BuildPluginArgv dropping empty args in the shell fallback path |
+| [udgamlabs/phonegpt](https://github.com/udgamlabs/phonegpt) | 0 | [#1](https://github.com/udgamlabs/phonegpt/pull/1) | Seed drop_rng from -seed, like the other two RNG streams |
+| [scverse/anndata](https://github.com/scverse/anndata) | 785 | [#2737](https://github.com/scverse/anndata/pull/2737) | Fix Reindexer._apply_to_dask_array densifying a sparse zero-axis input |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | 2.5k | [#1549](https://github.com/TorchIO-project/torchio/pull/1549) | Fix EnsureShapeMultiple computing target shape from the wrong image |
-| [MRtrix3/mrtrix3](https://github.com/MRtrix3/mrtrix3) | 357 | [#3457](https://github.com/MRtrix3/mrtrix3/pull/3457) | Fix get_iqr() reading the wrong index for the lower quartile |
+| [MRtrix3/mrtrix3](https://github.com/MRtrix3/mrtrix3) | 358 | [#3457](https://github.com/MRtrix3/mrtrix3/pull/3457) | Fix get_iqr() reading the wrong index for the lower quartile |
 | [RikiyaT/lm_understand-logs](https://github.com/RikiyaT/lm_understand-logs) | 1.2k | [#10](https://github.com/RikiyaT/lm_understand-logs/pull/10) | Fix acc_lenient always null for non-sharded eval runs in merge.py |
 | [NVIDIA-BioNeMo/cuik-molmaker](https://github.com/NVIDIA-BioNeMo/cuik-molmaker) | 38 | [#8](https://github.com/NVIDIA-BioNeMo/cuik-molmaker/pull/8) | Fix self-loop zero-fill writing to the wrong location and size |
 | [NVIDIA-BioNeMo/RNAPro](https://github.com/NVIDIA-BioNeMo/RNAPro) | 103 | [#7](https://github.com/NVIDIA-BioNeMo/RNAPro/pull/7) | Fix get_prot_nuc_frame checking only the first frame atom |
 | [NVIDIA-BioNeMo/megalodon](https://github.com/NVIDIA-BioNeMo/megalodon) | 26 | [#2](https://github.com/NVIDIA-BioNeMo/megalodon/pull/2) | Fix double-indexing of batch in discrete_fm interpolate_edges |
 | [NVIDIA-BioNeMo/warpKAN](https://github.com/NVIDIA-BioNeMo/warpKAN) | 4 | [#1](https://github.com/NVIDIA-BioNeMo/warpKAN/pull/1) | Fix order-3/4 backward B-spline kernels excluding left grid boundary |
-| [NVIDIA-BioNeMo/bionemo-agent-toolkit](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit) | 504 | [#61](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit/pull/61) | Fix ColabFold MSA script dropping selenomethionine (MSE) residues |
+| [NVIDIA-BioNeMo/bionemo-agent-toolkit](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit) | 505 | [#61](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit/pull/61) | Fix ColabFold MSA script dropping selenomethionine (MSE) residues |
 | [NVIDIA-BioNeMo/bionemo-recipes](https://github.com/NVIDIA-BioNeMo/bionemo-recipes) | 878 | [#1793](https://github.com/NVIDIA-BioNeMo/bionemo-recipes/pull/1793) | Fix convert_qwen3_te_to_hf ignoring lm_head.weight for untied configs |
 | [neuralinkcorp/datarepo](https://github.com/neuralinkcorp/datarepo) | 208 | [#86](https://github.com/neuralinkcorp/datarepo/pull/86) | Fix contains/includes/includes any/includes all filters on ClickHouseTable |
 | [udgamlabs/udgam-evals](https://github.com/udgamlabs/udgam-evals) | 0 | [#1](https://github.com/udgamlabs/udgam-evals/pull/1) | Make g_units level 3 use the sampled unit pair, not a hardcoded one |
-| [udgamlabs/vemana](https://github.com/udgamlabs/vemana) | 8 | [#1](https://github.com/udgamlabs/vemana/pull/1) | Check subprocess exit status in llama_greedy/llama_ppl; fix stale model name |
-| [udgamlabs/shruti](https://github.com/udgamlabs/shruti) | 10 | [#1](https://github.com/udgamlabs/shruti/pull/1) | Verify SHA-256 on browser cache hits, not just fresh downloads |
-| [udgamlabs/hinglish-commands-0.6b](https://github.com/udgamlabs/hinglish-commands-0.6b) | 0 | [#1](https://github.com/udgamlabs/hinglish-commands-0.6b/pull/1) | Raise a clear error when assemble_model_card.py is missing |
-| [udgamlabs/gargi](https://github.com/udgamlabs/gargi) | 3 | [#1](https://github.com/udgamlabs/gargi/pull/1) | Fix README quick-start comment to match actual default thinking mode |
-| [udgamlabs/udgam-384m](https://github.com/udgamlabs/udgam-384m) | 0 | [#1](https://github.com/udgamlabs/udgam-384m/pull/1) | Validate tool name against ALLOWED before executing (transformers example) |
 | [NVIDIA/NemoClaw](https://github.com/NVIDIA/NemoClaw) | 23.0k | [#13925](https://github.com/NVIDIA/NemoClaw/pull/13925) | Enforce Hermes's 64k Ollama context-window floor on inference set, no… |
 | [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples) | 14.9k | [#1470](https://github.com/NVIDIA/DeepLearningExamples/pull/1470) | Fix BERT pretraining periodic loss logging to average across all ranks |
 | [NVIDIA/Megatron-LM](https://github.com/NVIDIA/Megatron-LM) | 18.4k | [#8649](https://github.com/NVIDIA/Megatron-LM/pull/8649) | Fix AbsorbedMLA to respect explicit config.softmax_scale override |
 | [NVIDIA/TensorRT](https://github.com/NVIDIA/TensorRT) | 13.4k | [#4900](https://github.com/NVIDIA/TensorRT/pull/4900) | Resolve negative axis in ScatterElements plugin before indexing Dims |
-| [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 56.2k | [#1020](https://github.com/Imbad0202/academic-research-skills/pull/1020) | fix(socratic): scope three unscoped rules to goal-oriented mode (#991) |
+| [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 56.3k | [#1020](https://github.com/Imbad0202/academic-research-skills/pull/1020) | fix(socratic): scope three unscoped rules to goal-oriented mode (#991) |
 | [pydicom/pydicom](https://github.com/pydicom/pydicom) | 2.2k | [#2403](https://github.com/pydicom/pydicom/pull/2403) | Clamp LUT index before narrowing the index dtype in apply_color_lut() |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | 2.5k | [#1541](https://github.com/TorchIO-project/torchio/pull/1541) | Fix Crop/CropOrPad silently leaving a fully-cropped axis uncropped |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.6k | [#2867](https://github.com/NVIDIA/Model-Optimizer/pull/2867) | Fix ONNX AWQ-Lite get_weight_scale mixing rows from different blocks |
-| [MRtrix3/mrtrix3](https://github.com/MRtrix3/mrtrix3) | 357 | [#3454](https://github.com/MRtrix3/mrtrix3/pull/3454) | algo/histogram: fix Data::bin() silently dropping the maximum value |
-| [NVIDIA/Deep-Learning-Accelerator-SW](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW) | 240 | [#42](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW/pull/42) | Cast scale to float in save_scales to keep it JSON-serializable |
+| [MRtrix3/mrtrix3](https://github.com/MRtrix3/mrtrix3) | 358 | [#3454](https://github.com/MRtrix3/mrtrix3/pull/3454) | algo/histogram: fix Data::bin() silently dropping the maximum value |
+| [NVIDIA/Deep-Learning-Accelerator-SW](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW) | 241 | [#42](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW/pull/42) | Cast scale to float in save_scales to keep it JSON-serializable |
 | [Proximal-Labs/frontier-swe](https://github.com/Proximal-Labs/frontier-swe) | 238 | [#88](https://github.com/Proximal-Labs/frontier-swe/pull/88) | dart-style-haskell: fix instruction.md reference to nonexistent test dir |
 | [Proximal-Labs/frontier-swe](https://github.com/Proximal-Labs/frontier-swe) | 238 | [#87](https://github.com/Proximal-Labs/frontier-swe/pull/87) | Mount persisted trial-state volume at sandbox startup |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | 2.5k | [#1527](https://github.com/TorchIO-project/torchio/pull/1527) | Fix include/exclude being silently ignored in 9 remaining transforms |
-| [NVIDIA/Deep-Learning-Accelerator-SW](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW) | 240 | [#40](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW/pull/40) | Fix bias-less Conv handling in fuse_convs_horizontally |
-| [NVIDIA/Deep-Learning-Accelerator-SW](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW) | 240 | [#38](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW/pull/38) | Replace removed np.product with np.prod |
+| [NVIDIA/Deep-Learning-Accelerator-SW](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW) | 241 | [#40](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW/pull/40) | Fix bias-less Conv handling in fuse_convs_horizontally |
+| [NVIDIA/Deep-Learning-Accelerator-SW](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW) | 241 | [#38](https://github.com/NVIDIA/Deep-Learning-Accelerator-SW/pull/38) | Replace removed np.product with np.prod |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.6k | [#2575](https://github.com/NVIDIA/Model-Optimizer/pull/2575) | fix(autocast): do not lose magnitude or sign when narrowing initializers |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.6k | [#2567](https://github.com/NVIDIA/Model-Optimizer/pull/2567) | fix(onnx): keep the converted weight's type in step with its zero point |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | 2.5k | [#1518](https://github.com/TorchIO-project/torchio/pull/1518) | Compute normalization statistics per sample |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.6k | [#2553](https://github.com/NVIDIA/Model-Optimizer/pull/2553) | fix(autocast): stream calibration batches instead of materializing all of them |
-| [scverse/anndata](https://github.com/scverse/anndata) | 784 | [#2517](https://github.com/scverse/anndata/pull/2517) | test(backed): add regression for filename=None after read_h5ad |
+| [scverse/anndata](https://github.com/scverse/anndata) | 785 | [#2517](https://github.com/scverse/anndata/pull/2517) | test(backed): add regression for filename=None after read_h5ad |
 <!-- OSS-TABLE:END -->
 
 ### Organizations
@@ -145,9 +157,9 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 Owners of the repos above where a PR has actually merged, tagged rather than just named.
 
 <!-- OSS-ORGS:START -->
-**16 organizations, 16 repos.**
+**17 organizations, 21 repos.**
 
-<p><a href="https://github.com/Imbad0202" title="Imbad0202"><img src="https://github.com/Imbad0202.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="Imbad0202"/></a> <a href="https://github.com/InsightSoftwareConsortium" title="InsightSoftwareConsortium"><img src="https://github.com/InsightSoftwareConsortium.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="InsightSoftwareConsortium"/></a> <a href="https://github.com/MRtrix3" title="MRtrix3"><img src="https://github.com/MRtrix3.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="MRtrix3"/></a> <a href="https://github.com/MakazhanAlpamys" title="MakazhanAlpamys"><img src="https://github.com/MakazhanAlpamys.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="MakazhanAlpamys"/></a> <a href="https://github.com/NVIDIA" title="NVIDIA"><img src="https://github.com/NVIDIA.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="NVIDIA"/></a> <a href="https://github.com/Project-MONAI" title="Project-MONAI"><img src="https://github.com/Project-MONAI.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="Project-MONAI"/></a> <a href="https://github.com/alphaXiv" title="alphaXiv"><img src="https://github.com/alphaXiv.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="alphaXiv"/></a> <a href="https://github.com/galaxyproject" title="galaxyproject"><img src="https://github.com/galaxyproject.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="galaxyproject"/></a> <a href="https://github.com/jordan-gibbs" title="jordan-gibbs"><img src="https://github.com/jordan-gibbs.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="jordan-gibbs"/></a> <a href="https://github.com/keras-team" title="keras-team"><img src="https://github.com/keras-team.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="keras-team"/></a> <a href="https://github.com/neuralinkcorp" title="neuralinkcorp"><img src="https://github.com/neuralinkcorp.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="neuralinkcorp"/></a> <a href="https://github.com/nilearn" title="nilearn"><img src="https://github.com/nilearn.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="nilearn"/></a> <a href="https://github.com/nipy" title="nipy"><img src="https://github.com/nipy.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="nipy"/></a> <a href="https://github.com/pydicom" title="pydicom"><img src="https://github.com/pydicom.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="pydicom"/></a> <a href="https://github.com/scverse" title="scverse"><img src="https://github.com/scverse.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="scverse"/></a> <a href="https://github.com/wheresryan22" title="wheresryan22"><img src="https://github.com/wheresryan22.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="wheresryan22"/></a> </p>
+<p><a href="https://github.com/Imbad0202" title="Imbad0202"><img src="https://github.com/Imbad0202.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="Imbad0202"/></a> <a href="https://github.com/InsightSoftwareConsortium" title="InsightSoftwareConsortium"><img src="https://github.com/InsightSoftwareConsortium.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="InsightSoftwareConsortium"/></a> <a href="https://github.com/MRtrix3" title="MRtrix3"><img src="https://github.com/MRtrix3.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="MRtrix3"/></a> <a href="https://github.com/MakazhanAlpamys" title="MakazhanAlpamys"><img src="https://github.com/MakazhanAlpamys.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="MakazhanAlpamys"/></a> <a href="https://github.com/NVIDIA" title="NVIDIA"><img src="https://github.com/NVIDIA.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="NVIDIA"/></a> <a href="https://github.com/Project-MONAI" title="Project-MONAI"><img src="https://github.com/Project-MONAI.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="Project-MONAI"/></a> <a href="https://github.com/alphaXiv" title="alphaXiv"><img src="https://github.com/alphaXiv.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="alphaXiv"/></a> <a href="https://github.com/galaxyproject" title="galaxyproject"><img src="https://github.com/galaxyproject.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="galaxyproject"/></a> <a href="https://github.com/jordan-gibbs" title="jordan-gibbs"><img src="https://github.com/jordan-gibbs.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="jordan-gibbs"/></a> <a href="https://github.com/keras-team" title="keras-team"><img src="https://github.com/keras-team.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="keras-team"/></a> <a href="https://github.com/neuralinkcorp" title="neuralinkcorp"><img src="https://github.com/neuralinkcorp.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="neuralinkcorp"/></a> <a href="https://github.com/nilearn" title="nilearn"><img src="https://github.com/nilearn.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="nilearn"/></a> <a href="https://github.com/nipy" title="nipy"><img src="https://github.com/nipy.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="nipy"/></a> <a href="https://github.com/pydicom" title="pydicom"><img src="https://github.com/pydicom.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="pydicom"/></a> <a href="https://github.com/scverse" title="scverse"><img src="https://github.com/scverse.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="scverse"/></a> <a href="https://github.com/udgamlabs" title="udgamlabs"><img src="https://github.com/udgamlabs.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="udgamlabs"/></a> <a href="https://github.com/wheresryan22" title="wheresryan22"><img src="https://github.com/wheresryan22.png" width="44" height="44" style="border-radius:50%;margin:0 4px" alt="wheresryan22"/></a> </p>
 <!-- OSS-ORGS:END -->
 
 ## Contact
@@ -160,9 +172,9 @@ Owners of the repos above where a PR has actually merged, tagged rather than jus
 ---
 
 <!-- CUMULATIVE-STARS:START -->
-**195.3k combined stars** across the 16 repos above (sum of each repo's current count, not a dedup of my own contribution).
+**195.9k combined stars** across the 21 repos above (sum of each repo's current count, not a dedup of my own contribution).
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-09 22:45 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-10 20:04 UTC.
 <!-- LAST-UPDATED:END -->
