@@ -37,11 +37,11 @@ My work centers on biomedical signal intelligence, diagnostic modeling, and prod
 Bugs found by reading code and comparing sibling functions, not by picking up issues off a tracker — each fix below was reproduced locally before being submitted.
 
 <!-- OSS-STATS:START -->
-**Snapshot:** 21 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 53 merged PRs · ~63 open PRs under review.
+**Snapshot:** 21 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 57 merged PRs · ~59 open PRs under review.
 <!-- OSS-STATS:END -->
 
 <!-- FEATURED-REPO:START -->
-📈 **Trending this run:** [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) gained +243 ⭐ since the last check (now 26.7k ⭐ total). Recomputed daily from a real snapshot, not a guess.
+📈 **Trending this run:** [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) gained +207 ⭐ since the last check (now 26.9k ⭐ total). Recomputed daily from a real snapshot, not a guess.
 <!-- FEATURED-REPO:END -->
 
 ### Contributor repos (merged)
@@ -52,7 +52,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - **Scope:** largest body of work here by PR count; several of the 13 are substantial test/fixture reworks.
 - **Severity:** 4/5 — the SSRF fix is a real exploit path, not a style nit; the stripe-recheck fix prevents silent data corruption, not just a crash.
 
-#### [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) ⭐ 8.8k 🔥 +3 today — medical imaging DL framework
+#### [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) ⭐ 8.8k 🔥 +1 today — medical imaging DL framework
 [#8956](https://github.com/Project-MONAI/MONAI/pull/8956) merged: fixed a divide-by-zero in the pydicom affine computation for single-slice volumes.
 - **Impact:** single-slice DICOM series (localizers, scouts) are routine in practice; before this fix, loading one silently crashed instead of producing a usable affine.
 - A second PR ([#9134](https://github.com/Project-MONAI/MONAI/pull/9134), open) fixes `MeanIoU`'s `ignore_index` to mask voxels instead of zeroing a whole channel — it disagreed with `compute_dice()` on identical input (1.0 vs 0.667) and had shipped untested since PR #8757.
@@ -64,7 +64,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - A follow-up cleanup ([#585](https://github.com/alphaXiv/OpenResearch/pull/585), open) removes a `statusColor` helper that drifted out of sync with `StatusBadge`, confirmed unused via a repo-wide grep including wildcard re-export paths.
 - **Severity:** 2/5 — this is a feature gap, not a correctness bug; nobody's app broke without it, the product was just unusable in Hindi.
 
-#### [nipy/nibabel](https://github.com/nipy/nibabel) ⭐ 810 🔥 +1 today — neuroimaging I/O library
+#### [nipy/nibabel](https://github.com/nipy/nibabel) ⭐ 810 — neuroimaging I/O library
 2 merged PRs: [#1553](https://github.com/nipy/nibabel/pull/1553) generalized `rescale_affine()` to non-4x4 affines (hardcoded to `affine[:3,:3]` despite being documented for arbitrary `(N,N)`); [#1562](https://github.com/nipy/nibabel/pull/1562) added shape validation to `Nifti1Header.set_sform`.
 - **Impact:** #1553 fixed a function that raised on any non-square-4 input despite its own docstring promising general support — a docs/implementation contract break.
 - Both found via sibling-function comparison (`rescale_affine` vs. `voxel_sizes` — one generalized to N-d, the other did not).
@@ -83,7 +83,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - **Why this repo matters:** ITK started as a US National Institutes of Health (NIH)-funded project in 1999 and is now a standard medical-imaging toolkit in academic and clinical research worldwide, including groups across the US and India. A silent bug here doesn't stay theoretical; it can sit underneath someone's actual imaging pipeline.
 - **Severity:** 4/5 — no error raised means no one knows it happened; a silent broken contract is worse than a crash.
 
-#### [keras-team/keras](https://github.com/keras-team/keras) ⭐ 64.4k 🔥 +2 today
+#### [keras-team/keras](https://github.com/keras-team/keras) ⭐ 64.4k
 [#23860](https://github.com/keras-team/keras/pull/23860) merged: `ops.ndim` returned a symbolic placeholder for dynamic-batch Functional-model inputs, crashing `circle`/`CircleLoss` with a cryptic backend error.
 - **Impact:** broke a documented loss function for an entire class of models — any dynamic-batch Functional model, not an edge case.
 - Two earlier PRs ([#23215](https://github.com/keras-team/keras/pull/23215) path-traversal hardening, [#23216](https://github.com/keras-team/keras/pull/23216) container weight-path stabilization) were reviewed and closed unmerged.
@@ -91,7 +91,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 
 ### Co-authored credit (not in contributor graph)
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 56.5k 🔥 +175 today — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 56.7k 🔥 +148 today — Claude Code academic-paper skill suite
 Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imbad0202/academic-research-skills/pull/457)); the maintainer liked the pointer-file approach and rebuilt it with corrections as [#465](https://github.com/Imbad0202/academic-research-skills/pull/465) (merged), crediting the idea via `Co-authored-by`.
 - **Note:** GitHub's contributor graph is built from the git author field only and omits co-author trailers — this credit is real and verifiable in the merged commit, but will not show as a contributor avatar.
 - A small regex-escaping fix is open now ([#956](https://github.com/Imbad0202/academic-research-skills/pull/956)); two earlier utility-mode PRs were closed as architectural mismatches with the repo's thin-trigger pattern.
@@ -102,27 +102,23 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 | Repo | Stars | PR | What it fixes |
 |---|---|---|---|
 | [keras-team/keras](https://github.com/keras-team/keras) | 64.4k | [#24201](https://github.com/keras-team/keras/pull/24201) | Suppress spurious divide-by-zero warning in numpy divide_no_nan |
-| [jordan-gibbs/hyperresearch](https://github.com/jordan-gibbs/hyperresearch) | 4.6k | [#202](https://github.com/jordan-gibbs/hyperresearch/pull/202) | fix(verify): exclude Sources/References section from citation-density count |
 | [MRtrix3/mrtrix3](https://github.com/MRtrix3/mrtrix3) | 359 | [#3462](https://github.com/MRtrix3/mrtrix3/pull/3462) | mrmath: fix median operation not ignoring infinite values |
 | [scverse/scanpy](https://github.com/scverse/scanpy) | 2.6k | [#4508](https://github.com/scverse/scanpy/pull/4508) | fix: Ingest with an explicit PCA use_rep/use falls back to raw X |
 | [neuralinkcorp/datarepo](https://github.com/neuralinkcorp/datarepo) | 208 | [#87](https://github.com/neuralinkcorp/datarepo/pull/87) | Accept ISO date/datetime strings in ParquetTable filters |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.6k | [#3291](https://github.com/NVIDIA/Model-Optimizer/pull/3291) | fix(quantization): pad MXFP4QTensor blocks like its sibling QTensor types |
 | [nilearn/nilearn](https://github.com/nilearn/nilearn) | 1.5k | [#6726](https://github.com/nilearn/nilearn/pull/6726) | [FIX] multi-masker high_variance_confounds merge with list/tuple per-image confounds |
-| [pydicom/pydicom](https://github.com/pydicom/pydicom) | 2.2k | [#2428](https://github.com/pydicom/pydicom/pull/2428) | Fix DSdecimal NaN equality to match DSfloat |
-| [InsightSoftwareConsortium/ITK](https://github.com/InsightSoftwareConsortium/ITK) | 1.7k | [#7151](https://github.com/InsightSoftwareConsortium/ITK/pull/7151) | BUG: Fix itk.imread KeyError on unknown ImageIO component type |
-| [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) | 10.5k | [#2690](https://github.com/MakazhanAlpamys/Soup/pull/2690) | fix(airgap): stat-check a file against the size cap before hashing it |
 | [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) | 8.8k | [#9268](https://github.com/Project-MONAI/MONAI/pull/9268) | fix(metrics): SurfaceDistanceMetric leaks inf for ignore_index channel |
 | [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) | 1.9k | [#24829](https://github.com/galaxyproject/galaxy/pull/24829) | Fix element_text_is/attribute_is to require exact match, not suffix match |
-| [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) | 26.7k | [#150](https://github.com/wheresryan22/anatomy/pull/150) | print.mjs: also look in the Windows Playwright cache for Chrome |
+| [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) | 26.9k | [#150](https://github.com/wheresryan22/anatomy/pull/150) | print.mjs: also look in the Windows Playwright cache for Chrome |
 | [google-deepmind/neural_testbed](https://github.com/google-deepmind/neural_testbed) | 192 | [#9](https://github.com/google-deepmind/neural_testbed/pull/9) | Fix correlated PRNG keys in GaussianSampleKL.kl_estimate |
 | [google-deepmind/alphagenome_research](https://github.com/google-deepmind/alphagenome_research) | 920 | [#30](https://github.com/google-deepmind/alphagenome_research/pull/30) | Mask opposite-strand tracks in GeneIntervalScorer.finalize_interval |
 | [ANTsX/ANTsPy](https://github.com/ANTsX/ANTsPy) | 892 | [#957](https://github.com/ANTsX/ANTsPy/pull/957) | Preserve channels_first through resample_image, smooth_image, and indexing |
 | [Lightning-AI/pytorch-lightning](https://github.com/Lightning-AI/pytorch-lightning) | 31.4k | [#22145](https://github.com/Lightning-AI/pytorch-lightning/pull/22145) | Fix step-interval scheduler frequency under gradient accumulation |
 | [Project-MONAI/MONAILabel](https://github.com/Project-MONAI/MONAILabel) | 911 | [#1939](https://github.com/Project-MONAI/MONAILabel/pull/1939) | Set display color on the highdicom DICOM-SEG export path |
-| [NVIDIA/auto-ontology](https://github.com/NVIDIA/auto-ontology) | 11.8k | [#485](https://github.com/NVIDIA/auto-ontology/pull/485) | Don't spend a repair attempt on a fully self-fixed JSONB path check |
+| [NVIDIA/auto-ontology](https://github.com/NVIDIA/auto-ontology) | 12.2k | [#485](https://github.com/NVIDIA/auto-ontology/pull/485) | Don't spend a repair attempt on a fully self-fixed JSONB path check |
 | [udgamlabs/hinglish-commands-0.6b](https://github.com/udgamlabs/hinglish-commands-0.6b) | 0 | [#2](https://github.com/udgamlabs/hinglish-commands-0.6b/pull/2) | Bound local demo server resource usage against slow-trickle clients |
 | [udgamlabs/udgam-384m](https://github.com/udgamlabs/udgam-384m) | 0 | [#3](https://github.com/udgamlabs/udgam-384m/pull/3) | Fix O(n^2) parsing in gemma4_tools._to_json |
-| [udgamlabs/drishya-tiny](https://github.com/udgamlabs/drishya-tiny) | 0 | [#1](https://github.com/udgamlabs/drishya-tiny/pull/1) | Fix non-atomic CSV write and tensor-equality crash in i2v job indexing |
+| [udgamlabs/drishya-tiny](https://github.com/udgamlabs/drishya-tiny) | 1 | [#1](https://github.com/udgamlabs/drishya-tiny/pull/1) | Fix non-atomic CSV write and tensor-equality crash in i2v job indexing |
 | [udgamlabs/chitra-tiny](https://github.com/udgamlabs/chitra-tiny) | 0 | [#1](https://github.com/udgamlabs/chitra-tiny/pull/1) | Fix app.py local model check to require config.json too |
 | [udgamlabs/laghu](https://github.com/udgamlabs/laghu) | 1 | [#1](https://github.com/udgamlabs/laghu/pull/1) | Fix unsandboxed eval exec, contamination-check marking, audit off-by-offset, and SFT doc dedup |
 | [udgamlabs/lilavati](https://github.com/udgamlabs/lilavati) | 0 | [#1](https://github.com/udgamlabs/lilavati/pull/1) | Fix results file loss on interruption in eval/gsm8k.py |
@@ -130,25 +126,25 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 | [udgamlabs/shruti](https://github.com/udgamlabs/shruti) | 11 | [#2](https://github.com/udgamlabs/shruti/pull/2) | onnx: don't drop the trailing partial VAD window |
 | [udgamlabs/vemana](https://github.com/udgamlabs/vemana) | 8 | [#2](https://github.com/udgamlabs/vemana/pull/2) | Clean up leaked temp files in check_gguf.py |
 | [udgamlabs/udgam-384m](https://github.com/udgamlabs/udgam-384m) | 0 | [#2](https://github.com/udgamlabs/udgam-384m/pull/2) | Gate risky tool calls behind confirmation in llama_server example |
-| [unstablebuild/rune](https://github.com/unstablebuild/rune) | 1.7k | [#219](https://github.com/unstablebuild/rune/pull/219) | Fix BuildPluginArgv dropping empty args in the shell fallback path |
+| [unstablebuild/rune](https://github.com/unstablebuild/rune) | 1.8k | [#219](https://github.com/unstablebuild/rune/pull/219) | Fix BuildPluginArgv dropping empty args in the shell fallback path |
 | [udgamlabs/phonegpt](https://github.com/udgamlabs/phonegpt) | 0 | [#1](https://github.com/udgamlabs/phonegpt/pull/1) | Seed drop_rng from -seed, like the other two RNG streams |
 | [scverse/anndata](https://github.com/scverse/anndata) | 785 | [#2737](https://github.com/scverse/anndata/pull/2737) | Fix Reindexer._apply_to_dask_array densifying a sparse zero-axis input |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | 2.5k | [#1549](https://github.com/TorchIO-project/torchio/pull/1549) | Fix EnsureShapeMultiple computing target shape from the wrong image |
 | [MRtrix3/mrtrix3](https://github.com/MRtrix3/mrtrix3) | 359 | [#3457](https://github.com/MRtrix3/mrtrix3/pull/3457) | Fix get_iqr() reading the wrong index for the lower quartile |
 | [RikiyaT/lm_understand-logs](https://github.com/RikiyaT/lm_understand-logs) | 1.2k | [#10](https://github.com/RikiyaT/lm_understand-logs/pull/10) | Fix acc_lenient always null for non-sharded eval runs in merge.py |
 | [NVIDIA-BioNeMo/cuik-molmaker](https://github.com/NVIDIA-BioNeMo/cuik-molmaker) | 38 | [#8](https://github.com/NVIDIA-BioNeMo/cuik-molmaker/pull/8) | Fix self-loop zero-fill writing to the wrong location and size |
-| [NVIDIA-BioNeMo/RNAPro](https://github.com/NVIDIA-BioNeMo/RNAPro) | 103 | [#7](https://github.com/NVIDIA-BioNeMo/RNAPro/pull/7) | Fix get_prot_nuc_frame checking only the first frame atom |
+| [NVIDIA-BioNeMo/RNAPro](https://github.com/NVIDIA-BioNeMo/RNAPro) | 102 | [#7](https://github.com/NVIDIA-BioNeMo/RNAPro/pull/7) | Fix get_prot_nuc_frame checking only the first frame atom |
 | [NVIDIA-BioNeMo/megalodon](https://github.com/NVIDIA-BioNeMo/megalodon) | 26 | [#2](https://github.com/NVIDIA-BioNeMo/megalodon/pull/2) | Fix double-indexing of batch in discrete_fm interpolate_edges |
 | [NVIDIA-BioNeMo/warpKAN](https://github.com/NVIDIA-BioNeMo/warpKAN) | 4 | [#1](https://github.com/NVIDIA-BioNeMo/warpKAN/pull/1) | Fix order-3/4 backward B-spline kernels excluding left grid boundary |
-| [NVIDIA-BioNeMo/bionemo-agent-toolkit](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit) | 506 | [#61](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit/pull/61) | Fix ColabFold MSA script dropping selenomethionine (MSE) residues |
-| [NVIDIA-BioNeMo/bionemo-recipes](https://github.com/NVIDIA-BioNeMo/bionemo-recipes) | 878 | [#1793](https://github.com/NVIDIA-BioNeMo/bionemo-recipes/pull/1793) | Fix convert_qwen3_te_to_hf ignoring lm_head.weight for untied configs |
+| [NVIDIA-BioNeMo/bionemo-agent-toolkit](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit) | 507 | [#61](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit/pull/61) | Fix ColabFold MSA script dropping selenomethionine (MSE) residues |
+| [NVIDIA-BioNeMo/bionemo-recipes](https://github.com/NVIDIA-BioNeMo/bionemo-recipes) | 877 | [#1793](https://github.com/NVIDIA-BioNeMo/bionemo-recipes/pull/1793) | Fix convert_qwen3_te_to_hf ignoring lm_head.weight for untied configs |
 | [neuralinkcorp/datarepo](https://github.com/neuralinkcorp/datarepo) | 208 | [#86](https://github.com/neuralinkcorp/datarepo/pull/86) | Fix contains/includes/includes any/includes all filters on ClickHouseTable |
 | [udgamlabs/udgam-evals](https://github.com/udgamlabs/udgam-evals) | 0 | [#1](https://github.com/udgamlabs/udgam-evals/pull/1) | Make g_units level 3 use the sampled unit pair, not a hardcoded one |
 | [NVIDIA/NemoClaw](https://github.com/NVIDIA/NemoClaw) | 23.0k | [#13925](https://github.com/NVIDIA/NemoClaw/pull/13925) | Enforce Hermes's 64k Ollama context-window floor on inference set, no… |
 | [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples) | 14.9k | [#1470](https://github.com/NVIDIA/DeepLearningExamples/pull/1470) | Fix BERT pretraining periodic loss logging to average across all ranks |
 | [NVIDIA/Megatron-LM](https://github.com/NVIDIA/Megatron-LM) | 18.4k | [#8649](https://github.com/NVIDIA/Megatron-LM/pull/8649) | Fix AbsorbedMLA to respect explicit config.softmax_scale override |
-| [NVIDIA/TensorRT](https://github.com/NVIDIA/TensorRT) | 13.4k | [#4900](https://github.com/NVIDIA/TensorRT/pull/4900) | Resolve negative axis in ScatterElements plugin before indexing Dims |
-| [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 56.5k | [#1020](https://github.com/Imbad0202/academic-research-skills/pull/1020) | fix(socratic): scope three unscoped rules to goal-oriented mode (#991) |
+| [NVIDIA/TensorRT](https://github.com/NVIDIA/TensorRT) | 13.5k | [#4900](https://github.com/NVIDIA/TensorRT/pull/4900) | Resolve negative axis in ScatterElements plugin before indexing Dims |
+| [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 56.7k | [#1020](https://github.com/Imbad0202/academic-research-skills/pull/1020) | fix(socratic): scope three unscoped rules to goal-oriented mode (#991) |
 | [pydicom/pydicom](https://github.com/pydicom/pydicom) | 2.2k | [#2403](https://github.com/pydicom/pydicom/pull/2403) | Clamp LUT index before narrowing the index dtype in apply_color_lut() |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | 2.5k | [#1541](https://github.com/TorchIO-project/torchio/pull/1541) | Fix Crop/CropOrPad silently leaving a fully-cropped axis uncropped |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.6k | [#2867](https://github.com/NVIDIA/Model-Optimizer/pull/2867) | Fix ONNX AWQ-Lite get_weight_scale mixing rows from different blocks |
@@ -186,9 +182,9 @@ Owners of the repos above where a PR has actually merged, tagged rather than jus
 ---
 
 <!-- CUMULATIVE-STARS:START -->
-**196.5k combined stars** across the 21 repos above (sum of each repo's current count, not a dedup of my own contribution).
+**197.0k combined stars** across the 21 repos above (sum of each repo's current count, not a dedup of my own contribution).
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-11 19:54 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-12 20:31 UTC.
 <!-- LAST-UPDATED:END -->
