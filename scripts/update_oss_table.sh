@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # Mechanically regenerates the OSS-STATS and OSS-TABLE sections of README.md
-# from live GitHub data. Does not touch the curated narrative sections above
-# them. No AI involved -- pure API calls + templating. Uses only `gh` (its
-# bundled --jq) so it needs no separate jq install, in CI or locally.
+# from live GitHub data -- pure API calls + templating, no AI involved there.
+# Uses only `gh` (its bundled --jq) so it needs no separate jq install, in CI
+# or locally. The one exception: a newly-merged repo with no narrative
+# write-up yet gets one drafted by Claude (see below), grounded only in the
+# real PR data fetched via `gh` -- that's the only step in this script that
+# calls an LLM.
 set -euo pipefail
 
 USER="SID-6921"
@@ -38,11 +41,11 @@ echo "merged=$merged_count open=$open_count contributor_repos=$contributor_repo_
 
 # --- Detect newly-merged repos with no narrative write-up yet ---
 # A repo counts as "documented" once it has a "#### [owner/repo]" heading
-# somewhere between "### Contributor repos (merged)" and "### Co-authored
-# credit". Anything merged but missing that heading gets a draft stub
-# appended below, tagged DRAFT: needs review -- the workflow checks for that
-# tag and skips auto-merge on this run, since a prose paragraph isn't
-# mechanical the way the rest of this script's output is.
+# somewhere between "### Contributor repos (merged)" and "### Under review".
+# Anything merged but missing that heading gets a write-up drafted below by
+# Claude (ANTHROPIC_API_KEY), grounded only in the real PR title/body/stars
+# fetched via `gh` -- no invented detail. Auto-merged like everything else
+# in this script; there is no human review step for this part.
 echo "Checking for newly-merged repos with no narrative write-up..."
 python3 - "$README" /tmp/merged_repos.txt /tmp/new_repos.txt <<'PYEOF'
 import re, sys
@@ -69,17 +72,68 @@ if [[ -s /tmp/new_repos.txt ]]; then
     stars=$(gh api "repos/$repo" --jq '.stargazers_count' 2>/dev/null || echo 0)
     stars_fmt=$(fmt_k "$stars")
     desc=$(gh api "repos/$repo" --jq '.description // ""' 2>/dev/null || echo "")
-    prs=$(gh search prs --author "$USER" --merged --repo "$repo" --limit 10 \
-      --json number,title,url --jq '.[] | "[#\(.number)](\(.url)) merged: \(.title)"' 2>/dev/null || echo "")
-    draft_stubs+=$'\n'"#### [$repo](https://github.com/$repo) ⭐ ${stars_fmt} — ${desc}"$'\n'
-    draft_stubs+="<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->"$'\n'
-    if [[ -n "$prs" ]]; then
-      while IFS= read -r line; do
-        [[ -n "$line" ]] && draft_stubs+="$line"$'\n'
-      done <<< "$prs"
-    fi
-    draft_stubs+="- **Impact:** _TODO: what breaks without this fix, and who hits it._"$'\n'
-    draft_stubs+="- **Severity:** _TODO: rate 1-5 and justify._"$'\n'
+    gh search prs --author "$USER" --merged --repo "$repo" --limit 10 \
+      --json number,title,url,body > /tmp/repo_prs.json 2>/dev/null || echo "[]" > /tmp/repo_prs.json
+
+    heading="#### [$repo](https://github.com/$repo) ⭐ ${stars_fmt} — ${desc}"
+    body=$(python3 - "$repo" "$stars_fmt" "$desc" /tmp/repo_prs.json <<'PYEOF'
+# Drafts the "merged: ..." line plus Impact/Severity bullets for one repo,
+# grounded only in the real PR number/title/body/stars passed in -- same
+# style as the human-written entries above it in README.md. Returns plain
+# markdown on stdout; no heading line (the caller already has that).
+import json, os, sys, urllib.request
+
+repo, stars_fmt, desc, prs_path = sys.argv[1:5]
+with open(prs_path, encoding="utf-8") as fh:
+    prs = json.load(fh)
+
+pr_text = "\n\n".join(
+    f"PR #{pr['number']} ({pr['url']})\nTitle: {pr['title']}\nBody:\n{pr.get('body') or '(no description)'}"
+    for pr in prs
+) or "(no merged PR data available)"
+
+prompt = f"""Draft one entry for a GitHub profile README's "Contributor repos (merged)" list, in the exact style of these existing entries:
+
+#### [nipy/nibabel](https://github.com/nipy/nibabel) ⭐ 810 — neuroimaging I/O library
+2 merged PRs: [#1553](https://github.com/nipy/nibabel/pull/1553) generalized `rescale_affine()` to non-4x4 affines (hardcoded to `affine[:3,:3]` despite being documented for arbitrary `(N,N)`); [#1562](https://github.com/nipy/nibabel/pull/1562) added shape validation to `Nifti1Header.set_sform`.
+- **Impact:** #1553 fixed a function that raised on any non-square-4 input despite its own docstring promising general support -- a docs/implementation contract break.
+- **Severity:** 3/5 -- a hard crash on documented-valid input, but only for users already outside the common 4x4-affine case.
+
+#### [neuralinkcorp/datarepo](https://github.com/neuralinkcorp/datarepo) ⭐ 208 — data-table/query library
+2 merged PRs, both first-pass clean: [#75](https://github.com/neuralinkcorp/datarepo/pull/75) added missing `is null`/`is not null` filter support on `ParquetTable`; [#76](https://github.com/neuralinkcorp/datarepo/pull/76) replaced a bare dict-subscript `KeyError` with a clear error.
+- **Impact:** #75 closed a feature gap between backends meant to share one filter contract; #76 turned an opaque internal exception into an actionable error.
+- **Severity:** 2/5 -- missing feature, opaque error: annoying, not dangerous.
+
+Now write the same shape of entry for this repo, using ONLY the facts given below -- do not invent impact, severity reasoning, or anything about the repo beyond what the PR title/body and description state. If the PR body doesn't support a specific impact claim, keep the Impact bullet general and say only what the text actually supports.
+
+Repo: {repo}
+Stars: {stars_fmt}
+Description: {desc}
+
+Merged PR(s):
+{pr_text}
+
+Output ONLY the markdown body (the "N merged PR(s): ..." line followed by "- **Impact:** ..." and "- **Severity:** N/5 -- ..." bullets). No heading line, no preamble, no extra commentary."""
+
+req = urllib.request.Request(
+    "https://api.anthropic.com/v1/messages",
+    data=json.dumps({
+        "model": "claude-haiku-5-5",
+        "max_tokens": 400,
+        "messages": [{"role": "user", "content": prompt}],
+    }).encode("utf-8"),
+    headers={
+        "content-type": "application/json",
+        "x-api-key": os.environ["ANTHROPIC_API_KEY"],
+        "anthropic-version": "2023-06-01",
+    },
+)
+with urllib.request.urlopen(req, timeout=60) as resp:
+    result = json.loads(resp.read())
+print(result["content"][0]["text"].strip())
+PYEOF
+)
+    draft_stubs+=$'\n'"$heading"$'\n'"$body"$'\n'
   done < /tmp/new_repos.txt
 
   python3 - "$README" "$draft_stubs" <<'PYEOF'

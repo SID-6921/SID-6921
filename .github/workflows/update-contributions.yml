@@ -18,11 +18,12 @@ jobs:
       - name: Run mechanical update script
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           chmod +x scripts/update_oss_table.sh
           ./scripts/update_oss_table.sh
 
-      - name: Open PR if anything changed (auto-merge only when purely mechanical)
+      - name: Open and auto-merge PR if anything changed
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -30,6 +31,11 @@ jobs:
             echo "No changes, nothing to do."
             exit 0
           fi
+          # Touches only README.md and the star-snapshot file, both written
+          # exclusively by update_oss_table.sh above (stats/table/org fields,
+          # plus any new contributor-repo write-up drafted by Claude there).
+          # Approved by the user (2026-10-09, extended 2026-11-13) to
+          # auto-merge without manual review, narrative write-ups included.
           BRANCH="auto/oss-contributions-update-$(date +%Y%m%d)"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -37,28 +43,9 @@ jobs:
           git add README.md scripts/.star_snapshot.json
           git commit -m "Auto-update OSS contributions stats and table"
           git push origin "$BRANCH"
-
-          if git diff HEAD^ HEAD -- README.md | grep -q "DRAFT: needs review"; then
-            # update_oss_table.sh found a newly-merged repo with no narrative
-            # write-up and appended a draft stub for it. That's prose, not
-            # one of the mechanical fields this job normally touches, so it
-            # waits for a human to write the real Impact/Severity paragraph
-            # and merge by hand -- no auto-merge on this run.
-            gh pr create \
-              --title "New contributor repo needs a write-up before merging" \
-              --body "Mechanical refresh of the Snapshot line, Under review table, and star-trend snapshot, plus a draft stub paragraph for a newly-merged repo with no write-up yet. Fill in the TODO Impact/Severity lines, then merge manually -- this run does not auto-merge." \
-              --head "$BRANCH" \
-              --base main
-          else
-            # This step only ever touches README.md and the star-snapshot file,
-            # both written exclusively by update_oss_table.sh above -- no
-            # narrative content, no other file can reach this point. Approved
-            # by the user (2026-10-09) to auto-merge without manual review,
-            # since it's a mechanical, script-only diff every time.
-            gh pr create \
-              --title "Auto-update: OSS contributions stats and table" \
-              --body "Mechanical refresh of the Snapshot line, Under review table, and star-trend snapshot from live GitHub data. No narrative sections touched. Auto-merged." \
-              --head "$BRANCH" \
-              --base main
-            gh pr merge "$BRANCH" --merge --delete-branch
-          fi
+          gh pr create \
+            --title "Auto-update: OSS contributions stats and table" \
+            --body "Mechanical refresh of the Snapshot line, Under review table, and star-trend snapshot from live GitHub data, plus any new contributor-repo write-up drafted from real PR data. Auto-merged." \
+            --head "$BRANCH" \
+            --base main
+          gh pr merge "$BRANCH" --merge --delete-branch
