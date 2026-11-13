@@ -89,6 +89,11 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - Two earlier PRs ([#23215](https://github.com/keras-team/keras/pull/23215) path-traversal hardening, [#23216](https://github.com/keras-team/keras/pull/23216) container weight-path stabilization) were reviewed and closed unmerged.
 - **Severity:** 4/5 — not an edge case; every dynamic-batch Functional model hitting this loss function would crash.
 
+#### [unstablebuild/rune](https://github.com/unstablebuild/rune) ⭐ 1.8k — GPU-accelerated IDE and terminal multiplexer
+[#219](https://github.com/unstablebuild/rune/pull/219) merged: `BuildPluginArgv`'s `sh -c` fallback joined task args with a plain space, so an empty-string argument collapsed into nothing and silently shifted every later argument one position left.
+- **Impact:** reachable from ordinary task config — `internal/ide/idetask` builds a task's command directly from user-authored `Args []string` with no guard against an embedded empty string, so a config with one empty arg ran the wrong command with no error.
+- **Severity:** 3/5 — a silent argument shift a user would blame on their own config, not a crash, but reachable from normal usage rather than a contrived input.
+
 ### Co-authored credit (not in contributor graph)
 
 #### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 56.8k 🔥 +130 today — Claude Code academic-paper skill suite

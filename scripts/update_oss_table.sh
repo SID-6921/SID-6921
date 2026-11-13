@@ -8,6 +8,8 @@ set -euo pipefail
 USER="SID-6921"
 README="README.md"
 
+fmt_k() { local n=$1; if (( n >= 1000 )); then awk -v s="$n" 'BEGIN{printf "%.1fk", s/1000}'; else echo "$n"; fi; }
+
 # Repos permanently excluded from the auto-generated table/stats, regardless
 # of PR status (e.g. a PR the user asked not to showcase). One per line.
 cat > /tmp/exclude_repos.txt <<'EXREPOS'
@@ -33,6 +35,66 @@ awk -F'\t' 'NR==FNR{ex[$1]=1; next} !($1 in ex)' /tmp/exclude_repos.txt /tmp/ope
 open_count=$(wc -l < /tmp/open_prs.tsv | tr -d ' ')
 
 echo "merged=$merged_count open=$open_count contributor_repos=$contributor_repo_count"
+
+# --- Detect newly-merged repos with no narrative write-up yet ---
+# A repo counts as "documented" once it has a "#### [owner/repo]" heading
+# somewhere between "### Contributor repos (merged)" and "### Co-authored
+# credit". Anything merged but missing that heading gets a draft stub
+# appended below, tagged DRAFT: needs review -- the workflow checks for that
+# tag and skips auto-merge on this run, since a prose paragraph isn't
+# mechanical the way the rest of this script's output is.
+echo "Checking for newly-merged repos with no narrative write-up..."
+python3 - "$README" /tmp/merged_repos.txt /tmp/new_repos.txt <<'PYEOF'
+import re, sys
+readme_path, merged_path, out_path = sys.argv[1], sys.argv[2], sys.argv[3]
+text = open(readme_path, encoding="utf-8").read()
+# Scans both the "Contributor repos (merged)" and "Co-authored credit"
+# sections -- a repo documented in either one counts as covered, so a
+# co-authored-only credit (no contributor-graph avatar) isn't re-flagged.
+section = re.search(r"### Contributor repos \(merged\)\n(.*?)\n### Under review", text, re.S)
+documented = set(re.findall(r"^#### \[([^\]]+)\]", section.group(1), re.M)) if section else set()
+with open(merged_path, encoding="utf-8") as fh:
+    merged = sorted(set(line.strip() for line in fh if line.strip()))
+new_repos = [r for r in merged if r not in documented]
+with open(out_path, "w", encoding="utf-8") as fh:
+    fh.write("\n".join(new_repos))
+PYEOF
+
+if [[ -s /tmp/new_repos.txt ]]; then
+  echo "New repos with no write-up yet:"
+  cat /tmp/new_repos.txt
+  draft_stubs=""
+  while IFS= read -r repo; do
+    [[ -z "$repo" ]] && continue
+    stars=$(gh api "repos/$repo" --jq '.stargazers_count' 2>/dev/null || echo 0)
+    stars_fmt=$(fmt_k "$stars")
+    desc=$(gh api "repos/$repo" --jq '.description // ""' 2>/dev/null || echo "")
+    prs=$(gh search prs --author "$USER" --merged --repo "$repo" --limit 10 \
+      --json number,title,url --jq '.[] | "[#\(.number)](\(.url)) merged: \(.title)"' 2>/dev/null || echo "")
+    draft_stubs+=$'\n'"#### [$repo](https://github.com/$repo) ⭐ ${stars_fmt} — ${desc}"$'\n'
+    draft_stubs+="<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->"$'\n'
+    if [[ -n "$prs" ]]; then
+      while IFS= read -r line; do
+        [[ -n "$line" ]] && draft_stubs+="$line"$'\n'
+      done <<< "$prs"
+    fi
+    draft_stubs+="- **Impact:** _TODO: what breaks without this fix, and who hits it._"$'\n'
+    draft_stubs+="- **Severity:** _TODO: rate 1-5 and justify._"$'\n'
+  done < /tmp/new_repos.txt
+
+  python3 - "$README" "$draft_stubs" <<'PYEOF'
+import re, sys
+path, stubs = sys.argv[1], sys.argv[2]
+text = open(path, encoding="utf-8").read()
+text = re.sub(
+    r"(\n### Co-authored credit)",
+    lambda m: "\n" + stubs + m.group(1),
+    text,
+    count=1,
+)
+open(path, "w", encoding="utf-8").write(text)
+PYEOF
+fi
 
 # --- Find which contributor repos are actually trending ---
 # "Trending" means real star growth since the last recorded run, not just
@@ -84,8 +146,6 @@ with open(top_path, "w", encoding="utf-8", newline="") as fh:
     if top_repo and top_delta > 0:
         fh.write(f"{top_repo}\t{top_delta}\t{current[top_repo]}\n")
 PYEOF
-
-fmt_k() { local n=$1; if (( n >= 1000 )); then awk -v s="$n" 'BEGIN{printf "%.1fk", s/1000}'; else echo "$n"; fi; }
 
 if [[ -s /tmp/top_trend.txt ]]; then
   IFS=$'\t' read -r top_repo top_delta top_stars_now < /tmp/top_trend.txt
