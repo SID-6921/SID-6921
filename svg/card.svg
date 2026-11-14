@@ -2,26 +2,26 @@
 <style>text { font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }</style>
 <rect x="0.5" y="0.5" width="619" height="636" rx="10" fill="#0d1117" stroke="#30363d"/>
 <text x="24" y="28" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">CONTRIBUTIONS</text>
-<text x="24" y="62" fill="#e6edf3" font-size="40" font-weight="700">1,111</text>
+<text x="24" y="62" fill="#e6edf3" font-size="40" font-weight="700">1,118</text>
 <text x="24" y="80" fill="#8b949e" font-size="12">contributions, past year</text>
 <text x="596" y="40" fill="#e6edf3" font-size="19" font-weight="700" text-anchor="end">154</text>
 <text x="596" y="56" fill="#8b949e" font-size="11" text-anchor="end">active days</text>
-<text x="596" y="80" fill="#e6edf3" font-size="19" font-weight="700" text-anchor="end">88</text>
+<text x="596" y="80" fill="#e6edf3" font-size="19" font-weight="700" text-anchor="end">96</text>
 <text x="596" y="96" fill="#8b949e" font-size="11" text-anchor="end">best week</text>
-<path d="M24.0 190.0L24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 190.0L145.0 188.7L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 190.0L233.0 186.2L244.0 160.1L255.0 134.6L266.0 183.0L277.0 183.6L288.0 170.3L299.0 170.9L310.0 174.7L321.0 175.4L332.0 160.7L343.0 176.0L354.0 189.4L365.0 184.3L376.0 182.4L387.0 140.4L398.0 165.8L409.0 179.8L420.0 170.9L431.0 164.5L442.0 183.6L453.0 172.2L464.0 177.9L475.0 176.0L486.0 182.4L497.0 181.7L508.0 171.5L519.0 183.0L530.0 153.7L541.0 148.6L552.0 163.9L563.0 179.8L574.0 143.5L585.0 149.3L596.0 134.0L596.0 190.0Z" fill="#58a6ff" fill-opacity="0.15"/>
-<path d="M24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 190.0L145.0 188.7L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 190.0L233.0 186.2L244.0 160.1L255.0 134.6L266.0 183.0L277.0 183.6L288.0 170.3L299.0 170.9L310.0 174.7L321.0 175.4L332.0 160.7L343.0 176.0L354.0 189.4L365.0 184.3L376.0 182.4L387.0 140.4L398.0 165.8L409.0 179.8L420.0 170.9L431.0 164.5L442.0 183.6L453.0 172.2L464.0 177.9L475.0 176.0L486.0 182.4L497.0 181.7L508.0 171.5L519.0 183.0L530.0 153.7L541.0 148.6L552.0 163.9L563.0 179.8L574.0 143.5L585.0 149.3L596.0 134.0" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M24.0 190.0L24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 190.0L145.0 188.8L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 190.0L233.0 186.5L244.0 163.2L255.0 139.2L266.0 183.6L277.0 184.2L288.0 171.9L299.0 172.5L310.0 176.0L321.0 176.6L332.0 163.2L343.0 177.2L354.0 189.4L365.0 184.8L376.0 183.0L387.0 144.5L398.0 167.8L409.0 180.7L420.0 172.5L431.0 166.7L442.0 184.2L453.0 173.7L464.0 178.9L475.0 177.2L486.0 183.0L497.0 182.4L508.0 173.1L519.0 183.6L530.0 156.8L541.0 152.1L552.0 166.1L563.0 180.7L574.0 147.4L585.0 152.7L596.0 134.0L596.0 190.0Z" fill="#58a6ff" fill-opacity="0.15"/>
+<path d="M24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 190.0L145.0 188.8L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 190.0L233.0 186.5L244.0 163.2L255.0 139.2L266.0 183.6L277.0 184.2L288.0 171.9L299.0 172.5L310.0 176.0L321.0 176.6L332.0 163.2L343.0 177.2L354.0 189.4L365.0 184.8L376.0 183.0L387.0 144.5L398.0 167.8L409.0 180.7L420.0 172.5L431.0 166.7L442.0 184.2L453.0 173.7L464.0 178.9L475.0 177.2L486.0 183.0L497.0 182.4L508.0 173.1L519.0 183.6L530.0 156.8L541.0 152.1L552.0 166.1L563.0 180.7L574.0 147.4L585.0 152.7L596.0 134.0" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
 <circle cx="596.0" cy="134.0" r="3.5" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
 <text x="24" y="212" fill="#8b949e" font-size="12">current streak 41 days  ·  longest streak 41 days</text>
 <line x1="24" y1="232" x2="596" y2="232" stroke="#30363d"/>
 <text x="24" y="262" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">TOP LANGUAGES</text>
 <text x="24" y="292" fill="#e6edf3" font-size="13">Python</text>
 <rect x="204" y="281" width="342" height="10" rx="2" fill="#8b949e" fill-opacity="0.25"/>
-<rect x="204" y="281" width="211.1" height="10" rx="2" fill="#3572A5"/>
-<text x="596" y="292" fill="#8b949e" font-size="12" text-anchor="end">61.7%</text>
+<rect x="204" y="281" width="210.8" height="10" rx="2" fill="#3572A5"/>
+<text x="596" y="292" fill="#8b949e" font-size="12" text-anchor="end">61.6%</text>
 <text x="24" y="316" fill="#e6edf3" font-size="13">TypeScript</text>
 <rect x="204" y="305" width="342" height="10" rx="2" fill="#8b949e" fill-opacity="0.25"/>
-<rect x="204" y="305" width="88.2" height="10" rx="2" fill="#3178c6"/>
-<text x="596" y="316" fill="#8b949e" font-size="12" text-anchor="end">25.8%</text>
+<rect x="204" y="305" width="88.1" height="10" rx="2" fill="#3178c6"/>
+<text x="596" y="316" fill="#8b949e" font-size="12" text-anchor="end">25.7%</text>
 <text x="24" y="340" fill="#e6edf3" font-size="13">Jupyter Notebook</text>
 <rect x="204" y="329" width="342" height="10" rx="2" fill="#8b949e" fill-opacity="0.25"/>
 <rect x="204" y="329" width="12.9" height="10" rx="2" fill="#DA5B0B"/>
