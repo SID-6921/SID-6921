@@ -1,14 +1,14 @@
 {
-  "Imbad0202/academic-research-skills": 56797,
+  "Imbad0202/academic-research-skills": 56876,
   "InsightSoftwareConsortium/ITK": 1676,
   "MRtrix3/mrtrix3": 359,
-  "MakazhanAlpamys/Soup": 10527,
-  "NVIDIA/Model-Optimizer": 5600,
+  "MakazhanAlpamys/Soup": 10543,
+  "NVIDIA/Model-Optimizer": 5604,
   "Project-MONAI/MONAI": 8843,
-  "alphaXiv/OpenResearch": 8109,
-  "galaxyproject/galaxy": 1897,
-  "jordan-gibbs/hyperresearch": 4727,
-  "keras-team/keras": 64424,
+  "alphaXiv/OpenResearch": 8115,
+  "galaxyproject/galaxy": 1898,
+  "jordan-gibbs/hyperresearch": 4767,
+  "keras-team/keras": 64427,
   "neuralinkcorp/datarepo": 208,
   "nilearn/nilearn": 1456,
   "nipy/nibabel": 810,
@@ -18,7 +18,7 @@
   "udgamlabs/hinglish-commands-0.6b": 0,
   "udgamlabs/shruti": 11,
   "udgamlabs/udgam-384m": 0,
-  "udgamlabs/vemana": 8,
-  "unstablebuild/rune": 1777,
-  "wheresryan22/anatomy": 27100
+  "udgamlabs/vemana": 9,
+  "unstablebuild/rune": 1788,
+  "wheresryan22/anatomy": 27273
 }
