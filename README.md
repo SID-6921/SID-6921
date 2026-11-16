@@ -37,16 +37,16 @@ My work centers on biomedical signal intelligence, diagnostic modeling, and prod
 Bugs found by reading code and comparing sibling functions, not by picking up issues off a tracker — each fix below was reproduced locally before being submitted.
 
 <!-- OSS-STATS:START -->
-**Snapshot:** 23 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 59 merged PRs · ~66 open PRs under review.
+**Snapshot:** 23 repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · 60 merged PRs · ~66 open PRs under review.
 <!-- OSS-STATS:END -->
 
 <!-- FEATURED-REPO:START -->
-📈 **Trending this run:** [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) gained +371 ⭐ since the last check (now 27.5k ⭐ total). Recomputed daily from a real snapshot, not a guess.
+📈 **Trending this run:** [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) gained +701 ⭐ since the last check (now 20.3k ⭐ total). Recomputed daily from a real snapshot, not a guess.
 <!-- FEATURED-REPO:END -->
 
 ### Contributor repos (merged)
 
-#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 10.6k 🔥 +35 today — LLM fine-tuning CLI
+#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 10.6k 🔥 +25 today — LLM fine-tuning CLI
 13 merged PRs — security (SSRF predicate consolidation), training reliability (checkpoint resume, failure-boundary widening, nonce-based worker verification), and data-path correctness (format validation, stripe-root re-validation on every shard write).
 - **Impact:** the SSRF fix (#625) closed a loopback/private-host bypass across the whole request path, not one call site; the stripe-recheck fix (#1663) turned a silent data-corruption window into a surfaced-and-refused failure, via a maintainer-found volume-mount-point edge case reproduced and fixed live.
 - **Scope:** largest body of work here by PR count; several of the 13 are substantial test/fixture reworks.
@@ -58,7 +58,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - A second PR ([#9134](https://github.com/Project-MONAI/MONAI/pull/9134), open) fixes `MeanIoU`'s `ignore_index` to mask voxels instead of zeroing a whole channel — it disagreed with `compute_dice()` on identical input (1.0 vs 0.667) and had shipped untested since PR #8757.
 - **Severity:** 4/5 — single-slice DICOM series aren't an edge case, they're routine; the crash hit real clinical data, not a synthetic input.
 
-#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.2k 🔥 +41 today — research-paper reading platform
+#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.2k 🔥 +24 today — research-paper reading platform
 [#351](https://github.com/alphaXiv/OpenResearch/pull/351) merged: added a full Hindi (hi) locale, +1,413/−229 across 6 files.
 - **Impact:** covers UI strings end-to-end rather than a partial translation — first locale contribution of this size on the repo at the time.
 - A follow-up cleanup ([#585](https://github.com/alphaXiv/OpenResearch/pull/585), open) removes a `statusColor` helper that drifted out of sync with `StatusBadge`, confirmed unused via a repo-wide grep including wildcard re-export paths.
@@ -83,13 +83,13 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - **Why this repo matters:** ITK started as a US National Institutes of Health (NIH)-funded project in 1999 and is now a standard medical-imaging toolkit in academic and clinical research worldwide, including groups across the US and India. A silent bug here doesn't stay theoretical; it can sit underneath someone's actual imaging pipeline.
 - **Severity:** 4/5 — no error raised means no one knows it happened; a silent broken contract is worse than a crash.
 
-#### [keras-team/keras](https://github.com/keras-team/keras) ⭐ 64.4k 🔥 +1 today
+#### [keras-team/keras](https://github.com/keras-team/keras) ⭐ 64.4k
 [#23860](https://github.com/keras-team/keras/pull/23860) merged: `ops.ndim` returned a symbolic placeholder for dynamic-batch Functional-model inputs, crashing `circle`/`CircleLoss` with a cryptic backend error.
 - **Impact:** broke a documented loss function for an entire class of models — any dynamic-batch Functional model, not an edge case.
 - Two earlier PRs ([#23215](https://github.com/keras-team/keras/pull/23215) path-traversal hardening, [#23216](https://github.com/keras-team/keras/pull/23216) container weight-path stabilization) were reviewed and closed unmerged.
 - **Severity:** 4/5 — not an edge case; every dynamic-batch Functional model hitting this loss function would crash.
 
-#### [unstablebuild/rune](https://github.com/unstablebuild/rune) ⭐ 1.8k 🔥 +16 today — GPU-accelerated IDE and terminal multiplexer
+#### [unstablebuild/rune](https://github.com/unstablebuild/rune) ⭐ 1.8k 🔥 +8 today — GPU-accelerated IDE and terminal multiplexer
 [#219](https://github.com/unstablebuild/rune/pull/219) merged: `BuildPluginArgv`'s `sh -c` fallback joined task args with a plain space, so an empty-string argument collapsed into nothing and silently shifted every later argument one position left.
 - **Impact:** reachable from ordinary task config — `internal/ide/idetask` builds a task's command directly from user-authored `Args []string` with no guard against an embedded empty string, so a config with one empty arg ran the wrong command with no error.
 - **Severity:** 3/5 — a silent argument shift a user would blame on their own config, not a crash, but reachable from normal usage rather than a contrived input.
@@ -99,22 +99,22 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - **Impact:** #3449 silently inverted a user-supplied cleaning threshold whenever upper and lower differ, with no error; #3448 rejected documented-valid CLI input with a misleading error message.
 - **Severity:** 3/5 — two of the three are silent wrong-behavior bugs rather than crashes, but each is scoped to one specific CLI path.
 
-#### [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) ⭐ 5.6k 🔥 +8 today — A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.
+#### [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) ⭐ 5.6k 🔥 +4 today — A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.
 3 merged PRs in quantization/distillation: [#2645](https://github.com/NVIDIA/Model-Optimizer/pull/2645) fixed `MFTLoss` raising on the ordinary `(batch, seq_len, vocab)` logit shape a language model actually produces, despite its own docstring allowing it; [#2583](https://github.com/NVIDIA/Model-Optimizer/pull/2583) fixed a negative ONNX `DequantizeLinear` axis (legal per the ONNX spec) being mis-handled when transposing a per-channel-quantized weight; [#2554](https://github.com/NVIDIA/Model-Optimizer/pull/2554) fixed weight-quantization conversion crashing when a `Transpose` sits between `DequantizeLinear` and its consumer, as in MaxViT's attention blocks.
 - **Impact:** #2583 is the one that matters most — on a square weight, a negative axis converted silently to a model that **runs but computes the wrong output** (max diff 4.09 in the PR's own check), with nothing to flag it; #2645 blocked Minifinetuning-style distillation (arXiv:2506.15702) from working at all on real LM-shaped tensors.
 - **Severity:** 4/5 — #2583's silently-wrong-output case on a routine shape (square weight) is the highest-risk kind of bug in a quantization library, since nothing downstream would catch it.
 
-#### [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) ⭐ 1.9k 🔥 +1 today — Data intensive science for everyone.
+#### [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) ⭐ 1.9k — Data intensive science for everyone.
 [#23058](https://github.com/galaxyproject/galaxy/pull/23058) merged: malformed matched-input tool requests now raise a clear `RequestParameterInvalidException` at the API/tool-expansion boundary instead of reaching async job prep.
 - **Impact:** per issue #22884, malformed matched-input requests were reaching Celery async job prep and surfacing as noisy internal errors instead of a clean request-validation error.
 - **Severity:** 2/5 — turns an opaque internal error into a clear one; doesn't change what's ultimately rejected.
 
-#### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 19.6k — Open-source plugin for designing and reviewing software with agents
+#### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 20.3k 🔥 +701 today — Open-source plugin for designing and reviewing software with agents
 [#439](https://github.com/google/elephant-goldfish-model/pull/439) merged: the bot's own ping-abuse guard — which wraps bare `@user`/`@org/team` mentions in backticks before posting a PR-review comment — could be bypassed by a stray unpaired backtick inside a fenced code block, which paired across the fence with an unrelated backtick and let a real `@mention` sitting between them slip through un-neutralized.
 - **Impact:** a crafted PR comment (e.g. prose mentioning a shell backtick) could get the bot to actually ping someone irrelevant to the PR, defeating the guard's purpose.
 - **Severity:** 3/5 — a real bypass of an explicit anti-abuse guard, though limited to unwanted notifications rather than data exposure.
 
-#### [jordan-gibbs/hyperresearch](https://github.com/jordan-gibbs/hyperresearch) ⭐ 4.8k 🔥 +76 today — Convert Claude Code or Codex into the most intelligent Deep Research Agent. Collect, search, and synthesize web research into a persistent, searchable wiki that builds on itself. Hosted API + MCP: hyperresearch.ai
+#### [jordan-gibbs/hyperresearch](https://github.com/jordan-gibbs/hyperresearch) ⭐ 4.8k 🔥 +27 today — Convert Claude Code or Codex into the most intelligent Deep Research Agent. Collect, search, and synthesize web research into a persistent, searchable wiki that builds on itself. Hosted API + MCP: hyperresearch.ai
 2 merged PRs: [#202](https://github.com/jordan-gibbs/hyperresearch/pull/202) fixed the citation-density ship-gate counting every bracketed reference in a report's own Sources/References listing, not just its body; [#131](https://github.com/jordan-gibbs/hyperresearch/pull/131) vectorized `semantic_search`'s per-candidate cosine scoring into a single numpy matmul, per the maintainer's own ask in #59.
 - **Impact:** #202 meant a report whose body made claims with few or no real citations could still clear the citation-density floor purely because its bibliography had many numbered entries — the exact failure mode the gate exists to catch.
 - **Severity:** 3/5 for #202 (a quality gate silently passing what it's meant to catch); 2/5 for #131 (pure performance, no behavior change).
@@ -144,7 +144,7 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - **Impact:** using the documented `--model-card-dir` flag crashed with an opaque internal error instead of a clear, actionable one.
 - **Severity:** 1/5 — error-message clarity only; doesn't change what's ultimately rejected.
 
-#### [udgamlabs/shruti](https://github.com/udgamlabs/shruti) ⭐ 11 — Shruti: 29.5 MB speech-to-text for Hindi, English and Hinglish that runs offline on a phone, a laptop or in the browser. Built on Cactus Whistle. Docs, runnable examples and checksums; weights on Hugging Face.
+#### [udgamlabs/shruti](https://github.com/udgamlabs/shruti) ⭐ 12 🔥 +1 today — Shruti: 29.5 MB speech-to-text for Hindi, English and Hinglish that runs offline on a phone, a laptop or in the browser. Built on Cactus Whistle. Docs, runnable examples and checksums; weights on Hugging Face.
 [#1](https://github.com/udgamlabs/shruti/pull/1) merged: the browser demo's `getModel()` only checked a 4-byte magic number on a Cache Storage hit, skipping the SHA-256 check that the Python/shell paths always run.
 - **Impact:** since the model URL points at a mutable `main` ref, a returning browser user with the old file cached would keep silently running a stale/mismatched model with no warning if the upstream model were ever replaced.
 - **Severity:** 2/5 — a real silent-staleness gap, but conditional on the upstream model actually changing.
@@ -154,14 +154,15 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - **Impact:** an example meant to demonstrate safe tool-calling practice itself skipped the "never trust the model's choice blindly" guard the other two examples use.
 - **Severity:** 2/5 — example/demo code, not a library path, but the kind of omission that matters once copied into real usage.
 
-#### [udgamlabs/vemana](https://github.com/udgamlabs/vemana) ⭐ 9 🔥 +1 today — Vemana: a 278M Telugu language model trained from scratch, by Udgam Labs
+#### [udgamlabs/vemana](https://github.com/udgamlabs/vemana) ⭐ 9 — Vemana: a 278M Telugu language model trained from scratch, by Udgam Labs
 [#1](https://github.com/udgamlabs/vemana/pull/1) merged: `llama_greedy` and `llama_ppl` ran their `llama.cpp` subprocess without checking its exit status, unlike their near-identical sibling `llama_ids`.
 - **Impact:** a crashed or missing `llama.cpp` binary silently produced empty output, which the caller then reported as a spurious greedy-text or perplexity regression, indistinguishable from an actual model problem.
 - **Severity:** 2/5 — a false-signal/diagnostics bug that wastes debugging time rather than causing data loss.
 
+
 ### Co-authored credit (not in contributor graph)
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 57.0k 🔥 +217 today — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 57.2k 🔥 +144 today — Claude Code academic-paper skill suite
 Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imbad0202/academic-research-skills/pull/457)); the maintainer liked the pointer-file approach and rebuilt it with corrections as [#465](https://github.com/Imbad0202/academic-research-skills/pull/465) (merged), crediting the idea via `Co-authored-by`.
 - **Note:** GitHub's contributor graph is built from the git author field only and omits co-author trailers — this credit is real and verifiable in the merged commit, but will not show as a contributor avatar.
 - A small regex-escaping fix is open now ([#956](https://github.com/Imbad0202/academic-research-skills/pull/956)); two earlier utility-mode PRs were closed as architectural mismatches with the repo's thin-trigger pattern.
@@ -171,6 +172,9 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 <!-- OSS-TABLE:START -->
 | Repo | Stars | PR | What it fixes |
 |---|---|---|---|
+| [NVIDIA/auto-ontology](https://github.com/NVIDIA/auto-ontology) | 13.3k | [#537](https://github.com/NVIDIA/auto-ontology/pull/537) | Cap _short_table_block's columns like _shown_columns does |
+| [sebp/scikit-survival](https://github.com/sebp/scikit-survival) | 1.3k | [#668](https://github.com/sebp/scikit-survival/pull/668) | Fix IndexError in predict_proba with return_conf_int=True past last time |
+| [timeseriesAI/tsai](https://github.com/timeseriesAI/tsai) | 6.1k | [#990](https://github.com/timeseriesAI/tsai/pull/990) | Fix TSNormalize(by_sample=True) corrupting variables excluded from a listy by_var |
 | [SpikeInterface/spikeinterface](https://github.com/SpikeInterface/spikeinterface) | 872 | [#4943](https://github.com/SpikeInterface/spikeinterface/pull/4943) | Fix compute_amplitude_cutoffs() default num_histogram_bins left at 500 after #4415 |
 | [CamDavidsonPilon/lifelines](https://github.com/CamDavidsonPilon/lifelines) | 2.6k | [#1721](https://github.com/CamDavidsonPilon/lifelines/pull/1721) | Fix swapped lower/upper confidence interval columns in BreslowFlemingHarringtonFitter |
 | [fooof-tools/fooof](https://github.com/fooof-tools/fooof) | 454 | [#413](https://github.com/fooof-tools/fooof/pull/413) | Fix get_group(None, ...) producing wrong-shaped/empty event_time_results |
@@ -186,14 +190,12 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.6k | [#3291](https://github.com/NVIDIA/Model-Optimizer/pull/3291) | fix(quantization): pad MXFP4QTensor blocks like its sibling QTensor types |
 | [nilearn/nilearn](https://github.com/nilearn/nilearn) | 1.5k | [#6726](https://github.com/nilearn/nilearn/pull/6726) | [FIX] multi-masker high_variance_confounds merge with list/tuple per-image confounds |
 | [Project-MONAI/MONAI](https://github.com/Project-MONAI/MONAI) | 8.8k | [#9268](https://github.com/Project-MONAI/MONAI/pull/9268) | fix(metrics): SurfaceDistanceMetric leaks inf for ignore_index channel |
-| [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) | 1.9k | [#24829](https://github.com/galaxyproject/galaxy/pull/24829) | Fix element_text_is/attribute_is to require exact match, not suffix match |
-| [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) | 27.5k | [#150](https://github.com/wheresryan22/anatomy/pull/150) | print.mjs: also look in the Windows Playwright cache for Chrome |
+| [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) | 27.7k | [#150](https://github.com/wheresryan22/anatomy/pull/150) | print.mjs: also look in the Windows Playwright cache for Chrome |
 | [google-deepmind/neural_testbed](https://github.com/google-deepmind/neural_testbed) | 192 | [#9](https://github.com/google-deepmind/neural_testbed/pull/9) | Fix correlated PRNG keys in GaussianSampleKL.kl_estimate |
-| [google-deepmind/alphagenome_research](https://github.com/google-deepmind/alphagenome_research) | 922 | [#30](https://github.com/google-deepmind/alphagenome_research/pull/30) | Mask opposite-strand tracks in GeneIntervalScorer.finalize_interval |
+| [google-deepmind/alphagenome_research](https://github.com/google-deepmind/alphagenome_research) | 926 | [#30](https://github.com/google-deepmind/alphagenome_research/pull/30) | Mask opposite-strand tracks in GeneIntervalScorer.finalize_interval |
 | [ANTsX/ANTsPy](https://github.com/ANTsX/ANTsPy) | 893 | [#957](https://github.com/ANTsX/ANTsPy/pull/957) | Preserve channels_first through resample_image, smooth_image, and indexing |
-| [Lightning-AI/pytorch-lightning](https://github.com/Lightning-AI/pytorch-lightning) | 31.4k | [#22145](https://github.com/Lightning-AI/pytorch-lightning/pull/22145) | Fix step-interval scheduler frequency under gradient accumulation |
+| [Lightning-AI/pytorch-lightning](https://github.com/Lightning-AI/pytorch-lightning) | 31.5k | [#22145](https://github.com/Lightning-AI/pytorch-lightning/pull/22145) | Fix step-interval scheduler frequency under gradient accumulation |
 | [Project-MONAI/MONAILabel](https://github.com/Project-MONAI/MONAILabel) | 912 | [#1939](https://github.com/Project-MONAI/MONAILabel/pull/1939) | Set display color on the highdicom DICOM-SEG export path |
-| [NVIDIA/auto-ontology](https://github.com/NVIDIA/auto-ontology) | 13.0k | [#485](https://github.com/NVIDIA/auto-ontology/pull/485) | Don't spend a repair attempt on a fully self-fixed JSONB path check |
 | [udgamlabs/hinglish-commands-0.6b](https://github.com/udgamlabs/hinglish-commands-0.6b) | 0 | [#2](https://github.com/udgamlabs/hinglish-commands-0.6b/pull/2) | Bound local demo server resource usage against slow-trickle clients |
 | [udgamlabs/udgam-384m](https://github.com/udgamlabs/udgam-384m) | 0 | [#3](https://github.com/udgamlabs/udgam-384m/pull/3) | Fix O(n^2) parsing in gemma4_tools._to_json |
 | [udgamlabs/drishya-tiny](https://github.com/udgamlabs/drishya-tiny) | 2 | [#1](https://github.com/udgamlabs/drishya-tiny/pull/1) | Fix non-atomic CSV write and tensor-equality crash in i2v job indexing |
@@ -201,27 +203,26 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 | [udgamlabs/laghu](https://github.com/udgamlabs/laghu) | 1 | [#1](https://github.com/udgamlabs/laghu/pull/1) | Fix unsandboxed eval exec, contamination-check marking, audit off-by-offset, and SFT doc dedup |
 | [udgamlabs/lilavati](https://github.com/udgamlabs/lilavati) | 0 | [#1](https://github.com/udgamlabs/lilavati/pull/1) | Fix results file loss on interruption in eval/gsm8k.py |
 | [udgamlabs/udgam-english-125m](https://github.com/udgamlabs/udgam-english-125m) | 0 | [#1](https://github.com/udgamlabs/udgam-english-125m/pull/1) | Re-check committed shard hashes on resume in repaired packer |
-| [udgamlabs/shruti](https://github.com/udgamlabs/shruti) | 11 | [#2](https://github.com/udgamlabs/shruti/pull/2) | onnx: don't drop the trailing partial VAD window |
+| [udgamlabs/shruti](https://github.com/udgamlabs/shruti) | 12 | [#2](https://github.com/udgamlabs/shruti/pull/2) | onnx: don't drop the trailing partial VAD window |
 | [udgamlabs/vemana](https://github.com/udgamlabs/vemana) | 9 | [#2](https://github.com/udgamlabs/vemana/pull/2) | Clean up leaked temp files in check_gguf.py |
 | [udgamlabs/udgam-384m](https://github.com/udgamlabs/udgam-384m) | 0 | [#2](https://github.com/udgamlabs/udgam-384m/pull/2) | Gate risky tool calls behind confirmation in llama_server example |
 | [udgamlabs/phonegpt](https://github.com/udgamlabs/phonegpt) | 0 | [#1](https://github.com/udgamlabs/phonegpt/pull/1) | Seed drop_rng from -seed, like the other two RNG streams |
 | [scverse/anndata](https://github.com/scverse/anndata) | 786 | [#2737](https://github.com/scverse/anndata/pull/2737) | Fix Reindexer._apply_to_dask_array densifying a sparse zero-axis input |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | 2.5k | [#1549](https://github.com/TorchIO-project/torchio/pull/1549) | Fix EnsureShapeMultiple computing target shape from the wrong image |
 | [MRtrix3/mrtrix3](https://github.com/MRtrix3/mrtrix3) | 359 | [#3457](https://github.com/MRtrix3/mrtrix3/pull/3457) | Fix get_iqr() reading the wrong index for the lower quartile |
-| [RikiyaT/lm_understand-logs](https://github.com/RikiyaT/lm_understand-logs) | 1.2k | [#10](https://github.com/RikiyaT/lm_understand-logs/pull/10) | Fix acc_lenient always null for non-sharded eval runs in merge.py |
+| [RikiyaT/lm_understand-logs](https://github.com/RikiyaT/lm_understand-logs) | 1.3k | [#10](https://github.com/RikiyaT/lm_understand-logs/pull/10) | Fix acc_lenient always null for non-sharded eval runs in merge.py |
 | [NVIDIA-BioNeMo/cuik-molmaker](https://github.com/NVIDIA-BioNeMo/cuik-molmaker) | 38 | [#8](https://github.com/NVIDIA-BioNeMo/cuik-molmaker/pull/8) | Fix self-loop zero-fill writing to the wrong location and size |
 | [NVIDIA-BioNeMo/RNAPro](https://github.com/NVIDIA-BioNeMo/RNAPro) | 102 | [#7](https://github.com/NVIDIA-BioNeMo/RNAPro/pull/7) | Fix get_prot_nuc_frame checking only the first frame atom |
 | [NVIDIA-BioNeMo/megalodon](https://github.com/NVIDIA-BioNeMo/megalodon) | 26 | [#2](https://github.com/NVIDIA-BioNeMo/megalodon/pull/2) | Fix double-indexing of batch in discrete_fm interpolate_edges |
 | [NVIDIA-BioNeMo/warpKAN](https://github.com/NVIDIA-BioNeMo/warpKAN) | 4 | [#1](https://github.com/NVIDIA-BioNeMo/warpKAN/pull/1) | Fix order-3/4 backward B-spline kernels excluding left grid boundary |
 | [NVIDIA-BioNeMo/bionemo-agent-toolkit](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit) | 508 | [#61](https://github.com/NVIDIA-BioNeMo/bionemo-agent-toolkit/pull/61) | Fix ColabFold MSA script dropping selenomethionine (MSE) residues |
-| [NVIDIA-BioNeMo/bionemo-recipes](https://github.com/NVIDIA-BioNeMo/bionemo-recipes) | 877 | [#1793](https://github.com/NVIDIA-BioNeMo/bionemo-recipes/pull/1793) | Fix convert_qwen3_te_to_hf ignoring lm_head.weight for untied configs |
 | [neuralinkcorp/datarepo](https://github.com/neuralinkcorp/datarepo) | 208 | [#86](https://github.com/neuralinkcorp/datarepo/pull/86) | Fix contains/includes/includes any/includes all filters on ClickHouseTable |
 | [udgamlabs/udgam-evals](https://github.com/udgamlabs/udgam-evals) | 0 | [#1](https://github.com/udgamlabs/udgam-evals/pull/1) | Make g_units level 3 use the sampled unit pair, not a hardcoded one |
 | [NVIDIA/NemoClaw](https://github.com/NVIDIA/NemoClaw) | 23.0k | [#13925](https://github.com/NVIDIA/NemoClaw/pull/13925) | Enforce Hermes's 64k Ollama context-window floor on inference set, no… |
 | [NVIDIA/DeepLearningExamples](https://github.com/NVIDIA/DeepLearningExamples) | 14.9k | [#1470](https://github.com/NVIDIA/DeepLearningExamples/pull/1470) | Fix BERT pretraining periodic loss logging to average across all ranks |
 | [NVIDIA/Megatron-LM](https://github.com/NVIDIA/Megatron-LM) | 18.4k | [#8649](https://github.com/NVIDIA/Megatron-LM/pull/8649) | Fix AbsorbedMLA to respect explicit config.softmax_scale override |
 | [NVIDIA/TensorRT](https://github.com/NVIDIA/TensorRT) | 13.5k | [#4900](https://github.com/NVIDIA/TensorRT/pull/4900) | Resolve negative axis in ScatterElements plugin before indexing Dims |
-| [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 57.0k | [#1020](https://github.com/Imbad0202/academic-research-skills/pull/1020) | fix(socratic): scope three unscoped rules to goal-oriented mode (#991) |
+| [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 57.2k | [#1020](https://github.com/Imbad0202/academic-research-skills/pull/1020) | fix(socratic): scope three unscoped rules to goal-oriented mode (#991) |
 | [pydicom/pydicom](https://github.com/pydicom/pydicom) | 2.2k | [#2403](https://github.com/pydicom/pydicom/pull/2403) | Clamp LUT index before narrowing the index dtype in apply_color_lut() |
 | [TorchIO-project/torchio](https://github.com/TorchIO-project/torchio) | 2.5k | [#1541](https://github.com/TorchIO-project/torchio/pull/1541) | Fix Crop/CropOrPad silently leaving a fully-cropped axis uncropped |
 | [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) | 5.6k | [#2867](https://github.com/NVIDIA/Model-Optimizer/pull/2867) | Fix ONNX AWQ-Lite get_weight_scale mixing rows from different blocks |
@@ -259,9 +260,9 @@ Owners of the repos above where a PR has actually merged, tagged rather than jus
 ---
 
 <!-- CUMULATIVE-STARS:START -->
-**219.6k combined stars** across the 23 repos above (sum of each repo's current count, not a dedup of my own contribution).
+**220.7k combined stars** across the 23 repos above (sum of each repo's current count, not a dedup of my own contribution).
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-15 19:10 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-16 22:36 UTC.
 <!-- LAST-UPDATED:END -->
