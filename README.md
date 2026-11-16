@@ -94,90 +94,70 @@ Bugs found by reading code and comparing sibling functions, not by picking up is
 - **Impact:** reachable from ordinary task config — `internal/ide/idetask` builds a task's command directly from user-authored `Args []string` with no guard against an embedded empty string, so a config with one empty arg ran the wrong command with no error.
 - **Severity:** 3/5 — a silent argument shift a user would blame on their own config, not a crash, but reachable from normal usage rather than a contrived input.
 
-
 #### [MRtrix3/mrtrix3](https://github.com/MRtrix3/mrtrix3) ⭐ 359 — MRtrix3 provides a set of tools to perform various advanced diffusion MRI analyses, including constrained spherical deconvolution (CSD), probabilistic tractography, track-density imaging, and apparent fibre density
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#3450](https://github.com/MRtrix3/mrtrix3/pull/3450) merged: connected_components: fix off-by-one bounds check in toggle_axis()
-[#3449](https://github.com/MRtrix3/mrtrix3/pull/3449) merged: mrfilter: fix swapped upper/lower args in zclean set_zlim call
-[#3448](https://github.com/MRtrix3/mrtrix3/pull/3448) merged: phaseencoding: fix AttributeError when parsing numeric axis specifier
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+3 merged PRs, each a distinct silent-correctness bug in a different CLI tool: [#3450](https://github.com/MRtrix3/mrtrix3/pull/3450) fixed an off-by-one bounds check in `toggle_axis()` that indexed one past the vector instead of growing it; [#3449](https://github.com/MRtrix3/mrtrix3/pull/3449) fixed `mrfilter` silently swapping the user's `-zupper`/`-zlower` threshold values; [#3448](https://github.com/MRtrix3/mrtrix3/pull/3448) fixed `phaseencoding` raising a wrong "unrecognized" error on a numeric axis specifier that's documented as valid for `dwifslpreproc -pe_dir`.
+- **Impact:** #3449 silently inverted a user-supplied cleaning threshold whenever upper and lower differ, with no error; #3448 rejected documented-valid CLI input with a misleading error message.
+- **Severity:** 3/5 — two of the three are silent wrong-behavior bugs rather than crashes, but each is scoped to one specific CLI path.
 
 #### [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) ⭐ 5.6k 🔥 +8 today — A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#2645](https://github.com/NVIDIA/Model-Optimizer/pull/2645) merged: fix(distill): flatten MFTLoss labels along with the logits
-[#2583](https://github.com/NVIDIA/Model-Optimizer/pull/2583) merged: fix(onnx): move a negative DequantizeLinear axis when transposing the weight
-[#2554](https://github.com/NVIDIA/Model-Optimizer/pull/2554) merged: fix(onnx): trace Transpose between DequantizeLinear and its consumer in qdq_to_dq
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+3 merged PRs in quantization/distillation: [#2645](https://github.com/NVIDIA/Model-Optimizer/pull/2645) fixed `MFTLoss` raising on the ordinary `(batch, seq_len, vocab)` logit shape a language model actually produces, despite its own docstring allowing it; [#2583](https://github.com/NVIDIA/Model-Optimizer/pull/2583) fixed a negative ONNX `DequantizeLinear` axis (legal per the ONNX spec) being mis-handled when transposing a per-channel-quantized weight; [#2554](https://github.com/NVIDIA/Model-Optimizer/pull/2554) fixed weight-quantization conversion crashing when a `Transpose` sits between `DequantizeLinear` and its consumer, as in MaxViT's attention blocks.
+- **Impact:** #2583 is the one that matters most — on a square weight, a negative axis converted silently to a model that **runs but computes the wrong output** (max diff 4.09 in the PR's own check), with nothing to flag it; #2645 blocked Minifinetuning-style distillation (arXiv:2506.15702) from working at all on real LM-shaped tensors.
+- **Severity:** 4/5 — #2583's silently-wrong-output case on a routine shape (square weight) is the highest-risk kind of bug in a quantization library, since nothing downstream would catch it.
 
 #### [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) ⭐ 1.9k 🔥 +1 today — Data intensive science for everyone.
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#23058](https://github.com/galaxyproject/galaxy/pull/23058) merged: Validate matched multi-input expansion errors before async job prep
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+[#23058](https://github.com/galaxyproject/galaxy/pull/23058) merged: malformed matched-input tool requests now raise a clear `RequestParameterInvalidException` at the API/tool-expansion boundary instead of reaching async job prep.
+- **Impact:** per issue #22884, malformed matched-input requests were reaching Celery async job prep and surfacing as noisy internal errors instead of a clean request-validation error.
+- **Severity:** 2/5 — turns an opaque internal error into a clear one; doesn't change what's ultimately rejected.
 
 #### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 19.6k — Open-source plugin for designing and reviewing software with agents
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#439](https://github.com/google/elephant-goldfish-model/pull/439) merged: Fix bare-mention neutralization bypass via stray fence backtick
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+[#439](https://github.com/google/elephant-goldfish-model/pull/439) merged: the bot's own ping-abuse guard — which wraps bare `@user`/`@org/team` mentions in backticks before posting a PR-review comment — could be bypassed by a stray unpaired backtick inside a fenced code block, which paired across the fence with an unrelated backtick and let a real `@mention` sitting between them slip through un-neutralized.
+- **Impact:** a crafted PR comment (e.g. prose mentioning a shell backtick) could get the bot to actually ping someone irrelevant to the PR, defeating the guard's purpose.
+- **Severity:** 3/5 — a real bypass of an explicit anti-abuse guard, though limited to unwanted notifications rather than data exposure.
 
 #### [jordan-gibbs/hyperresearch](https://github.com/jordan-gibbs/hyperresearch) ⭐ 4.8k 🔥 +76 today — Convert Claude Code or Codex into the most intelligent Deep Research Agent. Collect, search, and synthesize web research into a persistent, searchable wiki that builds on itself. Hosted API + MCP: hyperresearch.ai
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#202](https://github.com/jordan-gibbs/hyperresearch/pull/202) merged: fix(verify): exclude Sources/References section from citation-density count
-[#131](https://github.com/jordan-gibbs/hyperresearch/pull/131) merged: perf: vectorize semantic_search's cosine scan with numpy (#59)
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+2 merged PRs: [#202](https://github.com/jordan-gibbs/hyperresearch/pull/202) fixed the citation-density ship-gate counting every bracketed reference in a report's own Sources/References listing, not just its body; [#131](https://github.com/jordan-gibbs/hyperresearch/pull/131) vectorized `semantic_search`'s per-candidate cosine scoring into a single numpy matmul, per the maintainer's own ask in #59.
+- **Impact:** #202 meant a report whose body made claims with few or no real citations could still clear the citation-density floor purely because its bibliography had many numbered entries — the exact failure mode the gate exists to catch.
+- **Severity:** 3/5 for #202 (a quality gate silently passing what it's meant to catch); 2/5 for #131 (pure performance, no behavior change).
 
 #### [nilearn/nilearn](https://github.com/nilearn/nilearn) ⭐ 1.5k — Machine learning for NeuroImaging in Python
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#6709](https://github.com/nilearn/nilearn/pull/6709) merged: [FIX] clean_img: derive output length from clean() output, not raw sample_mask shape
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+[#6709](https://github.com/nilearn/nilearn/pull/6709) merged: `clean_img` reshaped its output using the raw `sample_mask` argument's shape instead of `clean()`'s actual output shape.
+- **Impact:** crashed with `ValueError: cannot reshape array` whenever a boolean `sample_mask` was passed without `mask_img` — a combination `clean()`'s own docs describe as valid.
+- **Severity:** 3/5 — a hard crash on documented-valid input, scoped to one specific argument combination.
 
 #### [pydicom/pydicom](https://github.com/pydicom/pydicom) ⭐ 2.2k — Read, modify and write DICOM files with python code
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#2428](https://github.com/pydicom/pydicom/pull/2428) merged: Fix DSdecimal NaN equality to match DSfloat
-[#2382](https://github.com/pydicom/pydicom/pull/2382) merged: Clamp LUT indices before narrowing the index dtype
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+2 merged PRs: [#2428](https://github.com/pydicom/pydicom/pull/2428) mirrored `DSfloat`'s NaN-equality fix onto `DSdecimal`, so two NaN-valued DS elements compare equal under `config.use_DS_decimal = True` too; [#2382](https://github.com/pydicom/pydicom/pull/2382) fixed `apply_voi()`/`apply_modality_lut()` casting LUT indices into a too-narrow dtype before clipping, so out-of-range values wrapped instead of being clamped.
+- **Impact:** #2428 broke structural dataset-equality checks (`ds == deepcopy(ds)`) specifically for the decimal backing class; #2382 made an 8-bit LUT with 4096 entries — the routine way to display 12-bit data on an 8-bit display — silently return wrong pixel values with no warning.
+- **Severity:** 4/5 — #2382 is silently-wrong image data on a routine clinical-display path, not an edge case; #2428 is a narrower equality-comparison gap.
 
 #### [scverse/scanpy](https://github.com/scverse/scanpy) ⭐ 2.6k 🔥 +1 today — Single-cell analysis in Python. Scales to >100M cells.
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#4401](https://github.com/scverse/scanpy/pull/4401) merged: fix: have ingest no longer truncate to settings.N_PCS
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+[#4401](https://github.com/scverse/scanpy/pull/4401) merged: `Ingest` fell back to a hardcoded `settings.N_PCS` (50) whenever the reference `adata`'s stored neighbor params recorded neither `use_rep` nor `n_pcs` — exactly the state `pp.neighbors()` leaves with its own defaults.
+- **Impact:** whenever more than 50 PCs were computed (e.g. `sc.pp.pca(adata, n_comps=100)`), `Ingest` silently built its KNN index in a different, truncated representation than the one that actually produced the reference neighbor graph — no error, just a quietly wrong embedding/label mapping for `sc.tl.ingest`.
+- **Severity:** 4/5 — silent wrong output on a default/common code path, found via sibling-branch comparison with the function that computes the real representation.
 
 #### [udgamlabs/gargi](https://github.com/udgamlabs/gargi) ⭐ 3 — Gargi: a 384M-parameter English language model trained from scratch on ~17B tokens. Docs, runnable examples and checksums; weights on Hugging Face.
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#1](https://github.com/udgamlabs/gargi/pull/1) merged: Fix README quick-start comment to match actual default thinking mode
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+[#1](https://github.com/udgamlabs/gargi/pull/1) merged: the Ollama quick-start comment said thinking was off by default, the opposite of what the model's own `Modelfile` and example script document.
+- **Impact:** a new user following the README literally would run the wrong command and have no documented way to actually disable thinking.
+- **Severity:** 1/5 — documentation-only, no code behavior changed.
 
 #### [udgamlabs/hinglish-commands-0.6b](https://github.com/udgamlabs/hinglish-commands-0.6b) ⭐ 0 — English and Romanized Hinglish commands to structured JSON. A small Qwen3 adapter, reproducible benchmarks, and a local demo.
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#1](https://github.com/udgamlabs/hinglish-commands-0.6b/pull/1) merged: Raise a clear error when assemble_model_card.py is missing
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+[#1](https://github.com/udgamlabs/hinglish-commands-0.6b/pull/1) merged: `validate_model_card()` dynamically loaded a helper script that isn't present in the repo or its history, failing with a raw `FileNotFoundError` from inside `importlib`.
+- **Impact:** using the documented `--model-card-dir` flag crashed with an opaque internal error instead of a clear, actionable one.
+- **Severity:** 1/5 — error-message clarity only; doesn't change what's ultimately rejected.
 
 #### [udgamlabs/shruti](https://github.com/udgamlabs/shruti) ⭐ 11 — Shruti: 29.5 MB speech-to-text for Hindi, English and Hinglish that runs offline on a phone, a laptop or in the browser. Built on Cactus Whistle. Docs, runnable examples and checksums; weights on Hugging Face.
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#1](https://github.com/udgamlabs/shruti/pull/1) merged: Verify SHA-256 on browser cache hits, not just fresh downloads
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+[#1](https://github.com/udgamlabs/shruti/pull/1) merged: the browser demo's `getModel()` only checked a 4-byte magic number on a Cache Storage hit, skipping the SHA-256 check that the Python/shell paths always run.
+- **Impact:** since the model URL points at a mutable `main` ref, a returning browser user with the old file cached would keep silently running a stale/mismatched model with no warning if the upstream model were ever replaced.
+- **Severity:** 2/5 — a real silent-staleness gap, but conditional on the upstream model actually changing.
 
 #### [udgamlabs/udgam-384m](https://github.com/udgamlabs/udgam-384m) ⭐ 0 — Udgam-384M: a 384M-parameter English model for on-device tool calling, trained from scratch. Docs, runnable examples and checksums; weights on Hugging Face.
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#1](https://github.com/udgamlabs/udgam-384m/pull/1) merged: Validate tool name against ALLOWED before executing (transformers example)
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+[#1](https://github.com/udgamlabs/udgam-384m/pull/1) merged: `transformers_tool_call.py` was the one of three tool-calling examples that executed the model's chosen tool name without checking it against an allowlist first, unlike its two siblings.
+- **Impact:** an example meant to demonstrate safe tool-calling practice itself skipped the "never trust the model's choice blindly" guard the other two examples use.
+- **Severity:** 2/5 — example/demo code, not a library path, but the kind of omission that matters once copied into real usage.
 
 #### [udgamlabs/vemana](https://github.com/udgamlabs/vemana) ⭐ 9 🔥 +1 today — Vemana: a 278M Telugu language model trained from scratch, by Udgam Labs
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#1](https://github.com/udgamlabs/vemana/pull/1) merged: Check subprocess exit status in llama_greedy/llama_ppl; fix stale model name
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+[#1](https://github.com/udgamlabs/vemana/pull/1) merged: `llama_greedy` and `llama_ppl` ran their `llama.cpp` subprocess without checking its exit status, unlike their near-identical sibling `llama_ids`.
+- **Impact:** a crashed or missing `llama.cpp` binary silently produced empty output, which the caller then reported as a spurious greedy-text or perplexity regression, indistinguishable from an actual model problem.
+- **Severity:** 2/5 — a false-signal/diagnostics bug that wastes debugging time rather than causing data loss.
 
 ### Co-authored credit (not in contributor graph)
 
