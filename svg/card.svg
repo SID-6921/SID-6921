@@ -2,16 +2,16 @@
 <style>text { font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }</style>
 <rect x="0.5" y="0.5" width="619" height="636" rx="10" fill="#0d1117" stroke="#30363d"/>
 <text x="24" y="28" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">CONTRIBUTIONS</text>
-<text x="24" y="62" fill="#e6edf3" font-size="40" font-weight="700">1,134</text>
+<text x="24" y="62" fill="#e6edf3" font-size="40" font-weight="700">1,143</text>
 <text x="24" y="80" fill="#8b949e" font-size="12">contributions, past year</text>
 <text x="596" y="40" fill="#e6edf3" font-size="19" font-weight="700" text-anchor="end">156</text>
 <text x="596" y="56" fill="#8b949e" font-size="11" text-anchor="end">active days</text>
 <text x="596" y="80" fill="#e6edf3" font-size="19" font-weight="700" text-anchor="end">111</text>
 <text x="596" y="96" fill="#8b949e" font-size="11" text-anchor="end">best week</text>
-<path d="M24.0 190.0L24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 189.0L145.0 190.0L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 187.0L233.0 167.8L244.0 148.1L255.0 184.5L266.0 185.5L277.0 174.4L288.0 174.9L299.0 177.9L310.0 178.4L321.0 166.8L332.0 178.9L343.0 189.5L354.0 185.5L365.0 183.9L376.0 150.6L387.0 170.8L398.0 181.9L409.0 174.9L420.0 169.8L431.0 185.0L442.0 175.9L453.0 180.4L464.0 178.9L475.0 183.9L486.0 183.4L497.0 175.4L508.0 184.5L519.0 161.2L530.0 157.2L541.0 169.3L552.0 181.9L563.0 153.2L574.0 157.7L585.0 134.0L596.0 186.0L596.0 190.0Z" fill="#58a6ff" fill-opacity="0.15"/>
-<path d="M24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 189.0L145.0 190.0L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 187.0L233.0 167.8L244.0 148.1L255.0 184.5L266.0 185.5L277.0 174.4L288.0 174.9L299.0 177.9L310.0 178.4L321.0 166.8L332.0 178.9L343.0 189.5L354.0 185.5L365.0 183.9L376.0 150.6L387.0 170.8L398.0 181.9L409.0 174.9L420.0 169.8L431.0 185.0L442.0 175.9L453.0 180.4L464.0 178.9L475.0 183.9L486.0 183.4L497.0 175.4L508.0 184.5L519.0 161.2L530.0 157.2L541.0 169.3L552.0 181.9L563.0 153.2L574.0 157.7L585.0 134.0L596.0 186.0" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="596.0" cy="186.0" r="3.5" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
-<text x="24" y="212" fill="#8b949e" font-size="12">current streak 44 days  ·  longest streak 44 days</text>
+<path d="M24.0 190.0L24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 189.0L145.0 190.0L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 187.0L233.0 167.8L244.0 148.1L255.0 184.5L266.0 185.5L277.0 174.4L288.0 174.9L299.0 177.9L310.0 179.4L321.0 167.3L332.0 178.9L343.0 189.5L354.0 185.5L365.0 183.9L376.0 150.6L387.0 170.8L398.0 181.9L409.0 174.9L420.0 169.8L431.0 185.0L442.0 175.9L453.0 180.4L464.0 178.9L475.0 183.9L486.0 183.4L497.0 175.4L508.0 184.5L519.0 161.2L530.0 157.2L541.0 169.3L552.0 181.9L563.0 153.2L574.0 157.7L585.0 134.0L596.0 179.9L596.0 190.0Z" fill="#58a6ff" fill-opacity="0.15"/>
+<path d="M24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 189.0L145.0 190.0L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 187.0L233.0 167.8L244.0 148.1L255.0 184.5L266.0 185.5L277.0 174.4L288.0 174.9L299.0 177.9L310.0 179.4L321.0 167.3L332.0 178.9L343.0 189.5L354.0 185.5L365.0 183.9L376.0 150.6L387.0 170.8L398.0 181.9L409.0 174.9L420.0 169.8L431.0 185.0L442.0 175.9L453.0 180.4L464.0 178.9L475.0 183.9L486.0 183.4L497.0 175.4L508.0 184.5L519.0 161.2L530.0 157.2L541.0 169.3L552.0 181.9L563.0 153.2L574.0 157.7L585.0 134.0L596.0 179.9" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="596.0" cy="179.9" r="3.5" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
+<text x="24" y="212" fill="#8b949e" font-size="12">current streak 45 days  ·  longest streak 45 days</text>
 <line x1="24" y1="232" x2="596" y2="232" stroke="#30363d"/>
 <text x="24" y="262" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">TOP LANGUAGES</text>
 <text x="24" y="292" fill="#e6edf3" font-size="13">Python</text>
@@ -40,9 +40,9 @@
 <text x="596" y="412" fill="#8b949e" font-size="12" text-anchor="end">1.1%</text>
 <line x1="24" y1="448" x2="596" y2="448" stroke="#30363d"/>
 <text x="24" y="478" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">THE LAST YEAR</text>
-<text x="24" y="504" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                   :+: : :::: :  :: :   :  : ::::::::</text>
+<text x="24" y="504" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                   :+: : : :: :  :: :   :  : ::::::::</text>
 <text x="24" y="519" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                    :: :: ::::   :  ::  :: : ::::::::</text>
-<text x="24" y="534" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                    :  : : :      ::::   :::::::::+@ </text>
+<text x="24" y="534" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                    :  : : :      ::::   :::::::::+@:</text>
 <text x="24" y="549" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                   :  : :::   : : : ::: :::: ::::::: </text>
 <text x="24" y="564" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">          :        :+  :  :::  :+: :: :::::::::::::: </text>
 <text x="24" y="579" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                   +::  : :::  :+  :: : : :::::::::: </text>
