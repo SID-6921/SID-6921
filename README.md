@@ -192,11 +192,10 @@ Found during an audit pass over the training, eval, and data-prep scripts, bundl
 
 
 
-#### [udgamlabs/drishya-tiny](https://github.com/udgamlabs/drishya-tiny) ⭐ 2 — Drishya Tiny by Udgam Labs: a 212M video generator trained from scratch (text or photo to 2-second video). Code, evals, cost ledger, failures.
-<!-- DRAFT: needs review -- mechanical stub, replace with a real write-up -->
-[#1](https://github.com/udgamlabs/drishya-tiny/pull/1) merged: Fix non-atomic CSV write and tensor-equality crash in i2v job indexing
-- **Impact:** _TODO: what breaks without this fix, and who hits it._
-- **Severity:** _TODO: rate 1-5 and justify._
+#### [udgamlabs/drishya-tiny](https://github.com/udgamlabs/drishya-tiny) ⭐ 2 — Drishya Tiny by Udgam Labs: a 212M video generator trained from scratch (text or photo to 2-second video)
+[#1](https://github.com/udgamlabs/drishya-tiny/pull/1) merged, two fixes: `make_clip_ids.py` wrote its output CSV directly to the real `--out` path while iterating shards, and only checked the `--expect` row count after all rows were already written. `vbench_generate.py`'s `run_jobs` recovered a job's batch position with `chunk.index(j)`, which falls through to tuple equality.
+- **Impact:** A failed `--expect` check in `make_clip_ids.py` left a wrong or partial CSV sitting at the real output path, so a downstream trainer would load it with no indication anything was wrong. In `vbench_generate.py`, two i2v jobs sharing the same `prompt_en` but pointing at different source images made `chunk.index(j)` fall through to comparing image tensors directly, and `PyObject_IsTrue` on a multi-element tensor crashed the entire run with "Boolean value of Tensor with more than one element is ambiguous."
+- **Severity:** 3/5. The CSV fix prevents silent partial-data corruption on a failed precondition. The indexing fix turns a real, reachable crash (not a contrived input, since VBench-I2V's own metadata file reuses prompts across images) into correct behavior through an atomic write and an enumerate-based index.
 
 ### Co-authored credit (not in contributor graph)
 
