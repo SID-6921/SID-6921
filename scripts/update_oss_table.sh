@@ -178,7 +178,7 @@ open(path, "w", encoding="utf-8").write(text)
 PYEOF
 
 # --- Regenerate stats line ---
-stats_line="**Snapshot:** ${contributor_repo_count} repos where I am a credited contributor (merged commits) plus 1 co-authored credit (not reflected in the count above -- see below) · ${merged_count} merged PRs · ~${open_count} open PRs under review."
+stats_line="**Snapshot:** ${contributor_repo_count} repos where I am a credited contributor through merged commits, plus 1 co-authored credit counted separately below. ${merged_count} merged PRs. ~${open_count} open PRs under review."
 
 python3 - "$README" "$stats_line" <<'PYEOF'
 import re, sys
