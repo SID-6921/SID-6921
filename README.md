@@ -106,7 +106,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 
 #### [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) ⭐ 1.9k 🔥 +1 today — Data intensive science for everyone.
 [#23058](https://github.com/galaxyproject/galaxy/pull/23058) merged: malformed matched-input tool requests now raise a clear `RequestParameterInvalidException` at the API/tool-expansion boundary instead of reaching async job prep.
-- **Impact:** per issue #22884, malformed matched-input requests were reaching Celery async job prep and surfacing as noisy internal errors instead of a clean request-validation error.
+- **Impact:** Per issue #22884, malformed matched-input requests were reaching Celery async job prep and surfacing as noisy internal errors instead of a clean request-validation error.
 - **Severity:** 2/5. Turns an opaque internal error into a clear one. Does not change what's ultimately rejected.
 
 #### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 21.1k 🔥 +307 today — Open-source plugin for designing and reviewing software with agents
@@ -151,7 +151,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 
 #### [udgamlabs/udgam-384m](https://github.com/udgamlabs/udgam-384m) ⭐ 0 — Udgam-384M: a 384M-parameter English model for on-device tool calling, trained from scratch. Docs, runnable examples and checksums; weights on Hugging Face.
 [#1](https://github.com/udgamlabs/udgam-384m/pull/1) merged: `transformers_tool_call.py` was the one of three tool-calling examples that executed the model's chosen tool name without checking it against an allowlist first, unlike its two siblings.
-- **Impact:** an example meant to demonstrate safe tool-calling practice itself skipped the "never trust the model's choice blindly" guard the other two examples use.
+- **Impact:** An example meant to demonstrate safe tool-calling practice itself skipped the "never trust the model's choice blindly" guard the other two examples use.
 - **Severity:** 2/5. Example and demo code, not a library path, but the kind of omission that matters once copied into real usage.
 
 #### [udgamlabs/vemana](https://github.com/udgamlabs/vemana) ⭐ 9 — Vemana: a 278M Telugu language model trained from scratch, by Udgam Labs
