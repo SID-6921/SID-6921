@@ -156,9 +156,39 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 
 #### [udgamlabs/vemana](https://github.com/udgamlabs/vemana) ⭐ 9 — Vemana: a 278M Telugu language model trained from scratch, by Udgam Labs
 [#1](https://github.com/udgamlabs/vemana/pull/1) merged: `llama_greedy` and `llama_ppl` ran their `llama.cpp` subprocess without checking its exit status, unlike their near-identical sibling `llama_ids`.
-- **Impact:** a crashed or missing `llama.cpp` binary silently produced empty output, which the caller then reported as a spurious greedy-text or perplexity regression, indistinguishable from an actual model problem.
+- **Impact:** A crashed or missing `llama.cpp` binary silently produced empty output, which the caller then reported as a spurious greedy-text or perplexity regression, indistinguishable from an actual model problem.
 - **Severity:** 2/5. A false-signal diagnostics bug that wastes debugging time rather than causing data loss.
 
+#### [NeuroTechX/moabb](https://github.com/NeuroTechX/moabb) ⭐ 1.1k — Mother of All BCI Benchmarks
+[#1361](https://github.com/NeuroTechX/moabb/pull/1361) merged: `MotorImagery.used_events` collected every event in a dataset regardless of `n_classes`, while its sibling `FilterBankMotorImagery.used_events` correctly stopped once it reached `n_classes`.
+- **Impact:** A user who set `n_classes` on `MotorImagery` without an explicit `events` list silently got however many classes the dataset had, not the number requested, since the unfiltered result fed directly into `EventsToLabels` with no truncation downstream.
+- Found through sibling-function comparison between the two paradigm classes.
+- **Severity:** 3/5. Silent wrong behavior on a parameter the user sets directly, scoped to the `events=None` path.
+
+#### [SpikeInterface/spikeinterface](https://github.com/SpikeInterface/spikeinterface) ⭐ 872 — spike sorting pipelines
+[#4943](https://github.com/SpikeInterface/spikeinterface/pull/4943) merged: `compute_amplitude_cutoffs()`'s own `num_histogram_bins` default stayed at 500, while its own docstring, its sibling `AmplitudeCutoff.metric_params`, and the low-level helper it wraps all default to 100.
+- **Impact:** With `amplitudes_bins_min_ratio=5`, the stale default silently raised the spike-count floor a unit needs before `amplitude_cutoff` stops returning `NaN`, from 500 spikes to 2500 spikes, for anyone calling the function directly without an explicit override. A prior fix (#4415) corrected the sibling defaults after a regression but missed this one.
+- **Severity:** 3/5. Silent `NaN` results on a routine quality-metrics call, likely to be mistaken for a data problem rather than a stale default.
+
+#### [udgamlabs/chitra-tiny](https://github.com/udgamlabs/chitra-tiny) ⭐ 0 — Chitra Tiny: a 212M-parameter text-to-image model (256 px) trained from scratch
+[#1](https://github.com/udgamlabs/chitra-tiny/pull/1) merged: `app.py` decided between a local checkpoint and the hub repo by checking only for `model.safetensors`, while `from_pretrained` requires both that file and `config.json` once it takes the local-path branch.
+- **Impact:** A local folder with weights but no config, from a partial download or a hand-copied checkpoint, crashed the app with an unhandled `FileNotFoundError` instead of falling back to the hub download.
+- **Severity:** 2/5. A crash on an incomplete local checkout, with no graceful fallback where one already existed for the normal case.
+
+#### [udgamlabs/laghu](https://github.com/udgamlabs/laghu) ⭐ 1 — Laghu: a 152M chat model trained from scratch for $146
+Found during an audit pass over the training, eval, and data-prep scripts, bundled into one PR: [#1](https://github.com/udgamlabs/laghu/pull/1) fixed four separate issues.
+- **Impact:** The most severe is unsandboxed code execution. `gsm_eval.py` ran model-generated code with a raw `exec()` and real builtins, inside a forked copy of the live training process, on every evaluation step by default, despite the repo already having a sandboxed `execute_code` helper built for exactly this. The other three: a contamination check that only marked one of several duplicate positions in a sorted probe array, an audit statistic that ignored the resumed-shard row offset, and an SFT document scanner with no deduplication, unlike its sibling scanner.
+- **Severity:** 4/5. Running untrusted model output with no sandboxing during ordinary training is a real execution-boundary gap.
+
+#### [udgamlabs/lilavati](https://github.com/udgamlabs/lilavati) ⭐ 0 — Lilavati: a 95M model that solves maths word problems by writing Python
+2 merged PRs. [#1](https://github.com/udgamlabs/lilavati/pull/1) fixed `eval/gsm8k.py` never closing or flushing its results file, so an interrupted run, a Ctrl-C, an OOM-kill, a dropped SSH session, left the file truncated or empty even after most problems had been scored. [#2](https://github.com/udgamlabs/lilavati/pull/2) fixed the sandboxed-execution structure check rejecting any solution using `try`/`except ZeroDivisionError`, the most natural defensive pattern for a math problem, even though the sandboxed runtime already exposes that exception for this purpose.
+- **Impact:** #1 silently lost real eval progress on any interrupted long run. #2 scored correct, safe solutions as failures purely for using a guard clause the runtime already supports.
+- **Severity:** 3/5 for #1, silent data loss on interruption. 2/5 for #2, correct programs scored as wrong, not a security gap.
+
+#### [udgamlabs/phonegpt](https://github.com/udgamlabs/phonegpt) ⭐ 0 — train a small language model on an Android phone's own CPU
+[#1](https://github.com/udgamlabs/phonegpt/pull/1) merged: `drop_rng`, the dropout-mask RNG stream, stayed at a hardcoded static seed while its two siblings, the weight-init and batch-sampling RNGs, were both correctly reseeded from `-seed`.
+- **Impact:** With dropout enabled, as the README's own training command uses, two runs with different seeds still drew identical dropout masks every step, an undisclosed shared source of correlation between runs meant to be independent, such as seed-variance ablations.
+- **Severity:** 2/5. A reproducibility gap in experiment design, not a crash or data-correctness bug.
 
 
 ### Co-authored credit (not in contributor graph)
