@@ -41,12 +41,12 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 <!-- OSS-STATS:END -->
 
 <!-- FEATURED-REPO:START -->
-📈 **Trending this run:** [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) gained +227 ⭐ since the last check (now 21.9k ⭐ total). Recomputed daily from a real snapshot, not a guess.
+📈 **Trending this run:** [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) gained +2 ⭐ since the last check (now 21.9k ⭐ total). Recomputed daily from a real snapshot, not a guess.
 <!-- FEATURED-REPO:END -->
 
 ### Contributor repos (merged)
 
-#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 10.7k 🔥 +25 today — LLM fine-tuning CLI
+#### [MakazhanAlpamys/Soup](https://github.com/MakazhanAlpamys/Soup) ⭐ 10.7k 🔥 +1 today — LLM fine-tuning CLI
 14 merged PRs. Security work covers SSRF predicate consolidation. Training-reliability work covers checkpoint resume, failure-boundary widening, and nonce-based worker verification. Data-path work covers format validation, stripe-root re-validation on every shard write, and a stat-before-read size check on an airgap bundler that otherwise fully hashed an oversized file before rejecting it.
 - **Impact:** The SSRF fix (#625) closed a loopback and private-host bypass across the whole request path, not one call site. The stripe-recheck fix (#1663) turned a silent data-corruption window into a surfaced, refused failure, through a maintainer-found volume-mount-point edge case I reproduced and fixed live. The airgap fix (#2690) closed a sibling-inconsistency with the repo's own `adapter_sign._hash_file`, which already had the size-before-read guard this one lacked.
 - **Scope:** The largest body of work here by PR count. Several of the 14 are substantial test and fixture reworks.
@@ -58,7 +58,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 - #9134 and #9171 were both found through sibling comparison across MONAI's own metric functions, which kept making the same category of mistake in a new corner of the same module.
 - **Severity:** 4/5 across all three. Single-slice volumes are routine, not an edge case, and a silently wrong metric is worse than a crash.
 
-#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.4k 🔥 +57 today — research-paper reading platform
+#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.4k — research-paper reading platform
 2 merged PRs. [#351](https://github.com/alphaXiv/OpenResearch/pull/351) added a full Hindi (hi) locale, +1,413/−229 across 6 files. [#585](https://github.com/alphaXiv/OpenResearch/pull/585) removed a dead `statusColor` helper that had drifted out of sync with `StatusBadge`, confirmed unused through a repo-wide grep including wildcard re-export paths.
 - **Impact:** #351 covers UI strings end-to-end instead of a partial translation, the largest locale contribution on the repo at the time. #585 removed dead code that was otherwise free to keep silently diverging from the component it was meant to mirror.
 - **Severity:** 2/5 for #351, a feature gap, not a correctness bug. The product was unusable in Hindi, not broken. 1/5 for #585, a cleanup with no behavior change.
@@ -80,7 +80,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 - **Why this repo matters:** ITK started as a US National Institutes of Health (NIH)-funded project in 1999. It is now a standard medical-imaging toolkit in academic and clinical research worldwide, including groups across the US and India. A silent bug here does not stay theoretical. It sits underneath someone's real imaging pipeline.
 - **Severity:** 4/5 for #6932 and #6996, each a silent wrong result with no error raised. 3/5 for #6953 and #6954, a stale cache and a round-trip crash, each confined to one code path. 2/5 for #6936, #6937, and #7151, a clear crash or opaque error, not a silent one.
 
-#### [keras-team/keras](https://github.com/keras-team/keras) ⭐ 64.4k 🔥 +3 today
+#### [keras-team/keras](https://github.com/keras-team/keras) ⭐ 64.4k
 2 merged PRs. [#23860](https://github.com/keras-team/keras/pull/23860) fixed `ops.ndim` returning a symbolic placeholder for dynamic-batch Functional-model inputs, crashing `circle`/`CircleLoss` with a cryptic backend error. [#24201](https://github.com/keras-team/keras/pull/24201) fixed the numpy backend's `divide_no_nan` raising a spurious `RuntimeWarning` on a zero divisor, a case the jax, torch, and TensorFlow backends already handle without warning.
 - **Impact:** #23860 broke a documented loss function for an entire class of models. Any dynamic-batch Functional model hits this, not an edge case. #24201 is a sibling-inconsistency between keras's own backends, numpy warned on a case the other three backends treat as routine and already guard against.
 - Two earlier PRs ([#23215](https://github.com/keras-team/keras/pull/23215), path-traversal hardening, and [#23216](https://github.com/keras-team/keras/pull/23216), container weight-path stabilization) were reviewed and closed unmerged.
@@ -96,27 +96,27 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 - **Impact:** #3449 silently inverted a user-supplied cleaning threshold whenever upper and lower differ, with no error. #3448 rejected documented-valid CLI input with a misleading error message.
 - **Severity:** 3/5. Two of the three are silent wrong-behavior bugs rather than crashes, each scoped to one specific CLI path.
 
-#### [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) ⭐ 5.6k 🔥 +3 today — A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.
+#### [NVIDIA/Model-Optimizer](https://github.com/NVIDIA/Model-Optimizer) ⭐ 5.6k — A unified library of SOTA model optimization techniques like quantization, distillation, pruning, neural architecture search, speculative decoding, etc. It compresses deep learning models for downstream deployment frameworks like TensorRT-LLM, TensorRT, vLLM, etc. to optimize inference speed.
 6 merged PRs in quantization and distillation. [#2645](https://github.com/NVIDIA/Model-Optimizer/pull/2645) fixed `MFTLoss` raising on the ordinary `(batch, seq_len, vocab)` logit shape a language model produces, despite its own docstring allowing it. [#2583](https://github.com/NVIDIA/Model-Optimizer/pull/2583) fixed a negative ONNX `DequantizeLinear` axis, legal per the ONNX spec, being mis-handled when transposing a per-channel-quantized weight. [#2554](https://github.com/NVIDIA/Model-Optimizer/pull/2554) fixed weight-quantization conversion crashing when a `Transpose` sits between `DequantizeLinear` and its consumer, as in MaxViT's attention blocks. [#2567](https://github.com/NVIDIA/Model-Optimizer/pull/2567) fixed `qdq_to_dq()` always writing a converted weight as `int8` regardless of the source zero point's real type, so an unsigned zero point left the weight and zero point disagreeing on type. [#2553](https://github.com/NVIDIA/Model-Optimizer/pull/2553) fixed `ReferenceRunner.run()` retaining one full-graph activation dump per calibration sample, then copying that data a second time before aggregation, so peak memory grew linearly with the calibration set size. [#2575](https://github.com/NVIDIA/Model-Optimizer/pull/2575) fixed AutoCast's FP64-to-FP32 initializer narrowing turning an out-of-range value like `DBL_MAX` into infinity, and a separate underflow path that replaced a too-small value with the target type's smallest subnormal but dropped its sign.
 - **Impact:** #2583 matters most. On a square weight, a negative axis converted silently to a model that **runs but computes the wrong output** (max diff 4.09 in the PR's own check), with nothing to flag it. #2645 blocked Minifinetuning-style distillation (arXiv:2506.15702) from working at all on real LM-shaped tensors. #2567 produced a graph `onnx.checker` accepts but ONNX Runtime rejects, silently losing the top half of an unsigned weight's value range. #2553 was the direct cause of the out-of-memory failure reported in issue #2337. #2575's infinity does not stay put, it turns into a NaN at the first `inf - inf` downstream, and `DBL_MAX` is an ordinary way to spell "no bound" on a `Clip`, so this was reachable from a valid FP64 model.
 - **Severity:** 4/5. #2583, #2567, and #2575 each produce a silently wrong or sign-flipped numeric result on routine input, the highest-risk kind of bug in a quantization library, and that sets the bar for this group.
 
-#### [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) ⭐ 1.9k 🔥 +1 today — Data intensive science for everyone.
+#### [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) ⭐ 1.9k — Data intensive science for everyone.
 2 merged PRs. [#23058](https://github.com/galaxyproject/galaxy/pull/23058) made malformed matched-input tool requests raise a clear `RequestParameterInvalidException` at the API/tool-expansion boundary instead of reaching async job prep. [#24829](https://github.com/galaxyproject/galaxy/pull/24829) fixed `assert_element_text_is` and `assert_attribute_is` anchoring only the end of their regex, so a tool test asserting text `"blastp"` passed against actual output `"superblastp"`.
 - **Impact:** #23058: per issue #22884, malformed matched-input requests were reaching Celery async job prep and surfacing as noisy internal errors instead of a clean request-validation error. #24829 silently hid real tool-output regressions instead of catching them, in test-verification code whose entire job is to catch that kind of regression.
 - **Severity:** 2/5 for #23058, turns an opaque internal error into a clear one, does not change what's ultimately rejected. 3/5 for #24829, a verification assertion that does not verify what it claims to.
 
-#### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 21.9k 🔥 +227 today — Open-source plugin for designing and reviewing software with agents
+#### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 21.9k 🔥 +2 today — Open-source plugin for designing and reviewing software with agents
 [#439](https://github.com/google/elephant-goldfish-model/pull/439) merged: the bot's own ping-abuse guard wraps bare `@user`/`@org/team` mentions in backticks before posting a PR-review comment. A stray unpaired backtick inside a fenced code block bypassed it, since the stray backtick paired across the fence with an unrelated one and let a real `@mention` sitting between them slip through un-neutralized.
 - **Impact:** A crafted PR comment, prose mentioning a shell backtick for example, got the bot to ping someone irrelevant to the PR, defeating the guard's purpose.
 - **Severity:** 3/5. A real bypass of an explicit anti-abuse guard, limited to unwanted notifications rather than data exposure.
 
-#### [jordan-gibbs/hyperresearch](https://github.com/jordan-gibbs/hyperresearch) ⭐ 5.0k 🔥 +30 today — Convert Claude Code or Codex into the most intelligent Deep Research Agent. Collect, search, and synthesize web research into a persistent, searchable wiki that builds on itself. Hosted API + MCP: hyperresearch.ai
+#### [jordan-gibbs/hyperresearch](https://github.com/jordan-gibbs/hyperresearch) ⭐ 5.0k — Convert Claude Code or Codex into the most intelligent Deep Research Agent. Collect, search, and synthesize web research into a persistent, searchable wiki that builds on itself. Hosted API + MCP: hyperresearch.ai
 2 merged PRs. [#202](https://github.com/jordan-gibbs/hyperresearch/pull/202) fixed the citation-density ship-gate counting every bracketed reference in a report's own Sources/References listing, not only its body. [#131](https://github.com/jordan-gibbs/hyperresearch/pull/131) vectorized `semantic_search`'s per-candidate cosine scoring into a single numpy matmul, per the maintainer's own ask in #59.
 - **Impact:** #202 meant a report whose body made claims with few or no real citations still cleared the citation-density floor purely because its bibliography had many numbered entries, the exact failure mode the gate exists to catch.
 - **Severity:** 3/5 for #202, a quality gate silently passing what it exists to catch. 2/5 for #131, pure performance with no behavior change.
 
-#### [nilearn/nilearn](https://github.com/nilearn/nilearn) ⭐ 1.5k 🔥 +1 today — Machine learning for NeuroImaging in Python
+#### [nilearn/nilearn](https://github.com/nilearn/nilearn) ⭐ 1.5k — Machine learning for NeuroImaging in Python
 2 merged PRs. [#6709](https://github.com/nilearn/nilearn/pull/6709) fixed `clean_img` reshaping its output using the raw `sample_mask` argument's shape instead of `clean()`'s actual output shape. [#6726](https://github.com/nilearn/nilearn/pull/6726) fixed the multi-image maskers merging high-variance confounds into a per-image `list`/`tuple` confound entry with `confounds[i] += hv_confounds`, which falls through to `ndarray.__radd__` and tries to broadcast-add instead of appending the new confound source.
 - **Impact:** #6709 crashed with `ValueError: cannot reshape array` whenever a boolean `sample_mask` was passed without `mask_img`, a combination `clean()`'s own docs describe as valid. #6726 raised a shape-mismatch error on the exact `list`/`tuple` confound format the maskers' own docstring documents as valid, whenever `high_variance_confounds=True`.
 - **Severity:** 3/5 for both. Hard crashes on documented-valid input, each scoped to one specific argument combination.
@@ -156,7 +156,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 - **Impact:** #1 meant a crashed or missing `llama.cpp` binary silently produced empty output, reported as a spurious greedy-text or perplexity regression indistinguishable from an actual model problem. #2 accumulated temp files run after run with no cleanup.
 - **Severity:** 2/5 for both. #1 is a false-signal diagnostics bug. #2 is a disk-space leak, not data loss.
 
-#### [NeuroTechX/moabb](https://github.com/NeuroTechX/moabb) ⭐ 1.1k — Mother of All BCI Benchmarks
+#### [NeuroTechX/moabb](https://github.com/NeuroTechX/moabb) ⭐ 1.1k 🔥 +1 today — Mother of All BCI Benchmarks
 [#1361](https://github.com/NeuroTechX/moabb/pull/1361) merged: `MotorImagery.used_events` collected every event in a dataset regardless of `n_classes`, while its sibling `FilterBankMotorImagery.used_events` correctly stopped once it reached `n_classes`.
 - **Impact:** A user who set `n_classes` on `MotorImagery` without an explicit `events` list silently got however many classes the dataset had, not the number requested, since the unfiltered result fed directly into `EventsToLabels` with no truncation downstream.
 - Found through sibling-function comparison between the two paradigm classes.
@@ -200,7 +200,7 @@ Found during an audit pass over the training, eval, and data-prep scripts, bundl
 - Found through sibling-function comparison between the 2010 and 2013 Elgendi detectors.
 - **Severity:** 3/5. Silent data loss on a routine recording shape, in a signal-processing library where a dropped heartbeat is a real correctness problem, not cosmetic.
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 58.0k 🔥 +99 today — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 58.0k — Claude Code academic-paper skill suite
 2 merged PRs, both authored and merged under my own account, distinct from the co-authored credit below. [#1133](https://github.com/Imbad0202/academic-research-skills/pull/1133) added a Claim Decomposition pass to `source_verification_agent.md`'s factual-claim-verification section, closing issue #1128. [#1132](https://github.com/Imbad0202/academic-research-skills/pull/1132) fixed the committee-correspondence pointer test covering four pointer files but missing a fifth, `commands/ars-revision-coach.md`, which also carried a paraphrased pointer sentence instead of the canonical one the other four files use.
 - **Impact:** #1133 closed a real capability gap the maintainer had scoped out in #1128. #1132 closed a blind spot in the repo's own compliance check, the exact kind of drift that check exists to catch.
 - **Severity:** 1/5 for both. Documentation and agent-prompt improvements, not library code, with no user-facing crash or data risk.
@@ -214,7 +214,7 @@ Found during an audit pass over the training, eval, and data-prep scripts, bundl
 
 ### Co-authored credit (not in contributor graph)
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 58.0k 🔥 +99 today — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 58.0k — Claude Code academic-paper skill suite
 Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imbad0202/academic-research-skills/pull/457)). The maintainer liked the pointer-file approach and rebuilt it with corrections as [#465](https://github.com/Imbad0202/academic-research-skills/pull/465) (merged), crediting the idea through `Co-authored-by`.
 - **Note:** GitHub's contributor graph is built from the git author field only and omits co-author trailers. This credit is real and verifiable in the merged commit, though it will not show as a contributor avatar.
 - A small regex-escaping fix is open now ([#956](https://github.com/Imbad0202/academic-research-skills/pull/956)). Two earlier utility-mode PRs were closed as architectural mismatches with the repo's thin-trigger pattern.
@@ -309,5 +309,5 @@ Owners of the repos above where a PR has merged, tagged rather than named.
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-21 18:47 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-21 19:02 UTC.
 <!-- LAST-UPDATED:END -->
