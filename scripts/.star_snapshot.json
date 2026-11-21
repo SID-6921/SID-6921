@@ -2,14 +2,14 @@
   "Imbad0202/academic-research-skills": 57980,
   "InsightSoftwareConsortium/ITK": 1676,
   "MRtrix3/mrtrix3": 359,
-  "MakazhanAlpamys/Soup": 10709,
+  "MakazhanAlpamys/Soup": 10710,
   "NVIDIA/Model-Optimizer": 5646,
   "NeuroTechX/moabb": 1088,
   "Project-MONAI/MONAI": 8858,
   "SpikeInterface/spikeinterface": 872,
   "alphaXiv/OpenResearch": 8394,
-  "galaxyproject/galaxy": 1900,
-  "google/elephant-goldfish-model": 21893,
+  "galaxyproject/galaxy": 1901,
+  "google/elephant-goldfish-model": 21896,
   "jordan-gibbs/hyperresearch": 4972,
   "keras-team/keras": 64447,
   "neuralinkcorp/datarepo": 208,
@@ -29,5 +29,5 @@
   "udgamlabs/udgam-384m": 0,
   "udgamlabs/vemana": 9,
   "unstablebuild/rune": 1831,
-  "wheresryan22/anatomy": 28528
+  "wheresryan22/anatomy": 28532
 }

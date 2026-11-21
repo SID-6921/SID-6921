@@ -37,11 +37,11 @@ My work centers on biomedical signal intelligence, diagnostic modeling, and prod
 I find bugs by reading code and comparing sibling functions, not by picking issues off a tracker. I reproduce each fix below locally before submitting it.
 
 <!-- OSS-STATS:START -->
-**Snapshot:** 31 repos where I am a credited contributor through merged commits, plus 1 co-authored credit counted separately below. 80 merged PRs. ~59 open PRs under review.
+**Snapshot:** 31 repos where I am a credited contributor through merged commits, plus 1 co-authored credit counted separately below. 80 merged PRs. ~58 open PRs under review.
 <!-- OSS-STATS:END -->
 
 <!-- FEATURED-REPO:START -->
-📈 **Trending this run:** [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) gained +8 ⭐ since the last check (now 21.9k ⭐ total). Recomputed daily from a real snapshot, not a guess.
+📈 **Trending this run:** [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) gained +4 ⭐ since the last check (now 28.5k ⭐ total). Recomputed daily from a real snapshot, not a guess.
 <!-- FEATURED-REPO:END -->
 
 ### Contributor repos (merged)
@@ -58,7 +58,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 - #9134 and #9171 were both found through sibling comparison across MONAI's own metric functions, which kept making the same category of mistake in a new corner of the same module.
 - **Severity:** 4/5 across all three. Single-slice volumes are routine, not an edge case, and a silently wrong metric is worse than a crash.
 
-#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.4k 🔥 +3 today — research-paper reading platform
+#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.4k — research-paper reading platform
 2 merged PRs. [#351](https://github.com/alphaXiv/OpenResearch/pull/351) added a full Hindi (hi) locale, +1,413/−229 across 6 files. [#585](https://github.com/alphaXiv/OpenResearch/pull/585) removed a dead `statusColor` helper that had drifted out of sync with `StatusBadge`, confirmed unused through a repo-wide grep including wildcard re-export paths.
 - **Impact:** #351 covers UI strings end-to-end instead of a partial translation, the largest locale contribution on the repo at the time. #585 removed dead code that was otherwise free to keep silently diverging from the component it was meant to mirror.
 - **Severity:** 2/5 for #351, a feature gap, not a correctness bug. The product was unusable in Hindi, not broken. 1/5 for #585, a cleanup with no behavior change.
@@ -86,7 +86,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 - Two earlier PRs ([#23215](https://github.com/keras-team/keras/pull/23215), path-traversal hardening, and [#23216](https://github.com/keras-team/keras/pull/23216), container weight-path stabilization) were reviewed and closed unmerged.
 - **Severity:** 4/5 for #23860. Not an edge case, every dynamic-batch Functional model hitting this loss function would crash. 2/5 for #24201, a spurious warning under `warnings.simplefilter("error")`, not a wrong result.
 
-#### [unstablebuild/rune](https://github.com/unstablebuild/rune) ⭐ 1.8k 🔥 +1 today — GPU-accelerated IDE and terminal multiplexer
+#### [unstablebuild/rune](https://github.com/unstablebuild/rune) ⭐ 1.8k — GPU-accelerated IDE and terminal multiplexer
 [#219](https://github.com/unstablebuild/rune/pull/219) merged: `BuildPluginArgv`'s `sh -c` fallback joined task args with a plain space, so an empty-string argument collapsed into nothing and silently shifted every later argument one position left.
 - **Impact:** Reachable from ordinary task config. `internal/ide/idetask` builds a task's command directly from user-authored `Args []string` with no guard against an embedded empty string, so a config with one empty arg ran the wrong command with no error.
 - **Severity:** 3/5. A silent argument shift a user would blame on their own config rather than a crash, but reachable from normal usage, not a contrived input.
@@ -101,12 +101,12 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 - **Impact:** #2583 matters most. On a square weight, a negative axis converted silently to a model that **runs but computes the wrong output** (max diff 4.09 in the PR's own check), with nothing to flag it. #2645 blocked Minifinetuning-style distillation (arXiv:2506.15702) from working at all on real LM-shaped tensors. #2567 produced a graph `onnx.checker` accepts but ONNX Runtime rejects, silently losing the top half of an unsigned weight's value range. #2553 was the direct cause of the out-of-memory failure reported in issue #2337. #2575's infinity does not stay put, it turns into a NaN at the first `inf - inf` downstream, and `DBL_MAX` is an ordinary way to spell "no bound" on a `Clip`, so this was reachable from a valid FP64 model.
 - **Severity:** 4/5. #2583, #2567, and #2575 each produce a silently wrong or sign-flipped numeric result on routine input, the highest-risk kind of bug in a quantization library, and that sets the bar for this group.
 
-#### [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) ⭐ 1.9k — Data intensive science for everyone.
+#### [galaxyproject/galaxy](https://github.com/galaxyproject/galaxy) ⭐ 1.9k 🔥 +1 today — Data intensive science for everyone.
 2 merged PRs. [#23058](https://github.com/galaxyproject/galaxy/pull/23058) made malformed matched-input tool requests raise a clear `RequestParameterInvalidException` at the API/tool-expansion boundary instead of reaching async job prep. [#24829](https://github.com/galaxyproject/galaxy/pull/24829) fixed `assert_element_text_is` and `assert_attribute_is` anchoring only the end of their regex, so a tool test asserting text `"blastp"` passed against actual output `"superblastp"`.
 - **Impact:** #23058: per issue #22884, malformed matched-input requests were reaching Celery async job prep and surfacing as noisy internal errors instead of a clean request-validation error. #24829 silently hid real tool-output regressions instead of catching them, in test-verification code whose entire job is to catch that kind of regression.
 - **Severity:** 2/5 for #23058, turns an opaque internal error into a clear one, does not change what's ultimately rejected. 3/5 for #24829, a verification assertion that does not verify what it claims to.
 
-#### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 21.9k 🔥 +8 today — Open-source plugin for designing and reviewing software with agents
+#### [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) ⭐ 21.9k 🔥 +3 today — Open-source plugin for designing and reviewing software with agents
 [#439](https://github.com/google/elephant-goldfish-model/pull/439) merged: the bot's own ping-abuse guard wraps bare `@user`/`@org/team` mentions in backticks before posting a PR-review comment. A stray unpaired backtick inside a fenced code block bypassed it, since the stray backtick paired across the fence with an unrelated one and let a real `@mention` sitting between them slip through un-neutralized.
 - **Impact:** A crafted PR comment, prose mentioning a shell backtick for example, got the bot to ping someone irrelevant to the PR, defeating the guard's purpose.
 - **Severity:** 3/5. A real bypass of an explicit anti-abuse guard, limited to unwanted notifications rather than data exposure.
@@ -200,12 +200,12 @@ Found during an audit pass over the training, eval, and data-prep scripts, bundl
 - Found through sibling-function comparison between the 2010 and 2013 Elgendi detectors.
 - **Severity:** 3/5. Silent data loss on a routine recording shape, in a signal-processing library where a dropped heartbeat is a real correctness problem, not cosmetic.
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 58.0k 🔥 +3 today — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 58.0k — Claude Code academic-paper skill suite
 5 merged PRs, all authored and merged under my own account, distinct from the co-authored credit below. [#1133](https://github.com/Imbad0202/academic-research-skills/pull/1133) added a Claim Decomposition pass to `source_verification_agent.md`'s factual-claim-verification section, closing issue #1128. [#1132](https://github.com/Imbad0202/academic-research-skills/pull/1132) fixed the committee-correspondence pointer test covering four pointer files but missing a fifth, `commands/ars-revision-coach.md`, which also carried a paraphrased pointer sentence instead of the canonical one the other four files use. [#965](https://github.com/Imbad0202/academic-research-skills/pull/965) fixed a paired `exception`/`exception_reason` lint check treating a null `exception_reason` as present, since `str(None)` is the non-empty string `"None"`, a bug a sibling validator had already fixed but this file never received. [#963](https://github.com/Imbad0202/academic-research-skills/pull/963) fixed a fixture-manifest lint comparing paths with `str(Path)` instead of `.as_posix()`, so on Windows every git-tracked fixture file reported as an orphan even when correctly declared. [#956](https://github.com/Imbad0202/academic-research-skills/pull/956) fixed a test's `match=` regex passed as a plain string instead of raw, the lone outlier against every other regex in the suite and a pattern Python is moving toward rejecting outright.
 - **Impact:** #1133 closed a real capability gap the maintainer had scoped out in #1128. #1132 closed a blind spot in the repo's own compliance check, the exact kind of drift that check exists to catch. #963 made a CI lint fail on every run for a Windows contributor regardless of what they changed. #965 closed the same silent-pass gap its sibling validator had already fixed.
 - **Severity:** 1/5 for #1133, #1132, and #956, documentation, test-coverage, and style fixes with no user-facing crash or data risk. 2/5 for #963 and #965, a CI check that gave the wrong answer on a routine input.
 
-#### [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) ⭐ 28.5k 🔥 +1 today — an agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems, generating polished SVGs with optional WebGL shaders and 3D effects
+#### [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) ⭐ 28.5k 🔥 +4 today — an agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems, generating polished SVGs with optional WebGL shaders and 3D effects
 [#64](https://github.com/wheresryan22/anatomy/pull/64) fixed the ripple-tank example's ink colour reading from a hardcoded inline GLSL literal instead of the shared per-theme fixed-uniform object every other tuned constant in the same file already used.
 - **Impact:** The repo's own house rules state colours are tokens with a light and dark value, never literals in a figure's shader. This one line had drifted from that rule and from the rest of its own file, low risk to notice by eye since the two themes never render side by side, exactly the kind of inconsistency a line-by-line audit catches.
 - **Severity:** 1/5. A plumbing fix with no visual delta, confirmed by rebuilding both themes and diffing the generated HTML.
@@ -214,7 +214,7 @@ Found during an audit pass over the training, eval, and data-prep scripts, bundl
 
 ### Co-authored credit (not in contributor graph)
 
-#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 58.0k 🔥 +3 today — Claude Code academic-paper skill suite
+#### [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) ⭐ 58.0k — Claude Code academic-paper skill suite
 Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imbad0202/academic-research-skills/pull/457)). The maintainer liked the pointer-file approach and rebuilt it with corrections as [#465](https://github.com/Imbad0202/academic-research-skills/pull/465) (merged), crediting the idea through `Co-authored-by`.
 - **Note:** GitHub's contributor graph is built from the git author field only and omits co-author trailers. This credit is real and verifiable in the merged commit, though it will not show as a contributor avatar.
 - Two earlier utility-mode PRs were closed as architectural mismatches with the repo's thin-trigger pattern.
@@ -225,7 +225,6 @@ Submitted a GitHub Copilot compatibility concept ([#457](https://github.com/Imba
 | Repo | Stars | PR | What it fixes |
 |---|---|---|---|
 | [MRtrix3/mrtrix3](https://github.com/MRtrix3/mrtrix3) | 359 | [#3467](https://github.com/MRtrix3/mrtrix3/pull/3467) | tckgen -algorithm Tensor_Det/Tensor_Prob: Fix inverted -seed_direction check |
-| [MIT-LCP/wfdb-python](https://github.com/MIT-LCP/wfdb-python) | 863 | [#634](https://github.com/MIT-LCP/wfdb-python/pull/634) | Fix calc_adc_params missing -inf for e_p_signal (expanded) path |
 | [Imbad0202/experiment-agent](https://github.com/Imbad0202/experiment-agent) | 220 | [#12](https://github.com/Imbad0202/experiment-agent/pull/12) | Match study_manager_agent.md's participant-data wording to SKILL.md (#11 item 2) |
 | [Imbad0202/academic-research-skills](https://github.com/Imbad0202/academic-research-skills) | 58.0k | [#1130](https://github.com/Imbad0202/academic-research-skills/pull/1130) | Prefer a non-WindowsApps Python interpreter in run_guard.sh (#1025) |
 | [google-research/timesfm](https://github.com/google-research/timesfm) | 35.7k | [#579](https://github.com/google-research/timesfm/pull/579) | Fix MLX signed_log giving zero gradient at x == 0 |
@@ -305,9 +304,9 @@ Owners of the repos above where a PR has merged, tagged rather than named.
 ---
 
 <!-- CUMULATIVE-STARS:START -->
-**228.9k combined stars** across the 31 repos above (sum of each repo's current count, not a dedup of my own contribution).
+**229.0k combined stars** across the 31 repos above (sum of each repo's current count, not a dedup of my own contribution).
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-21 19:52 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-21 20:15 UTC.
 <!-- LAST-UPDATED:END -->
