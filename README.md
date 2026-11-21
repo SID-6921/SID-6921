@@ -41,7 +41,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 <!-- OSS-STATS:END -->
 
 <!-- FEATURED-REPO:START -->
-📈 **Trending this run:** [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model) gained +2 ⭐ since the last check (now 21.9k ⭐ total). Recomputed daily from a real snapshot, not a guess.
+📈 **Trending this run:** [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) gained +2 ⭐ since the last check (now 8.4k ⭐ total). Recomputed daily from a real snapshot, not a guess.
 <!-- FEATURED-REPO:END -->
 
 ### Contributor repos (merged)
@@ -58,7 +58,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 - #9134 and #9171 were both found through sibling comparison across MONAI's own metric functions, which kept making the same category of mistake in a new corner of the same module.
 - **Severity:** 4/5 across all three. Single-slice volumes are routine, not an edge case, and a silently wrong metric is worse than a crash.
 
-#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.4k — research-paper reading platform
+#### [alphaXiv/OpenResearch](https://github.com/alphaXiv/OpenResearch) ⭐ 8.4k 🔥 +2 today — research-paper reading platform
 2 merged PRs. [#351](https://github.com/alphaXiv/OpenResearch/pull/351) added a full Hindi (hi) locale, +1,413/−229 across 6 files. [#585](https://github.com/alphaXiv/OpenResearch/pull/585) removed a dead `statusColor` helper that had drifted out of sync with `StatusBadge`, confirmed unused through a repo-wide grep including wildcard re-export paths.
 - **Impact:** #351 covers UI strings end-to-end instead of a partial translation, the largest locale contribution on the repo at the time. #585 removed dead code that was otherwise free to keep silently diverging from the component it was meant to mirror.
 - **Severity:** 2/5 for #351, a feature gap, not a correctness bug. The product was unusable in Hindi, not broken. 1/5 for #585, a cleanup with no behavior change.
@@ -156,7 +156,7 @@ I find bugs by reading code and comparing sibling functions, not by picking issu
 - **Impact:** #1 meant a crashed or missing `llama.cpp` binary silently produced empty output, reported as a spurious greedy-text or perplexity regression indistinguishable from an actual model problem. #2 accumulated temp files run after run with no cleanup.
 - **Severity:** 2/5 for both. #1 is a false-signal diagnostics bug. #2 is a disk-space leak, not data loss.
 
-#### [NeuroTechX/moabb](https://github.com/NeuroTechX/moabb) ⭐ 1.1k 🔥 +1 today — Mother of All BCI Benchmarks
+#### [NeuroTechX/moabb](https://github.com/NeuroTechX/moabb) ⭐ 1.1k — Mother of All BCI Benchmarks
 [#1361](https://github.com/NeuroTechX/moabb/pull/1361) merged: `MotorImagery.used_events` collected every event in a dataset regardless of `n_classes`, while its sibling `FilterBankMotorImagery.used_events` correctly stopped once it reached `n_classes`.
 - **Impact:** A user who set `n_classes` on `MotorImagery` without an explicit `events` list silently got however many classes the dataset had, not the number requested, since the unfiltered result fed directly into `EventsToLabels` with no truncation downstream.
 - Found through sibling-function comparison between the two paradigm classes.
@@ -309,5 +309,5 @@ Owners of the repos above where a PR has merged, tagged rather than named.
 <!-- CUMULATIVE-STARS:END -->
 
 <!-- LAST-UPDATED:START -->
-This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-21 19:02 UTC.
+This page refreshes automatically every day around 13:00 UTC (1:00 PM UTC) via GitHub Actions. Last run: 2026-11-21 19:11 UTC.
 <!-- LAST-UPDATED:END -->
