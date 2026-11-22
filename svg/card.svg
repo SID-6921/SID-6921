@@ -2,15 +2,15 @@
 <style>text { font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace; }</style>
 <rect x="0.5" y="0.5" width="619" height="636" rx="10" fill="#0d1117" stroke="#30363d"/>
 <text x="24" y="28" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">CONTRIBUTIONS</text>
-<text x="24" y="62" fill="#e6edf3" font-size="40" font-weight="700">1,222</text>
+<text x="24" y="62" fill="#e6edf3" font-size="40" font-weight="700">1,229</text>
 <text x="24" y="80" fill="#8b949e" font-size="12">contributions, past year</text>
 <text x="596" y="40" fill="#e6edf3" font-size="19" font-weight="700" text-anchor="end">159</text>
 <text x="596" y="56" fill="#8b949e" font-size="11" text-anchor="end">active days</text>
 <text x="596" y="80" fill="#e6edf3" font-size="19" font-weight="700" text-anchor="end">130</text>
 <text x="596" y="96" fill="#8b949e" font-size="11" text-anchor="end">best week</text>
-<path d="M24.0 190.0L24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 189.1L145.0 190.0L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 187.4L233.0 171.0L244.0 154.2L255.0 185.3L266.0 186.1L277.0 176.6L288.0 177.1L299.0 179.7L310.0 181.0L321.0 171.0L332.0 181.0L343.0 189.6L354.0 186.6L365.0 185.7L376.0 156.4L387.0 173.6L398.0 183.1L409.0 177.1L420.0 172.8L431.0 185.7L442.0 177.9L453.0 181.8L464.0 180.5L475.0 184.8L486.0 184.4L497.0 177.5L508.0 185.3L519.0 165.4L530.0 162.0L541.0 172.3L552.0 183.1L563.0 158.6L574.0 162.4L585.0 134.0L596.0 153.4L596.0 190.0Z" fill="#58a6ff" fill-opacity="0.15"/>
-<path d="M24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 190.0L134.0 189.1L145.0 190.0L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 190.0L222.0 187.4L233.0 171.0L244.0 154.2L255.0 185.3L266.0 186.1L277.0 176.6L288.0 177.1L299.0 179.7L310.0 181.0L321.0 171.0L332.0 181.0L343.0 189.6L354.0 186.6L365.0 185.7L376.0 156.4L387.0 173.6L398.0 183.1L409.0 177.1L420.0 172.8L431.0 185.7L442.0 177.9L453.0 181.8L464.0 180.5L475.0 184.8L486.0 184.4L497.0 177.5L508.0 185.3L519.0 165.4L530.0 162.0L541.0 172.3L552.0 183.1L563.0 158.6L574.0 162.4L585.0 134.0L596.0 153.4" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
-<circle cx="596.0" cy="153.4" r="3.5" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
+<path d="M24.0 190.0L24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 189.1L134.0 190.0L145.0 190.0L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 187.4L222.0 171.0L233.0 154.2L244.0 185.3L255.0 186.1L266.0 176.6L277.0 177.1L288.0 179.7L299.0 181.0L310.0 171.0L321.0 181.0L332.0 189.6L343.0 186.6L354.0 186.6L365.0 156.4L376.0 173.6L387.0 183.1L398.0 177.1L409.0 172.8L420.0 185.7L431.0 177.9L442.0 181.8L453.0 180.5L464.0 184.8L475.0 184.4L486.0 177.5L497.0 185.3L508.0 165.4L519.0 162.0L530.0 172.3L541.0 183.1L552.0 158.6L563.0 162.4L574.0 134.0L585.0 149.5L596.0 190.0L596.0 190.0Z" fill="#58a6ff" fill-opacity="0.15"/>
+<path d="M24.0 190.0L35.0 190.0L46.0 190.0L57.0 190.0L68.0 190.0L79.0 190.0L90.0 190.0L101.0 190.0L112.0 190.0L123.0 189.1L134.0 190.0L145.0 190.0L156.0 190.0L167.0 190.0L178.0 190.0L189.0 190.0L200.0 190.0L211.0 187.4L222.0 171.0L233.0 154.2L244.0 185.3L255.0 186.1L266.0 176.6L277.0 177.1L288.0 179.7L299.0 181.0L310.0 171.0L321.0 181.0L332.0 189.6L343.0 186.6L354.0 186.6L365.0 156.4L376.0 173.6L387.0 183.1L398.0 177.1L409.0 172.8L420.0 185.7L431.0 177.9L442.0 181.8L453.0 180.5L464.0 184.8L475.0 184.4L486.0 177.5L497.0 185.3L508.0 165.4L519.0 162.0L530.0 172.3L541.0 183.1L552.0 158.6L563.0 162.4L574.0 134.0L585.0 149.5L596.0 190.0" fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="596.0" cy="190.0" r="3.5" fill="#0d1117" stroke="#58a6ff" stroke-width="2"/>
 <text x="24" y="212" fill="#8b949e" font-size="12">current streak 49 days  ·  longest streak 49 days</text>
 <line x1="24" y1="232" x2="596" y2="232" stroke="#30363d"/>
 <text x="24" y="262" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">TOP LANGUAGES</text>
@@ -40,11 +40,11 @@
 <text x="596" y="412" fill="#8b949e" font-size="12" text-anchor="end">1.1%</text>
 <line x1="24" y1="448" x2="596" y2="448" stroke="#30363d"/>
 <text x="24" y="478" fill="#58a6ff" font-size="11" letter-spacing="2" font-weight="bold">THE LAST YEAR</text>
-<text x="24" y="504" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                   ::: : : :: :  :: :   :  : ::::::::</text>
-<text x="24" y="519" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                    :: :: ::::   :  ::  :: : ::::::::</text>
-<text x="24" y="534" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                    :  : : :      ::::   ::::::::::@:</text>
-<text x="24" y="549" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                   :  : :::   : : : ::: :::: ::::::::</text>
-<text x="24" y="564" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">          :        ::  :  : :  ::: :: :::::::::::::::</text>
-<text x="24" y="579" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                   +::  : :::  :+  :: : : ::::::::::+</text>
-<text x="24" y="594" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                  : ::::::: : :::+     :  : : :::::::</text>
+<text x="24" y="504" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                  ::: : : :: :  :: :   :  : :::::::: </text>
+<text x="24" y="519" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                   :: :: ::::   :  ::  :: : :::::::: </text>
+<text x="24" y="534" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                   :  : : :      ::::   ::::::::::@: </text>
+<text x="24" y="549" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                  :  : :::   : : : ::: :::: :::::::: </text>
+<text x="24" y="564" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">         :        ::  :  : :  ::: :: ::::::::::::::: </text>
+<text x="24" y="579" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                  +::  : :::  :+  :: : : ::::::::::+ </text>
+<text x="24" y="594" fill="#58a6ff" font-size="13" xml:space="preserve" style="letter-spacing:1px">                 : ::::::: : :::+     :  : : ::::::: </text>
 <text x="24" y="617" fill="#8b949e" font-size="11">one character per day, quiet ':' to loud '@'</text></svg>
